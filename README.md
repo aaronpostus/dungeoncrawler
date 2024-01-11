@@ -4,7 +4,7 @@
 Team Members:
 Aaron Post
 Yao Lu
-Amanda
+Amanda Jason
 Ben
 Jeremy
 Kyle
