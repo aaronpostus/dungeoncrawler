@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerLookAt : MonoBehaviour
 {
-	public float speed = 5f;
+    public float speed = 5f;
 
-	void Update()
-	{
-		
-		float horizontal = Input.GetAxis("Mouse X") * speed;
-		float vertical = Input.GetAxis("Mouse Y") * speed;
+    void Update()
+    {
 
-		transform.Rotate(0f, horizontal, 0f, Space.World);
-		transform.Rotate(-vertical, 0f, 0f, Space.Self);
+        float horizontal = Input.GetAxis("Mouse X") * speed;
+        float vertical = Input.GetAxis("Mouse Y") * speed;
 
-	}
+        transform.Rotate(0f, horizontal, 0f, Space.World);
+        transform.Rotate(-vertical, 0f, 0f, Space.Self);
+
+    }
 }

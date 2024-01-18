@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace YaoLu
@@ -15,7 +13,7 @@ namespace YaoLu
             // get kicked if collide with foot
             if (collision.gameObject.CompareTag("Foot"))
             {
-               
+
                 Vector3 normal = collision.contacts[0].normal;
 
                 body.AddForce(normal * forceStrength, ForceMode.Impulse);

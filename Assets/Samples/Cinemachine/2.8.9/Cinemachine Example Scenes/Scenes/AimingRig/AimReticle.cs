@@ -15,7 +15,7 @@ public class AimReticle : MonoBehaviour
     [Tooltip("The time is takes for the aim reticle to adjust, when inaccurate.")]
     [Range(0, 1f)]
     public float BlendTime;
-    
+
     [Tooltip("Top piece of the aim reticle.")]
     public Image Top;
     [Tooltip("Bottom piece of the aim reticle.")]
@@ -24,7 +24,7 @@ public class AimReticle : MonoBehaviour
     public Image Left;
     [Tooltip("Right piece of the aim reticle.")]
     public Image Right;
-    
+
     [Tooltip("This 2D object will be positioned in the game view over the raycast hit point, if any, "
         + "or will remain in the center of the screen if no hit point is detected.  "
         + "May be null, in which case no on-screen indicator will appear. Same as Cinemachine3rdPersonAim's")]
@@ -35,7 +35,7 @@ public class AimReticle : MonoBehaviour
         MaxRadius = 30f;
         BlendTime = 0.05f;
     }
-    
+
     float m_BlendVelocity;
     float m_CurrentRadius;
     void Update()
@@ -44,7 +44,7 @@ public class AimReticle : MonoBehaviour
         float distanceFromCenter = 0;
         if (AimTargetReticle != null)
         {
-            var hitPoint = (Vector2) AimTargetReticle.position;
+            var hitPoint = (Vector2)AimTargetReticle.position;
             distanceFromCenter = (screenCenterPoint - hitPoint).magnitude;
         }
         m_CurrentRadius = Mathf.SmoothDamp(m_CurrentRadius, distanceFromCenter * 2f, ref m_BlendVelocity, BlendTime);

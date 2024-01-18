@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 namespace YaoLu
 {
@@ -20,8 +17,8 @@ namespace YaoLu
         public float runSpeed;
         public float jumpHeight = 2f;
         public float gravity = -9.81f;
-        public Transform groundCheck; 
-        public float groundDistance = 0.4f; 
+        public Transform groundCheck;
+        public float groundDistance = 0.4f;
         public LayerMask groundMask; // gorund layer
 
         public Vector3 velocity;
@@ -80,19 +77,19 @@ namespace YaoLu
             playerInput.Gameplay.Sprint.canceled += _ => OnEnable();
             playerInput.Gameplay.Crouch.performed += _ => OnEnable();
         }
-            private void OnEnable()
+        private void OnEnable()
         {
             playerInput.Gameplay.Jump.performed += OnJump;
             playerInput.Gameplay.Kick.performed += OnKick;
             playerInput.Gameplay.Sprint.performed += OnRun;
             playerInput.Gameplay.Crouch.performed += OnCrouch;
             playerInput.Gameplay.Crouch.canceled += OnCrouchRelease;
-            playerInput.Enable(); 
+            playerInput.Enable();
 
-       }
+        }
 
-       private void OnDisable()
-       {
+        private void OnDisable()
+        {
             playerInput.Gameplay.Jump.performed -= OnJump;
             playerInput.Gameplay.Kick.performed -= OnKick;
             playerInput.Gameplay.Sprint.performed -= OnRun;
@@ -120,7 +117,7 @@ namespace YaoLu
                 stateMachine.ChangeState(runState);
             }
         }
-        
+
         // jump action
         private void OnJump(InputAction.CallbackContext context)
         {

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -173,7 +172,7 @@ namespace YaoLu
                     fsm.isJumping = false;
                     // checking falling
                     float currentHeight = fsm.transform.position.y;
-                    if (startFallHeight - currentHeight >= 5) 
+                    if (startFallHeight - currentHeight >= 5)
                     {
                         fsm.isDead = true;
                         fsm.ChangeState(new DieState(fsm, animator));
@@ -235,7 +234,7 @@ namespace YaoLu
         {
             // play falling animation
             animator.Play("Fall");
-            startFallHeight = fsm.transform.position.y; 
+            startFallHeight = fsm.transform.position.y;
         }
 
         public override void Update()

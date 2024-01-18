@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerMovePhysics : MonoBehaviour
 {
@@ -13,10 +12,10 @@ public class PlayerMovePhysics : MonoBehaviour
 
     Rigidbody rb;
 
-	void Start()
+    void Start()
     {
-	    rb = GetComponent<Rigidbody> ();
-	}
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void OnEnable()
     {
@@ -28,7 +27,7 @@ public class PlayerMovePhysics : MonoBehaviour
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         //input = Vector3.forward;
-		if (input.magnitude > 0)
+        if (input.magnitude > 0)
         {
             Vector3 fwd = worldDirection
                 ? Vector3.forward : transform.position - Camera.main.transform.position;
@@ -50,5 +49,5 @@ public class PlayerMovePhysics : MonoBehaviour
             spaceAction();
         if (Input.GetKeyDown(KeyCode.Return) && enterAction != null)
             enterAction();
-	}
+    }
 }
