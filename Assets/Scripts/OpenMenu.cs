@@ -46,6 +46,8 @@ public class OpenMenu : MonoBehaviour
     }
     void ActivateMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         hud.SetActive(false);
         Time.timeScale = 0;
         AudioListener.pause = true;
@@ -54,6 +56,8 @@ public class OpenMenu : MonoBehaviour
 
     void DeactivateMenu()
     {
+        Cursor.visible = false;
+        Cursor.lockState= CursorLockMode.Locked;
         hud.SetActive(true);
         Time.timeScale = 1;
         AudioListener.pause = true;

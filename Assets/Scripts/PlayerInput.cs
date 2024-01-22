@@ -94,9 +94,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Mute"",
                     ""type"": ""Button"",
                     ""id"": ""b089a2f0-7875-43b5-9d26-60dbf03465e8"",
-                    ""name"": ""Open Menu"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMenu"",
                     ""type"": ""Button"",
-                    ""id"": ""7c072b8e-f4ae-4e50-aa0f-090667b35261"",
+                    ""id"": ""e8529a6e-b8f2-41a5-9b37-c08c3e277a8a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -206,7 +212,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be856317-7ac3-41ae-868f-9992d17c797b"",
-                    ""id"": ""ba8246be-985b-46eb-b884-44a8d1e666b1"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -234,7 +239,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Mute"",
-                    ""action"": ""Open Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9ece525-665c-4b1b-b937-fb98f476bc24"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -253,7 +268,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_Quit = m_Gameplay.FindAction("Quit", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Mute = m_Gameplay.FindAction("Mute", throwIfNotFound: true);
-        m_Gameplay_OpenMenu = m_Gameplay.FindAction("Open Menu", throwIfNotFound: true);
+        m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
