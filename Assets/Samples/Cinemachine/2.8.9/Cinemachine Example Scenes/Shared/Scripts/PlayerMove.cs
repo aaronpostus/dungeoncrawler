@@ -1,5 +1,5 @@
-﻿using System;
-using Cinemachine.Utility;
+﻿using Cinemachine.Utility;
+using System;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -68,7 +68,7 @@ public class PlayerMove : MonoBehaviour
         {
             var qA = transform.rotation;
             var qB = Quaternion.LookRotation(
-                (InputForward == ForwardMode.Player && Vector3.Dot(fwd, m_currentVleocity) < 0) 
+                (InputForward == ForwardMode.Player && Vector3.Dot(fwd, m_currentVleocity) < 0)
                     ? -m_currentVleocity : m_currentVleocity);
             transform.rotation = Quaternion.Slerp(qA, qB, Damper.Damp(1, VelocityDamping, dt));
         }

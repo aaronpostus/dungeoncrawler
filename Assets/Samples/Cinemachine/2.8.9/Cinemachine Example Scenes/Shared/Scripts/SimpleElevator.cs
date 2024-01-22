@@ -21,7 +21,7 @@ public class SimpleElevator : MonoBehaviour
         {
             m_Direction = -1f;
         }
-        
+
         var dir = new Vector3(0, m_Direction * speed * Time.fixedDeltaTime, 0);
         transform.position += dir;
     }

@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Cinemachine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class MoveAimTarget : MonoBehaviour
 {
@@ -83,7 +83,7 @@ public class MoveAimTarget : MonoBehaviour
         var fwd = (pos - camPos).normalized;
         pos += AimDistance * fwd;
         if (CollideAgainst != 0 && RaycastIgnoreTag(
-            new Ray(origin, fwd), 
+            new Ray(origin, fwd),
             out RaycastHit hitInfo, AimDistance, CollideAgainst))
         {
             pos = hitInfo.point;

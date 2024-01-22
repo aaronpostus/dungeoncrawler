@@ -14,7 +14,7 @@ namespace Cinemachine.Examples
         public void Invoke() { Event.Invoke(); }
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [CustomEditor(typeof(InvokeEventFromInspector))]
     public class GenerateEventEditor : BaseEditor<InvokeEventFromInspector>
     {
@@ -27,5 +27,5 @@ namespace Cinemachine.Examples
             DrawRemainingPropertiesInInspector();
         }
     }
-    #endif
+#endif
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
+﻿using Cinemachine;
 using UnityEngine;
 
 public class CameraMagnetTargetController : MonoBehaviour
@@ -21,12 +19,12 @@ public class CameraMagnetTargetController : MonoBehaviour
     {
         for (int i = 1; i < targetGroup.m_Targets.Length; ++i)
         {
-            float distance = (targetGroup.m_Targets[playerIndex].target.position - 
+            float distance = (targetGroup.m_Targets[playerIndex].target.position -
                               targetGroup.m_Targets[i].target.position).magnitude;
-            if (distance < cameraMagnets[i-1].Proximity)
+            if (distance < cameraMagnets[i - 1].Proximity)
             {
-                targetGroup.m_Targets[i].weight = cameraMagnets[i-1].MagnetStrength * 
-                                                  (1 - (distance / cameraMagnets[i-1].Proximity));
+                targetGroup.m_Targets[i].weight = cameraMagnets[i - 1].MagnetStrength *
+                                                  (1 - (distance / cameraMagnets[i - 1].Proximity));
             }
             else
             {

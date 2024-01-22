@@ -34,7 +34,7 @@ namespace Cinemachine.Examples
         {
             SaveDuringPlay.SaveDuringPlay.OnHotSave -= RestoreOriginalOrthographicSize;
         }
-        
+
         void RestoreOriginalOrthographicSize()
         {
             m_VirtualCamera.m_Lens.OrthographicSize = m_OriginalOrthoSize;

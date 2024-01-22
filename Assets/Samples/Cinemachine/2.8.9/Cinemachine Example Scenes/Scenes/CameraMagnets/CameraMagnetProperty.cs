@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [ExecuteInEditMode]
 public class CameraMagnetProperty : MonoBehaviour
 {
     [Range(0.1f, 50.0f)]
     public float MagnetStrength = 5.0f;
-    
+
     [Range(0.1f, 50.0f)]
     public float Proximity = 5.0f;
 
