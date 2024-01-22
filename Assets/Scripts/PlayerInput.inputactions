@@ -72,6 +72,9 @@
                     "name": "Mute",
                     "type": "Button",
                     "id": "b089a2f0-7875-43b5-9d26-60dbf03465e8",
+                    "name": "Open Menu",
+                    "type": "Button",
+                    "id": "7c072b8e-f4ae-4e50-aa0f-090667b35261",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -181,6 +184,7 @@
                 {
                     "name": "",
                     "id": "be856317-7ac3-41ae-868f-9992d17c797b",
+                    "id": "ba8246be-985b-46eb-b884-44a8d1e666b1",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -208,6 +212,7 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mute",
+                    "action": "Open Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
