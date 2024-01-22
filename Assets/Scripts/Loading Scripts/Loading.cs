@@ -13,6 +13,6 @@ public class Loading : MonoBehaviour
             LevelManager.Instance.LoadScene(scene, imageCycler);
             return;
         }
-        LevelManager.Instance.LoadScene(scene, 5000);
+        LevelManager.Instance.LoadScene(scene);
     }
 }

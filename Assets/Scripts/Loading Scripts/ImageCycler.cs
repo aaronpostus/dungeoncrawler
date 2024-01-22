@@ -13,22 +13,22 @@ namespace Assets.Scripts.Loading_Scripts
         [SerializeField] string xmlFileName;
         [SerializeField] Image imageOutput;
         // name of image (in ImageCyclerImages path) and duration in milliseconds
-        private OrderedDictionary imageWithDuration;
+        private OrderedDictionary imagesWithDuration;
         private int totalDuration = 0;
         private void Awake()
         {
-            TextAsset file = Resources.Load<TextAsset>(xmlFileName);
+            TextAsset file = Resources.Load<TextAsset>("XML/" + xmlFileName);
             XmlDocument xmlFile = new XmlDocument();
             xmlFile.LoadXml(file.text);
 
             XmlNodeList images = xmlFile.SelectNodes("images/image");
-            this.imageWithDuration = new OrderedDictionary();
+            this.imagesWithDuration = new OrderedDictionary();
 
             foreach (XmlNode image in images)
             {
                 string imageName = image.Attributes["name"].Value;
                 int imageDuration = int.Parse(image.Attributes["timeduration"].Value);
-                this.imageWithDuration.Add(imageName, imageDuration);
+                this.imagesWithDuration.Add(imageName, imageDuration);
                 totalDuration += imageDuration;
             }
         }
@@ -38,13 +38,14 @@ namespace Assets.Scripts.Loading_Scripts
         }
         private IEnumerator CycleImages()
         {
-            foreach (DictionaryEntry entry in imageWithDuration)
+            foreach (DictionaryEntry entry in imagesWithDuration)
             {
-                string imageName = (string)entry.Key;
-                int imageDuration = (int)entry.Value;
-
+                var imageName = (string) entry.Key;
+                var imageDuration = (int) entry.Value;
+                Debug.Log(imageName + " : " + imageDuration);
                 // Load the image from Resources or wherever it is stored
-                Sprite imageSprite = Resources.Load<Sprite>("XML/ImageCyclerImages/" + imageName);
+                var imageSprite = Resources.Load<Sprite>("XML/ImageCyclerImages/" + imageName);
+                Debug.Log(imageSprite);
 
                 // Set the imageOutput to the loaded sprite
                 imageOutput.sprite = imageSprite;

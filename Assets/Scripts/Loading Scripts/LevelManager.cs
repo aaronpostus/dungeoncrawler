@@ -51,9 +51,13 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadScene(string sceneName, ImageCycler imageCycler)
     {
+        Debug.Log(imageCycler.GetTotalDuration());
         LoadScene(sceneName, imageCycler.GetTotalDuration());
     }
-
+    public void LoadScene(string sceneName)
+    {
+        LoadScene(sceneName, 5000);
+    }
     private void Update()
     {
         
