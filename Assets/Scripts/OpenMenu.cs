@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using YaoLu;
+
+public class OpenMenu : MonoBehaviour
+{
+    [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject hud;
+    [SerializeField] private bool paused;
+    private InputAction menu;
+    private PlayerInput controls;
+
+    void Awake()
+    {
+        controls = new PlayerInput();
+    }
+
+    private void OnEnable()
+    {
+        menu = controls.Gameplay.OpenMenu;
+        menu.Enable();
+
+        menu.performed += Pause;
+    }
+
+    private void OnDisable()
+    {
+        menu.Disable();
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        paused = !paused;
+
+        if (paused)
+        {
+            ActivateMenu();
+        }
+        else
+        {
+            DeactivateMenu();
+        }
+    }
+    void ActivateMenu()
+    {
+        hud.SetActive(false);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+        pauseUI.SetActive(true);
+    }
+
+    void DeactivateMenu()
+    {
+        hud.SetActive(true);
+        Time.timeScale = 1;
+        AudioListener.pause = true;
+        pauseUI.SetActive(false);
+        paused = false;
+    }
+}
