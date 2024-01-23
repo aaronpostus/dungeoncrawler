@@ -385,7 +385,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &820873076
 GameObject:
@@ -514,7 +514,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -741,7 +741,7 @@ Transform:
   m_Children:
   - {fileID: 1554952106}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431774763
 GameObject:
@@ -1430,7 +1430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1743271673
 Rigidbody:
@@ -1601,7 +1601,7 @@ RectTransform:
   m_Children:
   - {fileID: 1148668148}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1707,7 +1707,7 @@ Transform:
   - {fileID: 1447095242}
   - {fileID: 1574916939}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25715277610046155
 GameObject:
@@ -5058,6 +5058,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5366139544588504403, guid: 74b572cb13d47514180c15f7b744bdf0, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366139544588504403, guid: 74b572cb13d47514180c15f7b744bdf0, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366139544588504403, guid: 74b572cb13d47514180c15f7b744bdf0, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366139545755036444, guid: 74b572cb13d47514180c15f7b744bdf0, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 1768218898}
     - target: {fileID: 6120912437857508800, guid: 74b572cb13d47514180c15f7b744bdf0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6349,7 +6365,7 @@ Transform:
   - {fileID: 2335969512109805657}
   - {fileID: 1746743177}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &7798920817336447182
 CharacterController:
