@@ -1,3 +1,4 @@
+using Assets.Scripts.Loading_Scripts;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,8 +22,7 @@ public class LevelManager : MonoBehaviour
         }
         else { Destroy(gameObject); }
     }
-
-    public async void LoadScene(string sceneName)
+    public async void LoadScene(string sceneName, int duration)
     {
         //Start bar and target at 0
         _target = 0;
@@ -43,13 +43,21 @@ public class LevelManager : MonoBehaviour
         } while (scene.progress < 0.9f);
 
         //How long to display loading screen for after loaded
-        await Task.Delay(5000);
+        await Task.Delay(duration);
 
         //Activate scene and turn off loading screen canvas
         scene.allowSceneActivation = true;
         _loaderCanvas.SetActive(false);
     }
-
+    public void LoadScene(string sceneName, ImageCycler imageCycler)
+    {
+        Debug.Log(imageCycler.GetTotalDuration());
+        LoadScene(sceneName, imageCycler.GetTotalDuration());
+    }
+    public void LoadScene(string sceneName)
+    {
+        LoadScene(sceneName, 5000);
+    }
     private void Update()
     {
             _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _target, fillSpeed * Time.deltaTime);
