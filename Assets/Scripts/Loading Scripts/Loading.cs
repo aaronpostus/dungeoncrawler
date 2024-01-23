@@ -16,10 +16,13 @@ public class Loading : MonoBehaviour
             LevelManager.Instance.LoadScene(scene, imageCycler);
             return;
         }
-        //if (autoLoad)
-        //{
-        //    SwitchScene();
-        //}
+        else
+        {
+            if (autoLoad)
+            {
+                SwitchScene();
+            }
+        }
     }
 
     public void SwitchScene()
