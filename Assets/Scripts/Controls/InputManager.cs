@@ -7,6 +7,7 @@ namespace YaoLu
     {
         private PlayerInput inputScheme;
         private QuitHandler quitHandler;
+        private TestState testState;
         private bool isPaused = false;
         private bool isMuted = false;
 
@@ -16,6 +17,7 @@ namespace YaoLu
 
             // Setup quit handler
             quitHandler = new QuitHandler(inputScheme.Gameplay.Quit);
+            testState = new TestState(inputScheme.Gameplay.TestState);
 
             // Subscribe to pause action
             inputScheme.Gameplay.Pause.performed += HandlePausePerformed;
