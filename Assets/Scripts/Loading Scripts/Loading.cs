@@ -6,7 +6,6 @@ public class Loading : MonoBehaviour
 {
     [SerializeField] private string scene;
     [SerializeField] private bool autoLoad;
-    [SerializeField] private GameObject _quitCanvas;
     [SerializeField] ImageCycler imageCycler;
     [Tooltip("The image cycler is an optional component. If you do not add an image cycler the bar will load for a minimum of 5 seconds.")]
     // Start is called before the first frame update
@@ -29,10 +28,5 @@ public class Loading : MonoBehaviour
     public void SwitchScene()
     {
         LevelManager.Instance.LoadScene(scene);
-    }
-
-    public void QuitGame()
-    {
-        _quitCanvas.SetActive(true);
     }
 }
