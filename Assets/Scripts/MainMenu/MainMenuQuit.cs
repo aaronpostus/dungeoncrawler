@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainMenuQuit : MonoBehaviour
 {
     [SerializeField] private GameObject _quitCanvas;
+    [SerializeField] private GameObject _playButton;
 
     public void VerifyQuit()
     {
@@ -22,5 +24,6 @@ public class MainMenuQuit : MonoBehaviour
     public void DoNotQuitGame()
     {
         _quitCanvas.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_playButton);
     }
 }
