@@ -204,14 +204,14 @@ namespace YaoLu
 
         public override void OnEnter()
         {
-            // play kick animation
+            // play attack animation
             animator.Play("Kick");
             fsm.StartCoroutine(WaitKick());
         }
 
         private IEnumerator WaitKick()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.2f);
             fsm.footCollider.enabled = false;
             fsm.isKicking = false;
         }

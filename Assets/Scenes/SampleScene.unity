@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820873076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fa44edf7bf016c40bd09ba566598767, type: 3}
   m_Name: 
@@ -6178,6 +6178,7 @@ GameObject:
   - component: {fileID: 7798920817336447183}
   - component: {fileID: 7798920817336447182}
   - component: {fileID: 7798920817336447184}
+  - component: {fileID: 7798920817336447185}
   m_Layer: 7
   m_Name: Exo Gray
   m_TagString: Player
@@ -6417,7 +6418,7 @@ MonoBehaviour:
     m_Bits: 64
   velocity: {x: 0, y: 0, z: 0}
   lifeSlider: {fileID: 1148668149}
-  life: 50
+  life: 100
   footCollider: {fileID: 1431774765}
   isGrounded: 0
   isJumping: 0
@@ -6425,6 +6426,18 @@ MonoBehaviour:
   isKicking: 0
   isHurting: 0
   isDead: 0
+--- !u!114 &7798920817336447185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453604190347897463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa44edf7bf016c40bd09ba566598767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7879411121877339500
 Transform:
   m_ObjectHideFlags: 0
@@ -6490,6 +6503,63 @@ Transform:
   m_Father: {fileID: 8871601165664876322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8081249092969700258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.973351
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.117114
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.184318
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761231509466215716, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654465531272627793, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Name
+      value: Enemy piece
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
 --- !u!137 &8100172296131429002
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

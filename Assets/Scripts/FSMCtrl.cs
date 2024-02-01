@@ -58,6 +58,7 @@ namespace YaoLu
             runState = new RunState(this, animator);
             jumpState = new JumpState(this, animator);
             crouchState = new CrouchState(this, animator);
+           // basic attack
             kickState = new KickState(this, animator);
             fallState = new FallState(this, animator);
             hurtState = new HurtState(this, animator);
