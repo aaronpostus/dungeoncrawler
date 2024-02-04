@@ -112,7 +112,6 @@ namespace YaoLu
         private bool startCheck;
 
         private float startFallHeight;
-
         public JumpState(FSMCtrl fsm, Animator animator) : base(fsm, animator)
         {
         }
@@ -129,6 +128,7 @@ namespace YaoLu
         private IEnumerator WaitJump()
         {
             yield return new WaitForSeconds(0.5f);
+            // Apply the initial speed (momentum from sprinting) to the jump's vertical velocity
             fsm.velocity.y = Mathf.Sqrt(fsm.jumpHeight * -2f * fsm.gravity);
             startCheck = true;
         }
@@ -157,26 +157,31 @@ namespace YaoLu
             }
             var euler = new Vector3(0, eulerY, 0);
 
+            // While in the air, allow the player to move forward based on current orientation
             if (input != Vector3.zero)
             {
                 fsm.transform.rotation = Quaternion.Slerp(fsm.transform.rotation, Quaternion.Euler(euler), 10 * Time.deltaTime);
+                // This moves the character forward in the direction they are facing
                 fsm.controller.Move(fsm.transform.forward * Time.deltaTime * fsm.speed);
             }
-            fsm.velocity.y += fsm.gravity * Time.deltaTime;
-            fsm.controller.Move(fsm.velocity * Time.deltaTime);
 
-            if (startCheck && fsm.velocity.y <= 0)
+            fsm.velocity.y += fsm.gravity * Time.deltaTime; // Apply gravity
+            fsm.controller.Move(fsm.velocity * Time.deltaTime); // Apply movement and gravity effect
+
+            // Check for landing
+            if (fsm.controller.isGrounded)
             {
-                if (fsm.controller.isGrounded)
+                fsm.isJumping = false;
+                // If landed from a height greater than 5 units, consider it a fall
+                float currentHeight = fsm.transform.position.y;
+                if (startFallHeight - currentHeight >= 5)
                 {
-                    fsm.isJumping = false;
-                    // checking falling
-                    float currentHeight = fsm.transform.position.y;
-                    if (startFallHeight - currentHeight >= 5)
-                    {
-                        fsm.isDead = true;
-                        fsm.ChangeState(new DieState(fsm, animator));
-                    }
+                    fsm.isDead = true; // Or handle fall damage instead of immediate death
+                    fsm.ChangeState(new DieState(fsm, animator));
+                }
+                else
+                {
+                    // Transition to an appropriate state, like Idle or Walk, depending on the player's input
                 }
             }
         }
