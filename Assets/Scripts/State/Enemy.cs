@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         attackState = new EnemyAttackState(this,animator);
         dieState = new EnemyDieState(this,animator);
         hurtState = new EnemyHurtState(this, animator);
-        stateMachine.ChangeState(idleState); // Start in the idle
+        stateMachine.ChangeState(chasingState); // Start in the idle
     }
 
     private void Update()
