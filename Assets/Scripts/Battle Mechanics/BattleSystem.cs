@@ -51,6 +51,11 @@ public class BattleSystem : MonoBehaviour
         
     }
 
+    public void Run()
+    {
+
+    }
+
     public void OnAttackButton()
     {
         if (state != BattleState.PLAYERTURN)
@@ -73,8 +78,11 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        // Rhythm System attack
+        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+
         // Damage enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
 
         // Set HUD
         dialogueText.text = "The attack is successful!";
@@ -138,6 +146,12 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated...";
         }
+    }
+
+    float RhythmAttack()
+    {
+        float multiplier = 1;
+        return multiplier;
     }
 
     

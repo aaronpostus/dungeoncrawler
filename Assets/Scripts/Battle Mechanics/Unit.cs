@@ -6,11 +6,11 @@ public class Unit : MonoBehaviour
 {
 
     public string unitName;
-    public int unitLevel, damage, maxHP, currentHP;
+    public int unitLevel, damage, maxHP, currentHP, defense;
 
-    public bool TakeDamage(int dmg)
+    public bool TakeDamage(float dmg)
     {
-        currentHP -= dmg;
+        currentHP -= ((int) dmg - defense);
         if (currentHP <= 0) {
             return true;
         }
