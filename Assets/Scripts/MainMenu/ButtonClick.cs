@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class ButtonClick : MonoBehaviour
 {
-    [SerializeField] private AudioSource click;
+    [SerializeField] private FMODUnity.EventReference _click;
 
+    private FMOD.Studio.EventInstance click;
+
+    private void Awake()
+    {
+        if (!_click.IsNull)
+        {
+            click = FMODUnity.RuntimeManager.CreateInstance(_click);
+        }
+    }
     public void ClickButton()
     {
-        click.Play();
+        click.start();
     }
 }
