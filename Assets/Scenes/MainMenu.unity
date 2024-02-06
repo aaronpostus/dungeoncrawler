@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 385726580885156662, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
+      propertyPath: m_text
+      value: Continue
+      objectReference: {fileID: 0}
     - target: {fileID: 742334903037877979, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_Color.b
       value: 0.20392157
@@ -206,6 +210,10 @@ PrefabInstance:
       propertyPath: _progressBar
       value: 
       objectReference: {fileID: 25772243}
+    - target: {fileID: 3316189349538998301, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
+      propertyPath: m_Name
+      value: ContinueButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3429287925631423581, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
@@ -285,6 +293,10 @@ PrefabInstance:
     - target: {fileID: 4668482121374478979, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570923290031880817, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
+      propertyPath: m_Name
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 5587967221792932003, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_RootOrder
