@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 1754139526438986242, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: click
       value: 
-      objectReference: {fileID: 223448830}
+      objectReference: {fileID: 0}
     - target: {fileID: 2082199740666610596, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -237,6 +237,7 @@ PrefabInstance:
     - target: {fileID: 3316189349538998301, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3429287925631423581, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
@@ -272,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 3627684555047780892, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 161140108}
+      objectReference: {fileID: 0}
     - target: {fileID: 3627684555047780892, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchScene
@@ -319,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587967221792932003, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5724570439337704116, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -341,12 +342,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7016903641074948663, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
-      propertyPath: m_Layer
-      value: 5
     - target: {fileID: 6481271190625543549, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016903641074948663, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7610154660979075526, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
       propertyPath: m_RootOrder
@@ -410,6 +412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &25772244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6621517330260171131, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
+  m_PrefabInstance: {fileID: 25772242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &25772245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8437692113314436390, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
@@ -421,22 +428,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cba3db228188564fad4c71ca1275636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &161140108 stripped
+--- !u!114 &25772246
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8082524163683627475, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
-  m_PrefabInstance: {fileID: 25772242}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 25772244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &223448830 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3558381333303677054, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
-  m_PrefabInstance: {fileID: 25772242}
-  m_PrefabAsset: {fileID: 0}
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1140593297
+      Data2: 1163985596
+      Data3: -1569257025
+      Data4: -1257370506
+    Path: event:/Music/Main Menu Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &590360994
 GameObject:
   m_ObjectHideFlags: 0
