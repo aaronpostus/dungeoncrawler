@@ -211,5 +211,6 @@ namespace YaoLu
             isHurting = true;
             stateMachine.ChangeState(hurtState);
         }
+
     }
 }
