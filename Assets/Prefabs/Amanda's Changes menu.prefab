@@ -108,69 +108,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &996280838777284963
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7629141896844629279}
-  - component: {fileID: 8152442407536084300}
-  m_Layer: 0
-  m_Name: UIClick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7629141896844629279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996280838777284963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1289365376933306382}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8152442407536084300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996280838777284963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 990572356
-      Data2: 1079251182
-      Data3: -150145130
-      Data4: 1502216357
-    Path: event:/UI/UI Click
-  Event: 
-  PlayEvent: 17
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1049426873953247877
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +366,7 @@ Transform:
   m_Children:
   - {fileID: 1224522165970441580}
   m_Father: {fileID: 1289365376933306382}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3074929963589437145
 GameObject:
@@ -603,6 +540,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1941636413714056839}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2353908684720946659}
         m_TargetAssemblyTypeName: Loading, Assembly-CSharp
         m_MethodName: SwitchScene
@@ -642,7 +591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  _click:
+    Guid:
+      Data1: 990572356
+      Data2: 1079251182
+      Data3: -150145130
+      Data4: 1502216357
+    Path: event:/UI/UI Click
 --- !u!1 &4678522682273174068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1111,6 @@ Transform:
   m_Children:
   - {fileID: 5587967221792932003}
   - {fileID: 7652471446378865854}
-  - {fileID: 7629141896844629279}
   - {fileID: 7610154660979075526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1717,6 +1671,7 @@ GameObject:
   - component: {fileID: 3496246733302782168}
   - component: {fileID: 3627684555047780892}
   - component: {fileID: 8437692113314436390}
+  - component: {fileID: 4503792628030180713}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -1827,9 +1782,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8437692113314436390}
-        m_TargetAssemblyTypeName: Loading, Assembly-CSharp
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 4503792628030180713}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1839,9 +1794,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 996280838777284963}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8437692113314436390}
+        m_TargetAssemblyTypeName: Loading, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1866,6 +1821,25 @@ MonoBehaviour:
   scene: SampleScene
   autoLoad: 0
   imageCycler: {fileID: 0}
+--- !u!114 &4503792628030180713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016903641074948663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _click:
+    Guid:
+      Data1: 990572356
+      Data2: 1079251182
+      Data3: -150145130
+      Data4: 1502216357
+    Path: event:/UI/UI Click
 --- !u!1 &7560084185018266713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +1964,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6487375023408939031}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7753952090842814060}
         m_TargetAssemblyTypeName: MainMenuQuit, Assembly-CSharp
         m_MethodName: DoNotQuitGame
@@ -2028,7 +2014,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  _click:
+    Guid:
+      Data1: 990572356
+      Data2: 1079251182
+      Data3: -150145130
+      Data4: 1502216357
+    Path: event:/UI/UI Click
 --- !u!1 &8365163971255539611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2280,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2550655726711435469}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3984148697401776906}
         m_TargetAssemblyTypeName: MainMenuQuit, Assembly-CSharp
         m_MethodName: QuitGame
@@ -2326,7 +2330,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  _click:
+    Guid:
+      Data1: 990572356
+      Data2: 1079251182
+      Data3: -150145130
+      Data4: 1502216357
+    Path: event:/UI/UI Click
 --- !u!1 &8872065676741489230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2461,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8576700113525321187}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 4187747080182530164}
         m_TargetAssemblyTypeName: MainMenuQuit, Assembly-CSharp
         m_MethodName: VerifyQuit
@@ -2475,7 +2497,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aef4cc64bf76354596f209b19629924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  _click:
+    Guid:
+      Data1: 990572356
+      Data2: 1079251182
+      Data3: -150145130
+      Data4: 1502216357
+    Path: event:/UI/UI Click
 --- !u!114 &4187747080182530164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1620,13 +1620,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 968618376718708490, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1235053566816470630, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2390004471800818922, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_TagString
-      value: Glass
+      value: Gravel
       objectReference: {fileID: 0}
     - target: {fileID: 2784557037891198869, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: mainCamera
@@ -1654,19 +1658,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4359631541917035520, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9965655
+      value: 0.55639327
       objectReference: {fileID: 0}
     - target: {fileID: 4359631541917035520, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08280813
+      value: 0.06743639
       objectReference: {fileID: 0}
     - target: {fileID: 4359631541917035520, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.822121
       objectReference: {fileID: 0}
     - target: {fileID: 4359631541917035520, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.09997959
       objectReference: {fileID: 0}
     - target: {fileID: 4481525974493750727, guid: 72bb6841a87abc743bcc7cb64f2db1f6, type: 3}
       propertyPath: m_RootOrder

@@ -24,6 +24,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-7871769547219558123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpStart/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Metal
+  - Water
+  - Gravel
+  Exists: 1
 --- !u!114 &-6983595459146315276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +142,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 638427629874007332
+  lastModified: 638427696584434934
   FileSizes:
   - Name: Desktop
-    Value: 6717504
+    Value: 7370656
   Exists: 1
 --- !u!114 &-3589108487484005766
 MonoBehaviour:
@@ -130,9 +157,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Footsteps/Footsteps
+  m_Name: parameter:/Footsteps/Terrain
   m_EditorClassIdentifier: 
-  Name: Footsteps
+  Name: Terrain
   StudioPath: 
   Min: 0
   Max: 2
@@ -147,7 +174,7 @@ MonoBehaviour:
   - Water
   - Gravel
   Exists: 1
---- !u!114 &-2845642494116187015
+--- !u!114 &-2866153563362742169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,14 +184,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player/Jump
+  m_Name: event:/Player/Kick
   m_EditorClassIdentifier: 
-  Path: event:/Player/Jump
+  Path: event:/Player/Kick
   Guid:
-    Data1: 952636655
-    Data2: 1241686097
-    Data3: -892478287
-    Data4: -74808099
+    Data1: -47069740
+    Data2: 1133579663
+    Data3: 360059792
+    Data4: 718765801
   Banks:
   - {fileID: 1370128174022643334}
   IsStream: 0
@@ -173,7 +200,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1424
 --- !u!114 &-2459279964348209521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +247,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 625058
+  Length: 600058
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,14 +274,46 @@ MonoBehaviour:
   - {fileID: 3123804820841517665}
   - {fileID: -6983595459146315276}
   - {fileID: -1343187014672111310}
-  - {fileID: -2845642494116187015}
+  - {fileID: 3632224477524931498}
+  - {fileID: 3924062463257584394}
+  - {fileID: 900011737713585948}
+  - {fileID: 1777386850089285350}
+  - {fileID: -2866153563362742169}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8061112401559196163}
   StringsBanks:
   - {fileID: 6513441416406706936}
-  cacheTime: 638427663448510979
+  cacheTime: 638427762774062546
   cacheVersion: 131616
+--- !u!114 &900011737713585948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Jump/JumpStart
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Jump/JumpStart
+  Guid:
+    Data1: 952636655
+    Data2: 1241686097
+    Data3: -892478287
+    Data4: -74808099
+  Banks:
+  - {fileID: 1370128174022643334}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7871769547219558123}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1370128174022643334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,11 +329,38 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638427663448510979
+  lastModified: 638427762774062546
   FileSizes:
   - Name: Desktop
-    Value: 87712
+    Value: 290496
   Exists: 1
+--- !u!114 &1777386850089285350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Die
+  Guid:
+    Data1: 571367925
+    Data2: 1222591972
+    Data3: -1876587589
+    Data4: -801617479
+  Banks:
+  - {fileID: 1370128174022643334}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1600
 --- !u!114 &2606318441184059345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +408,88 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 750
+--- !u!114 &3632224477524931498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Jump/JumpLand
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Jump/JumpLand
+  Guid:
+    Data1: -787730626
+    Data2: 1106253693
+    Data3: 1694659505
+    Data4: 1653879334
+  Banks:
+  - {fileID: 1370128174022643334}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3855323221035876893}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3855323221035876893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpLand/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Metal
+  - Water
+  - Gravel
+  Exists: 1
+--- !u!114 &3924062463257584394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Pain
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Pain
+  Guid:
+    Data1: -1442772773
+    Data2: 1148603129
+    Data3: -1036394363
+    Data4: -1056125842
+  Banks:
+  - {fileID: 1370128174022643334}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1600
 --- !u!114 &4233494285798836593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,10 +532,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638427662324351102
+  lastModified: 638427755275748222
   FileSizes:
   - Name: Desktop
-    Value: 1492
+    Value: 1652
   Exists: 1
 --- !u!114 &8061112401559196163
 MonoBehaviour:
@@ -384,7 +552,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638427662324320953
+  lastModified: 638427755275718124
   FileSizes:
   - Name: Desktop
     Value: 1632

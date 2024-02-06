@@ -1242,6 +1242,69 @@ Transform:
   m_Father: {fileID: 1619552337106678302}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1606151621630962147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 968618376718708490}
+  - component: {fileID: 5018282877167235200}
+  m_Layer: 0
+  m_Name: Ambiance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &968618376718708490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606151621630962147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4481525974493750727}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5018282877167235200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606151621630962147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 78802186
+      Data2: 1281028409
+      Data3: 1352034944
+      Data4: 1567552078
+    Path: event:/Ambiance/Dungeon  Ambiance
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1612925873434141079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,8 +4546,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940424481226246088}
-  m_LocalRotation: {x: 0.08280813, y: -0, z: -0, w: 0.9965655}
-  m_LocalPosition: {x: 0.557529, y: 1.6682737, z: -2.2394443}
+  m_LocalRotation: {x: 0.09154003, y: 0.043477595, z: -0.0040005683, w: 0.9948438}
+  m_LocalPosition: {x: 0.360172, y: 1.7079127, z: -2.2779906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5936,6 +5999,41 @@ MonoBehaviour:
       Data3: -2115846753
       Data4: -313339610
     Path: event:/Player/Footsteps
+  _pain:
+    Guid:
+      Data1: -1442772773
+      Data2: 1148603129
+      Data3: -1036394363
+      Data4: -1056125842
+    Path: event:/Player/Pain
+  _death:
+    Guid:
+      Data1: 571367925
+      Data2: 1222591972
+      Data3: -1876587589
+      Data4: -801617479
+    Path: event:/Player/Die
+  _jumpStart:
+    Guid:
+      Data1: 952636655
+      Data2: 1241686097
+      Data3: -892478287
+      Data4: -74808099
+    Path: event:/Player/Jump/JumpStart
+  _jumpLand:
+    Guid:
+      Data1: -787730626
+      Data2: 1106253693
+      Data3: 1694659505
+      Data4: 1653879334
+    Path: event:/Player/Jump/JumpLand
+  _kick:
+    Guid:
+      Data1: -47069740
+      Data2: 1133579663
+      Data3: 360059792
+      Data4: 718765801
+    Path: event:/Player/Kick
 --- !u!1 &7677082046121651490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,6 +6864,7 @@ Transform:
   - {fileID: 3745766634629644742}
   - {fileID: 7967370665206355237}
   - {fileID: 1208541428008480646}
+  - {fileID: 968618376718708490}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
