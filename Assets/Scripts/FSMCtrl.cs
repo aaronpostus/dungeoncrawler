@@ -7,6 +7,7 @@ namespace YaoLu
     public class FSMCtrl : MonoBehaviour
     {
         public Animator animator;
+        [SerializeField] private PlayerSound playerSounds;
 
         private StateMachine stateMachine;
         private PlayerInput playerInput;
@@ -210,6 +211,11 @@ namespace YaoLu
             }
             isHurting = true;
             stateMachine.ChangeState(hurtState);
+        }
+
+        private void PlayFootstep()
+        {
+            playerSounds.PlayFootsteps();
         }
     }
 }
