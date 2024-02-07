@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+
+    public bool visited;
+    public bool currentlyVisited;
+
+    public void Start()
+    {
+        currentlyVisited = false;
+        visited = false;
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Exo Gray")
         {
+            CheckpointController.instance.currentVisitUpdate(this.gameObject);
+
             SaveGameManager.instance.SaveGame();
 
-            this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0));
+            if (!visited)
+            {
+                visited = true;
+            }
+
+            CheckpointController.instance.checkpointUpdate();
         }
     }
 }

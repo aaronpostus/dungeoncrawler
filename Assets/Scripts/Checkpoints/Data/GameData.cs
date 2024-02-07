@@ -12,12 +12,19 @@ public class GameData
     //item data
     public Vector3 ballPosition;
 
+    //checkpoint data
+    public bool[] visitedCheckpoints;
+    public bool[] currentlyVisitedCheckpoints;
+
     //inital values of the game
     public GameData()
     {
         this.playerPosition = new Vector3();
         this.playerRotation = new Quaternion();
 
-        this.ballPosition = new Vector3(2, 1, 5);
+        this.ballPosition = new Vector3(5, 1, 2);
+
+        this.visitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
+        this.currentlyVisitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
     }
 }

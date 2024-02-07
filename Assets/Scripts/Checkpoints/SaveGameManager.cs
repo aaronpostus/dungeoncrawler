@@ -32,8 +32,13 @@ public class SaveGameManager : MonoBehaviour
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        //Debug.Log(Application.dataPath);
+
+        //might need to change to Application.persistentDataPath for a real game as it saves in data. For now, saving to Unity Assets in a new Folder called SaveGame
+        this.dataHandler = new FileDataHandler(Application.dataPath + "/SaveGame", fileName);
         this.saveDataObjects = FindAllISaveDataObjects();
+        
+        //remove this when added to the main menu
         LoadGame();
     }
 
