@@ -13,7 +13,7 @@ namespace YaoLu
         protected float chaseDistance;
 
         // Constructor with additional parameters
-        public BaseEnemyState(Animator animator, NavMeshAgent navMeshAgent = null, Transform playerTransform = null, float wanderRadius = 0, float chaseDistance = 0)
+        public BaseEnemyState(Animator animator, NavMeshAgent navMeshAgent = null, Transform playerTransform = null, float wanderRadius = 9, float chaseDistance = 0)
         {
             this.animator = animator;
             this.navMeshAgent = navMeshAgent;
@@ -52,7 +52,8 @@ namespace YaoLu
             timer += Time.deltaTime;
             if (timer >= idleDuration)
             {
-                // After idling, go to wander state
+                // After idling, prepare to wander by setting a random direction
+                SetRandomDirection();
                 enemy.ChangeState(enemy.wanderState);
             }
         }
@@ -60,7 +61,13 @@ namespace YaoLu
         public override void OnExit()
         {
             base.OnExit();
-            // Prepare for next idle state entry, if needed
+        }
+
+        private void SetRandomDirection()
+        {
+            // Randomly rotate the enemy to face a new direction
+            float randomAngle = Random.Range(0f, 360f);
+            enemy.transform.rotation = Quaternion.Euler(0f, randomAngle, 0f);
         }
     }
 
@@ -72,10 +79,11 @@ namespace YaoLu
         private float wanderDuration;
         private Enemy enemy;
 
-        public EnemyWanderState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, float wanderRadius) : base(animator, navMeshAgent)
+        // Modified constructor to include playerTransform and chaseDistance
+        public EnemyWanderState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, float wanderRadius, Transform playerTransform, float chaseDistance)
+            : base(animator, navMeshAgent, playerTransform, wanderRadius, chaseDistance)
         {
             this.enemy = enemy;
-            this.wanderRadius = wanderRadius;
         }
 
         public override void OnEnter()
@@ -83,9 +91,10 @@ namespace YaoLu
             base.OnEnter();
             animator.Play("Walk");
             navMeshAgent.isStopped = false;
-            SetRandomDestination();
             timer = 0f;
             wanderDuration = Random.Range(2f, 5f); // Wander for 2-5 seconds
+                                                   // Move forward in the currently facing direction
+            navMeshAgent.SetDestination(enemy.transform.position + enemy.transform.forward * wanderRadius);
         }
 
         public override void Update()
@@ -96,53 +105,72 @@ namespace YaoLu
                 // After wandering, go back to idle state
                 enemy.ChangeState(enemy.idleState);
             }
-        }
 
-        private void SetRandomDestination()
-        {
-            Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
-            randomDirection += navMeshAgent.transform.position;
-            NavMeshHit hit;
-            Vector3 finalPosition = Vector3.zero;
-            if (NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, -1))
+            // Check if the player is within the chasing distance
+            if (Vector3.Distance(enemy.transform.position, playerTransform.position) <= chaseDistance)
             {
-                finalPosition = hit.position;
+                // If within chasing distance, change state to chasing
+                enemy.ChangeState(enemy.chasingState);
             }
-            navMeshAgent.SetDestination(finalPosition);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            navMeshAgent.isStopped = true; // Ensure the agent stops moving when exiting this state
+            navMeshAgent.isStopped = false ; // Ensure the agent stops moving when exiting this state
         }
     }
+
 
 
 
     // Chasing State
     public class EnemyChasingState : BaseEnemyState
     {
-        public EnemyChasingState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, Transform playerTransform, float chaseDistance) : base(animator, navMeshAgent, playerTransform, 0, chaseDistance) { }
+        private Enemy enemy;
+
+        public EnemyChasingState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, Transform playerTransform,
+            float chaseDistance) : base(animator, navMeshAgent, playerTransform, 0, chaseDistance) {
+            this.enemy = enemy;
+        }
 
         public override void OnEnter()
         {
             animator.Play("Run");
         }
 
-        public override void Update() {
+        public override void Update()
+        {
             navMeshAgent.destination = playerTransform.position;
+
+            // Check the distance to the player
+            float distanceToPlayer = Vector3.Distance(enemy.transform.position, playerTransform.position);
+
+            // Check if the player is out of chasing distance
+            if (distanceToPlayer > chaseDistance)
+            {
+                // Player escaped, switch back to wander state
+                enemy.ChangeState(enemy.wanderState);
+            }
+            else if (distanceToPlayer < 0.2f) // Check if within battle range
+            {
+                // Close enough to engage in battle, switch to battle state
+                enemy.ChangeState(enemy.battleState);
+            }
         }
     }
 
 
-    public class EnemyAttackState : BaseEnemyState
+    public class EnemyBattleState : BaseEnemyState
     {
-        public EnemyAttackState(Enemy enemy,Animator animator) : base(animator) { }
+        private Enemy enemy;
+
+        public EnemyBattleState(Enemy enemy,Animator animator) : base(animator) {
+        this.enemy = enemy;
+        }
         public override void OnEnter()
         {
-            // play attack
-            animator.Play("Kick");
+            
         }
 
         private IEnumerator WaitAttack()
@@ -164,6 +192,7 @@ namespace YaoLu
 
         public override void Update()
         {
+
         }
     }
     public class EnemyDieState : BaseEnemyState

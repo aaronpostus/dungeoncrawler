@@ -371,4 +371,22 @@ namespace YaoLu
             }
         }
     }
+
+    public class BattleState : BaseState
+    {
+        public BattleState(FSMCtrl fsm, Animator animator) : base(fsm, animator) { }
+
+        public override void OnEnter()
+        {
+            
+            if (fsm.life <= 0)
+            {
+                fsm.ChangeState(new DieState(fsm, animator));
+            }
+        }
+        public override void Update()
+        {
+            
+        }
+    }
 }
