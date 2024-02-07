@@ -131,10 +131,15 @@ public class PlayerSound : MonoBehaviour
                     jumpStart.setParameterByName("Terrain", 1);
                     jumpLand.setParameterByName("Terrain", 1);
                     break;
-                case "Gravel":
+                case "Metal":
                     footsteps.setParameterByName("Terrain", 2);
                     jumpStart.setParameterByName("Terrain", 2);
                     jumpLand.setParameterByName("Terrain", 2);
+                    break;
+                case "Glass":
+                    footsteps.setParameterByName("Terrain", 3);
+                    jumpStart.setParameterByName("Terrain", 3);
+                    jumpLand.setParameterByName("Terrain", 3);
                     break;
                 default:
                     footsteps.setParameterByName("Terrain", 0);

@@ -39,7 +39,7 @@ MonoBehaviour:
   Name: Terrain
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 3
   Default: 0
   ID:
     data1: 434030557
@@ -47,9 +47,10 @@ MonoBehaviour:
   Type: 2
   IsGlobal: 0
   Labels:
-  - Metal
+  - Basic Ground
   - Water
-  - Gravel
+  - Metal
+  - Glass
   Exists: 1
 --- !u!114 &-6983595459146315276
 MonoBehaviour:
@@ -162,7 +163,7 @@ MonoBehaviour:
   Name: Terrain
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 3
   Default: 0
   ID:
     data1: 434030557
@@ -170,9 +171,10 @@ MonoBehaviour:
   Type: 2
   IsGlobal: 0
   Labels:
-  - Metal
+  - Basic Ground
   - Water
-  - Gravel
+  - Metal
+  - Glass
   Exists: 1
 --- !u!114 &-2866153563362742169
 MonoBehaviour:
@@ -216,10 +218,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Enemy.bank
   Name: Enemy
   StudioPath: bank:/Enemy
-  lastModified: 638426654486897957
+  lastModified: 638428624367850387
   FileSizes:
   - Name: Desktop
-    Value: 494
+    Value: 103520
   Exists: 1
 --- !u!114 &-1343187014672111310
 MonoBehaviour:
@@ -279,12 +281,13 @@ MonoBehaviour:
   - {fileID: 900011737713585948}
   - {fileID: 1777386850089285350}
   - {fileID: -2866153563362742169}
+  - {fileID: 6712395175948758198}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8061112401559196163}
   StringsBanks:
   - {fileID: 6513441416406706936}
-  cacheTime: 638427762774062546
+  cacheTime: 638428653370116756
   cacheVersion: 131616
 --- !u!114 &900011737713585948
 MonoBehaviour:
@@ -314,6 +317,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &945694843105514646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/WalkRun
+  m_EditorClassIdentifier: 
+  Name: WalkRun
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 622985727
+    data2: 2149523867
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &1370128174022643334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,10 +356,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638427762774062546
+  lastModified: 638428653370116756
   FileSizes:
   - Name: Desktop
-    Value: 290496
+    Value: 337440
   Exists: 1
 --- !u!114 &1777386850089285350
 MonoBehaviour:
@@ -380,6 +407,34 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 10124000
+  Exists: 1
+--- !u!114 &2775360149084933123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
   Exists: 1
 --- !u!114 &3123804820841517665
 MonoBehaviour:
@@ -451,7 +506,7 @@ MonoBehaviour:
   Name: Terrain
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 3
   Default: 0
   ID:
     data1: 434030557
@@ -459,9 +514,10 @@ MonoBehaviour:
   Type: 2
   IsGlobal: 0
   Labels:
-  - Metal
+  - Basic Ground
   - Water
-  - Gravel
+  - Metal
+  - Glass
   Exists: 1
 --- !u!114 &3924062463257584394
 MonoBehaviour:
@@ -532,11 +588,40 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638427755275748222
+  lastModified: 638428603460807938
   FileSizes:
   - Name: Desktop
-    Value: 1652
+    Value: 1698
   Exists: 1
+--- !u!114 &6712395175948758198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Footsteps
+  Guid:
+    Data1: 1086858969
+    Data2: 1141769901
+    Data3: -1915646567
+    Data4: -1138827722
+  Banks:
+  - {fileID: -2459279964348209521}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 945694843105514646}
+  - {fileID: 2775360149084933123}
+  MinDistance: 1
+  MaxDistance: 450
+  Length: 0
 --- !u!114 &8061112401559196163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +637,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638427755275718124
+  lastModified: 638428603460762545
   FileSizes:
   - Name: Desktop
     Value: 1632
