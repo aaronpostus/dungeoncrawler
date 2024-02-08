@@ -43,7 +43,7 @@ public class NoteCreator : MonoBehaviour
         {
             CreateNote();
         }
-        else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > - 110)
+        else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > -100)
         {
             CreateNote();
         }
