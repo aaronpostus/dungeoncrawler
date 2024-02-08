@@ -23,6 +23,8 @@ public class NoteCreator : MonoBehaviour
     //int for amount of notes
     public int amountOfNotes = 20;
 
+    public int generationPosition = -235;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class NoteCreator : MonoBehaviour
         {
             CreateNote();
         }
-        else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > -100)
+        else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > generationPosition + 50)
         {
             CreateNote();
         }
@@ -56,22 +58,22 @@ public class NoteCreator : MonoBehaviour
         {
             if (notes[notesCreated] == left)
             {
-                createdNote = Instantiate(note, new Vector3(-135, -150, 0), Quaternion.Euler(0, 0, 180));
+                createdNote = Instantiate(note, new Vector3(-135, generationPosition, 0), Quaternion.Euler(0, 0, 180));
                 createdNote.transform.SetParent(gameObject.transform, true);
             }
             else if (notes[notesCreated] == up)
             {
-                createdNote = Instantiate(note, new Vector3(-35, -150, 0), Quaternion.Euler(0, 0, 90));
+                createdNote = Instantiate(note, new Vector3(-35, generationPosition, 0), Quaternion.Euler(0, 0, 90));
                 createdNote.transform.SetParent(gameObject.transform, true);
             }
             else if (notes[notesCreated] == down)
             {
-                createdNote = Instantiate(note, new Vector3(65, -150, 0), Quaternion.Euler(0, 0, 270));
+                createdNote = Instantiate(note, new Vector3(65, generationPosition, 0), Quaternion.Euler(0, 0, 270));
                 createdNote.transform.SetParent(gameObject.transform, true);
             }
             else if (notes[notesCreated] == right)
             {
-                createdNote = Instantiate(note, new Vector3(165, -150, 0), Quaternion.Euler(0, 0, 0));
+                createdNote = Instantiate(note, new Vector3(165, generationPosition, 0), Quaternion.Euler(0, 0, 0));
                 createdNote.transform.SetParent(gameObject.transform, true);
             }
 
