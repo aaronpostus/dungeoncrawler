@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour
     public bool TakeDamage(float dmg)
     {
         currentHP -= ((int) dmg - defense);
-        slider.value = currentHP;
+        //slider.value = currentHP;
         if (currentHP <= 0) {
             return true;
         }
