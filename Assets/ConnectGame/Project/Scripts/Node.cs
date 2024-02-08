@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Connect.Core
@@ -63,6 +64,7 @@ namespace Connect.Core
         public void SetColorForPoint(int colorIdForSpawnedNode)
         {
             colorId = colorIdForSpawnedNode;
+            _point.GetComponentInChildren<TextMeshPro>().text = colorIdForSpawnedNode + "";
             _point.SetActive(true);
             _point.GetComponent<SpriteRenderer>().color =
                 GameplayManager.Instance.NodeColors[colorId % GameplayManager.Instance.NodeColors.Count];
