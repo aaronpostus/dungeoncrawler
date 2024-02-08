@@ -1,29 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8243047554948666439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Footsteps/WalkRun
-  m_EditorClassIdentifier: 
-  Name: WalkRun
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 622985727
-    data2: 2149523867
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &-7871769547219558123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +52,6 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -8243047554948666439}
   - {fileID: -3589108487484005766}
   MinDistance: 1
   MaxDistance: 450
@@ -128,6 +103,34 @@ MonoBehaviour:
   - Name: Desktop
     Value: 6528
   Exists: 1
+--- !u!114 &-5026382740358660887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Jump/JumpLand
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Jump/JumpLand
+  Guid:
+    Data1: 440049867
+    Data2: 1259307388
+    Data3: -2087045757
+    Data4: 2138987763
+  Banks:
+  - {fileID: -2459279964348209521}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6726596036148327172}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4435050095438945607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,10 +221,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Enemy.bank
   Name: Enemy
   StudioPath: bank:/Enemy
-  lastModified: 638428624367850387
+  lastModified: 638430148171062726
   FileSizes:
   - Name: Desktop
-    Value: 103520
+    Value: 271296
   Exists: 1
 --- !u!114 &-1343187014672111310
 MonoBehaviour:
@@ -282,13 +285,43 @@ MonoBehaviour:
   - {fileID: 1777386850089285350}
   - {fileID: -2866153563362742169}
   - {fileID: 6712395175948758198}
+  - {fileID: 51994110478027168}
+  - {fileID: -5026382740358660887}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8061112401559196163}
   StringsBanks:
   - {fileID: 6513441416406706936}
-  cacheTime: 638428653370116756
+  cacheTime: 638430148176300140
   cacheVersion: 131616
+--- !u!114 &51994110478027168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Jump/JumpStart
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Jump/JumpStart
+  Guid:
+    Data1: -1037099149
+    Data2: 1203780381
+    Data3: -1610936645
+    Data4: 1650986688
+  Banks:
+  - {fileID: -2459279964348209521}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6009215996541489474}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &900011737713585948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,30 +350,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &945694843105514646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Footsteps/WalkRun
-  m_EditorClassIdentifier: 
-  Name: WalkRun
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 622985727
-    data2: 2149523867
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &1370128174022643334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,10 +365,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638428653370116756
+  lastModified: 638430148176300140
   FileSizes:
   - Name: Desktop
-    Value: 337440
+    Value: 336896
   Exists: 1
 --- !u!114 &1777386850089285350
 MonoBehaviour:
@@ -573,6 +582,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 853394
+--- !u!114 &6009215996541489474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpStart/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
 --- !u!114 &6513441416406706936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,10 +625,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638428603460807938
+  lastModified: 638430148171817179
   FileSizes:
   - Name: Desktop
-    Value: 1698
+    Value: 1788
   Exists: 1
 --- !u!114 &6712395175948758198
 MonoBehaviour:
@@ -617,11 +654,38 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 945694843105514646}
   - {fileID: 2775360149084933123}
   MinDistance: 1
   MaxDistance: 450
   Length: 0
+--- !u!114 &6726596036148327172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpLand/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
 --- !u!114 &8061112401559196163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,8 +701,8 @@ MonoBehaviour:
   Path: ../../FMOD Studio/dungeonCrawlerAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638428603460762545
+  lastModified: 638430148171695916
   FileSizes:
   - Name: Desktop
-    Value: 1632
+    Value: 1778
   Exists: 1

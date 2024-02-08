@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000269E6FBB088 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 00000269E6FBE2C8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -17,8 +17,119 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] SoundI::release                          :  (00000269D8BA87F8)
+[LOG] SoundI::release                          :     gruntsound-91784 (000002690A2CCB28)
+[LOG] SoundI::release                          :  (00000269D8BA8AD8)
+[LOG] SoundI::release                          :     zapsplat_human_male_vocalisation_pain_ohhhh_66506 (000002690A2CDB68)
+[LOG] SoundI::release                          :  (00000269B5B8C7C8)
+[LOG] SoundI::release                          :     zapsplat_human_male_vocalisation_pain_uhhh_66512 (0000026A16104568)
+[LOG] SoundI::release                          :  (0000026A11FB3D88)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Walk_01 (0000026A161055A8)
+[LOG] SoundI::release                          :  (00000269B5B8C098)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Walk_02 (0000026A16105F68)
+[LOG] SoundI::release                          :  (0000026A11FB34E8)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Walk_03 (0000026A161029C8)
+[LOG] SoundI::release                          :  (0000026A11FB3378)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Walk_04 (0000026A16104A48)
+[LOG] SoundI::release                          :  (0000026A11FB37C8)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Walk_05 (0000026A16105DC8)
+[LOG] SoundI::release                          :  (00000269E315A388)
+[LOG] SoundI::release                          :     Footstep_Metal_3_3 (00000268E7C94958)
+[LOG] SoundI::release                          : 103_Testing_Chamber (00000268E34453D8)
+[LOG] SoundI::release                          :     103_Testing_Chamber (00000269E6FE2C38)
+[LOG] SoundI::release                          :     103_Testing_Chamber (00000269E30B1738)
+[LOG] SoundI::release                          : LOOP_Castle Dungeon 1 (00000268E3445C48)
+[LOG] SoundI::release                          :     LOOP_Castle Dungeon 1 (00000268DF1750C8)
+[LOG] SoundI::release                          :     LOOP_Castle Dungeon 1 (00000269B655BC38)
+[LOG] SoundI::release                          :  (00000269B5B8BDB8)
+[LOG] SoundI::release                          :     Footsteps_WaterV1_Walk_01 (0000026A161065E8)
+[LOG] SoundI::release                          :  (0000026A11FB3658)
+[LOG] SoundI::release                          :     Footsteps_WaterV1_Walk_02 (0000026A161048A8)
+[LOG] SoundI::release                          :  (0000026A11FB3208)
+[LOG] SoundI::release                          :     Footsteps_WaterV1_Walk_03 (0000026A16105408)
+[LOG] SoundI::release                          :  (0000026A11FB3098)
+[LOG] SoundI::release                          :     Footsteps_WaterV1_Walk_04 (0000026A16105A88)
+[LOG] SoundI::release                          :  (00000269B5B8C208)
+[LOG] SoundI::release                          :     Footsteps_WaterV1_Walk_05 (0000026A16106108)
+[LOG] SoundI::release                          :  (00000268E2F3E948)
+[LOG] SoundI::release                          :     Footstep_Metal_3_4 (0000026A16104D88)
+[LOG] SoundI::release                          :  (000002690A3EF1D8)
+[LOG] SoundI::release                          :     Footstep_Metal_3_5 (0000026A16103388)
+[LOG] SoundI::release                          :  (00000268E2F3E668)
+[LOG] SoundI::release                          :     Footstep_Metal_3_6 (00000268E7C93298)
+[LOG] SoundI::release                          :  (0000026A12DDDAB8)
+[LOG] SoundI::release                          :     Footstep_Metal_3_7 (000002690A2CC988)
+[LOG] SoundI::release                          :  (00000269D8BA83A8)
+[LOG] SoundI::release                          :     glass-knock-1-189096 (000002698C722BA8)
+[LOG] SoundI::release                          :  (00000268E2F3E4F8)
+[LOG] SoundI::release                          :     glass-knock-4-189099 (0000026A16104BE8)
+[LOG] SoundI::release                          :  (00000269E315A218)
+[LOG] SoundI::release                          :     zapsplat_foley_footstep_single_boots_walking_internal_space_some_room_reverb_right_008_97856 (00000268E7C95998)
+[LOG] SoundI::release                          :  (00000268E2F3EAB8)
+[LOG] SoundI::release                          :     glass-knock-5-189101-[AudioTrimmer.com]-[AudioTrimmer.com] (2) (00000268E7C92F58)
+[LOG] SoundI::release                          :  (00000269D8BA8968)
+[LOG] SoundI::release                          :     Footsteps_Jump_Start_01 (000002690A2CD348)
+[LOG] SoundI::release                          :  (00000268E2F3E7D8)
+[LOG] SoundI::release                          :     Footsteps_Jump_Start_02 (00000268E7C942D8)
+[LOG] SoundI::release                          :  (00000269E315A0A8)
+[LOG] SoundI::release                          :     Footsteps_Jump_Start_03 (00000268E7C95318)
+[LOG] SoundI::release                          :  (00000269E315AD98)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_04 (00000268E7C93918)
+[LOG] SoundI::release                          :  (00000269B5B8C378)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_05 (0000026A16103D48)
+[LOG] SoundI::release                          :  (00000269D8BA80C8)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_06 (000002690A2CCCC8)
+[LOG] SoundI::release                          :  (00000268E2F3E0A8)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Start_01 (00000268E7C93DF8)
+[LOG] SoundI::release                          :  (00000269E315A7D8)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Start_02 (00000268E7C95658)
+[LOG] SoundI::release                          :  (00000268E2F3E388)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Start_03 (00000268E7C928D8)
+[LOG] SoundI::release                          :  (0000026A12DDDC28)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Start_04 (000002690A2CE1E8)
+[LOG] SoundI::release                          :  (00000269D8BA7DE8)
+[LOG] SoundI::release                          :     jumpStart (000002690A2CDD08)
+[LOG] SoundI::release                          :  (00000269E315AAB8)
+[LOG] SoundI::release                          :     mixkit-hitting-soccer-ball-2112 (00000268E7C94E38)
+[LOG] SoundI::release                          :  (00000269E315AC28)
+[LOG] SoundI::release                          :     zapsplat_human_male_vocalisation_pain_ohhh_long_breathy_66505 (00000268E7C93438)
+[LOG] SoundI::release                          :  (00000269D8BA8518)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Land_01 (000002698C722EE8)
+[LOG] SoundI::release                          :  (00000268E2F3E218)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Land_02 (0000026A16104708)
+[LOG] SoundI::release                          :  (00000269B5B8C4E8)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Land_03 (0000026A16104088)
+[LOG] SoundI::release                          :  (00000269D8BA7F58)
+[LOG] SoundI::release                          :     Footsteps_MetalV1_Jump_Land_04 (000002698C723228)
+[LOG] SoundI::release                          :  (0000026A12DDD218)
+[LOG] SoundI::release                          :     land-81509 (000002690A2CD688)
+[LOG] SoundI::release                          :  (00000269E315A4F8)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_01 (00000268E7C94AF8)
+[LOG] SoundI::release                          :  (00000269D8BA8688)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_02 (000002690A2CDEA8)
+[LOG] SoundI::release                          :  (00000268E2F3EC28)
+[LOG] SoundI::release                          :     Footsteps_Water_Jump_Light_03 (0000026A16102EA8)
+[LOG] SoundI::release                          :  (00000269E315A948)
+[LOG] SoundI::release                          :     jumpLand (00000268E7C961B8)
+[LOG] SoundI::release                          :  (00000269D8BA8238)
+[LOG] SoundI::release                          :     Footsteps_Jump_Land_01 (000002690A2CD828)
+[LOG] SoundI::release                          :  (00000269E315A668)
+[LOG] SoundI::release                          :     Footsteps_Jump_Land_02 (00000268E7C93AB8)
+[LOG] SoundI::release                          :  (00000268E2F3ED98)
+[LOG] SoundI::release                          :     Footsteps_Jump_Land_03 (0000026A16103048)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -26,3 +137,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
