@@ -16,6 +16,10 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public GameObject playerHUD;
+    public Slider playerHP;
+    public Slider enemyHP;
+
     public Text dialogueText;
 
     public BattleState state;
@@ -23,6 +27,8 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(SetupBattle());
     }
 
@@ -34,19 +40,24 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
 
-        dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
+        //dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
+
+        playerHUD.SetActive(true);
 
         yield return new WaitForSeconds(4f);
 
         state = BattleState.PLAYERTURN;
+        //DEBUG
+        Debug.Log("Game setup complete");
+        
         PlayerTurn();
     }
 
     void PlayerTurn()
     {
-        
 
-        dialogueText.text = "Choose an action:";
+        Debug.Log("Player Turn began");
+        //dialogueText.text = "Choose an action:";
 
         
     }
@@ -58,6 +69,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnAttackButton()
     {
+        Debug.Log("Attack");
         if (state != BattleState.PLAYERTURN)
         {
             return;
@@ -83,9 +95,10 @@ public class BattleSystem : MonoBehaviour
 
         // Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
+        enemyHP.value = enemyUnit.currentHP;
 
         // Set HUD
-        dialogueText.text = "The attack is successful!";
+        //dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
 
@@ -110,7 +123,7 @@ public class BattleSystem : MonoBehaviour
     {
         playerUnit.Heal(5);
         // Set HUD
-        dialogueText.text = "You were healed!";
+        //dialogueText.text = "You were healed!";
 
         yield return new WaitForSeconds(2f);
 
@@ -120,10 +133,11 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.unitName + " attacks!";
+        //dialogueText.text = enemyUnit.unitName + " attacks!";
         yield return new WaitForSeconds(2f);
 
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        playerHP.value = playerUnit.currentHP;
         // Set HUD
         
         if (isDead)
@@ -141,11 +155,14 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
-            dialogueText.text = "You won!";
+            //dialogueText.text = "You won!";
         } else if (state == BattleState.LOST)
         {
-            dialogueText.text = "You were defeated...";
+            //dialogueText.text = "You were defeated...";
         }
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        playerHUD.SetActive(false);
     }
 
     float RhythmAttack()
