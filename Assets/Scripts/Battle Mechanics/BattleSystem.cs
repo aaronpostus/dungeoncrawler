@@ -20,7 +20,7 @@ public class BattleSystem : MonoBehaviour
     public Slider playerHP;
     public Slider enemyHP;
 
-    public Text dialogueText;
+    //public Text dialogueText;
 
     public BattleState state;
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.START;
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         StartCoroutine(SetupBattle());
     }
 
