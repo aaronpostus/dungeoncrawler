@@ -20,7 +20,9 @@ public class BattleSystem : MonoBehaviour
     public Slider playerHP;
     public Slider enemyHP;
 
-    //public Text dialogueText;
+    public Animator animator;
+
+    public Text dialogueText;
 
     public BattleState state;
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.START;
         Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(SetupBattle());
     }
 
@@ -40,9 +42,11 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<Unit>();
 
-        //dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
+        dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
 
         playerHUD.SetActive(true);
+        playerHP.maxValue = playerUnit.maxHP;
+        enemyHP.maxValue = enemyUnit.maxHP;
 
         yield return new WaitForSeconds(4f);
 
@@ -57,7 +61,7 @@ public class BattleSystem : MonoBehaviour
     {
 
         Debug.Log("Player Turn began");
-        //dialogueText.text = "Choose an action:";
+        dialogueText.text = "Choose an action:";
 
         
     }
@@ -96,9 +100,9 @@ public class BattleSystem : MonoBehaviour
         // Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
-
+        animator.Play("Kick");
         // Set HUD
-        //dialogueText.text = "The attack is successful!";
+        dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
 
@@ -107,7 +111,7 @@ public class BattleSystem : MonoBehaviour
         {
             // End battle
             state = BattleState.WON;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -123,7 +127,7 @@ public class BattleSystem : MonoBehaviour
     {
         playerUnit.Heal(5);
         // Set HUD
-        //dialogueText.text = "You were healed!";
+        dialogueText.text = "You were healed!";
 
         yield return new WaitForSeconds(2f);
 
@@ -133,7 +137,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        //dialogueText.text = enemyUnit.unitName + " attacks!";
+        dialogueText.text = enemyUnit.unitName + " attacks!";
         yield return new WaitForSeconds(2f);
 
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
@@ -143,7 +147,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         } else
         {
             state = BattleState.PLAYERTURN;
@@ -151,15 +155,16 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
-            //dialogueText.text = "You won!";
+            dialogueText.text = "You won!";
         } else if (state == BattleState.LOST)
         {
-            //dialogueText.text = "You were defeated...";
+            dialogueText.text = "You were defeated...";
         }
+        yield return new WaitForSeconds(3f);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerHUD.SetActive(false);
