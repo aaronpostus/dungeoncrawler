@@ -243,7 +243,7 @@ namespace Connect.Core
             }
 
             GameManager.Instance.UnlockLevel();
-
+            _winText.GetComponent<TextMeshProUGUI>().text = "Elevator Power Restored.";
             _winText.gameObject.SetActive(true);
             _clickHighlight.gameObject.SetActive(false);
 
