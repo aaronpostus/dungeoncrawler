@@ -4775,6 +4775,7 @@ GameObject:
   - component: {fileID: 5838036768757954439}
   - component: {fileID: 2109087539820045044}
   - component: {fileID: 2027210119511295056}
+  - component: {fileID: 6618442871364932957}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4860,6 +4861,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &6618442871364932957
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029227502006302837}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8273160890155891821
 GameObject:
   m_ObjectHideFlags: 0
@@ -6113,6 +6130,7 @@ GameObject:
   - component: {fileID: 5550841638289232501}
   - component: {fileID: 1534840624555701912}
   - component: {fileID: 6547643425548189447}
+  - component: {fileID: 5729478735826608309}
   m_Layer: 0
   m_Name: SampleEnemy
   m_TagString: Untagged
@@ -6155,7 +6173,7 @@ Animator:
   m_GameObject: {fileID: 9146749468895029289}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a4e0f72435d94914ab8af6c2fa269cd8, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa9131211e697934fa0f39c23a269bc1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6244,6 +6262,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5729478735826608309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146749468895029289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033a4c2524211cb4593d3265f666f252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaces:
+  - {fileID: 0}
+  objectsToRotate: []
 --- !u!1 &9183148548680857482
 GameObject:
   m_ObjectHideFlags: 0

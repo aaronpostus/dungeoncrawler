@@ -102,17 +102,25 @@ namespace YaoLu
             timer += Time.deltaTime;
             if (timer >= wanderDuration)
             {
-                // After wandering, go back to idle state
                 enemy.ChangeState(enemy.idleState);
             }
 
-            // Check if the player is within the chasing distance
+            // Line-of-sight check
             if (Vector3.Distance(enemy.transform.position, playerTransform.position) <= chaseDistance)
             {
-                // If within chasing distance, change state to chasing
-                enemy.ChangeState(enemy.chasingState);
+                RaycastHit hit;
+                Vector3 directionToPlayer = playerTransform.position - enemy.transform.position;
+                if (Physics.Raycast(enemy.transform.position, directionToPlayer.normalized, out hit, chaseDistance))
+                {
+                    if (hit.transform == playerTransform)
+                    {
+                        // Player is within line of sight and chasing distance, change state to chasing
+                        enemy.ChangeState(enemy.chasingState);
+                    }
+                }
             }
         }
+
 
         public override void OnExit()
         {
@@ -143,21 +151,25 @@ namespace YaoLu
         {
             navMeshAgent.destination = playerTransform.position;
 
-            // Check the distance to the player
             float distanceToPlayer = Vector3.Distance(enemy.transform.position, playerTransform.position);
 
-            // Check if the player is out of chasing distance
-            if (distanceToPlayer > chaseDistance)
+            // Line-of-sight check
+            RaycastHit hit;
+            Vector3 directionToPlayer = playerTransform.position - enemy.transform.position;
+            bool playerVisible = Physics.Raycast(enemy.transform.position, directionToPlayer.normalized, out hit, chaseDistance) && hit.transform == playerTransform;
+
+            if (distanceToPlayer > chaseDistance || !playerVisible)
             {
-                // Player escaped, switch back to wander state
+                // Player escaped or is not in direct line of sight, switch back to wander state
                 enemy.ChangeState(enemy.wanderState);
             }
-            else if (distanceToPlayer < 0.2f) // Check if within battle range
+            else if (distanceToPlayer < 0.2f && playerVisible) // Ensuring player is still visible
             {
-                // Close enough to engage in battle, switch to battle state
+                // Close enough to engage in battle and player is visible, switch to battle state
                 enemy.ChangeState(enemy.battleState);
             }
         }
+
     }
 
 
