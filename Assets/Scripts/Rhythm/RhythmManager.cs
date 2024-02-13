@@ -37,6 +37,15 @@ public class RhythmManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text multiplierText;
 
+    //left button to find y position to determine early/late/perfect/miss
+    [SerializeField] private GameObject leftButton;
+
+    //effects attached to prefabs   
+    [SerializeField] private GameObject earlyEffect, lateEffect, perfectEffect, missEffect;
+
+    //position where the text will generate
+    [SerializeField] private GameObject textArea;
+
     void Start()
     {
         instance = this;
@@ -61,28 +70,27 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
-    //method called when any note is hit
-    public void NoteHit()
+    public void HitArea(GameObject note)
     {
-        //if the currentMultiplier is not at the max, it continues
-        if(currentMultiplier - 1 < noteThresholds.Length)
+        if (note.transform.position.y < leftButton.transform.position.y - 5)
         {
-            //adds a note to the combo
-            mutliplierCombo++;
+            //Debug.Log("Early Hit");
+            this.EarlyHit();
+            Instantiate(earlyEffect, textArea.transform);
 
-            if (noteThresholds[currentMultiplier - 1] <= mutliplierCombo)
-            {
-                mutliplierCombo = 0;
-                currentMultiplier++;
-            }
         }
-
-        //currentScore += scorePerNote * currentMultiplier;
-
-        scoreText.text = "Score: " + currentScore;
-
-        MultiplierText();
-
+        else if (note.transform.position.y > leftButton.transform.position.y + 5)
+        {
+            //Debug.Log("Late Hit");
+            this.LateHit();
+            Instantiate(lateEffect, textArea.transform);
+        }
+        else
+        {
+            //Debug.Log("Perfect Hit");
+            this.PerfectHit();
+            Instantiate(perfectEffect, textArea.transform);
+        }
     }
 
     //method called when a hit is late
@@ -111,10 +119,36 @@ public class RhythmManager : MonoBehaviour
     {
         //Debug.Log("Miss");
 
+        Instantiate(missEffect, textArea.transform);
+
         //resets noteTacker and multiplier when a note is missed
         mutliplierCombo = 0;
         currentMultiplier = 1;
         MultiplierText();
+    }
+
+    //method called when any note is hit
+    public void NoteHit()
+    {
+        //if the currentMultiplier is not at the max, it continues
+        if(currentMultiplier - 1 < noteThresholds.Length)
+        {
+            //adds a note to the combo
+            mutliplierCombo++;
+
+            if (noteThresholds[currentMultiplier - 1] <= mutliplierCombo)
+            {
+                mutliplierCombo = 0;
+                currentMultiplier++;
+            }
+        }
+
+        //currentScore += scorePerNote * currentMultiplier;
+
+        scoreText.text = "Score: " + currentScore;
+
+        MultiplierText();
+
     }
 
     //method called when multiplier text should be updated

@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 8432009641227000714}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 0}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePressed: 0
-  keyNeedToPress: 276
+  keys: 
   earlyEffect: {fileID: 7324143192232303167, guid: 2f41ffd7aac8f0043ad6b392d69b43e4, type: 3}
   lateEffect: {fileID: 8209439048398549340, guid: a7b4e5c2cb3753e4cb6a8fcd03a7287f, type: 3}
   perfectEffect: {fileID: 7887229434737572086, guid: d0eb9dbda77c8534c9e2efdee1fdb7fc, type: 3}

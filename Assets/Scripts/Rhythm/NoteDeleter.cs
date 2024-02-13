@@ -10,15 +10,12 @@ public class NoteDeleter : MonoBehaviour
     //should be changed with new input system
     public KeyCode[] keys;
 
-    //effects attached to prefabs   
-    public GameObject earlyEffect, lateEffect, perfectEffect, missEffect;
-
     //for debugging with a new size screen (if needed)
     private float initialY;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //to be changed to new input
         keys = new KeyCode[4];
         keys[0] = KeyCode.LeftArrow;
         keys[1] = KeyCode.UpArrow;
@@ -28,7 +25,6 @@ public class NoteDeleter : MonoBehaviour
         initialY = transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (canBePressed)
@@ -40,25 +36,7 @@ public class NoteDeleter : MonoBehaviour
 
                 //Debug.Log("Initial position = " + initialY + ", current position = " + transform.position.y);
 
-                if (transform.position.y < 147.5)
-                {
-                    //Debug.Log("Early Hit");
-                    RhythmManager.instance.EarlyHit();
-                    Instantiate(earlyEffect, transform.position, earlyEffect.transform.rotation);
-                }
-                else if (transform.position.y > 152.5)
-                {
-                    //Debug.Log("Late Hit");
-                    RhythmManager.instance.LateHit();
-                    Instantiate(lateEffect, transform.position, lateEffect.transform.rotation);
-                }
-                else
-                {
-                    //Debug.Log("Perfect Hit");
-                    RhythmManager.instance.PerfectHit();
-                    Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
-                }
-
+                RhythmManager.instance.HitArea(this.gameObject);
             }
         }
     }
@@ -83,14 +61,14 @@ public class NoteDeleter : MonoBehaviour
             {
 
                 RhythmManager.instance.NoteMissed();
-                Instantiate(missEffect, transform.position, missEffect.transform.rotation);
-
+                
                 //disables the note
                 gameObject.SetActive(false);
             }
         }
     }
 
+    //determines if the correct note was hit by the correct key
     private bool KeyCheck()
     {
         bool check = false;
