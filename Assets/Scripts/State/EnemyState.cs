@@ -149,6 +149,7 @@ namespace YaoLu
 
         public override void Update()
         {
+            
             navMeshAgent.destination = playerTransform.position;
 
             float distanceToPlayer = Vector3.Distance(enemy.transform.position, playerTransform.position);

@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     public Transform playerTransform; // Reference to the player's transform
     public float wanderRadius = 8f;
     public float chaseDistance = 1f;
-    public float WanderSpeed = 2.5f;
-    public float ChaseSpeed = 5f;
+    public float WanderSpeed = 1f;
+    public float ChaseSpeed = 2f;
     public int life = 30;
     public int attackDmg = 10;
 
