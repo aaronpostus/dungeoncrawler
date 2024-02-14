@@ -9,9 +9,9 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent; // Reference to the NavMeshAgent
     public Transform playerTransform; // Reference to the player's transform
     public float wanderRadius = 8f;
-    public float chaseDistance = 1f;
+    public float chaseDistance = 8f;
     public float WanderSpeed = 1f;
-    public float ChaseSpeed = 2f;
+    public float ChaseSpeed = 4f;
     public int life = 30;
     public int attackDmg = 10;
 

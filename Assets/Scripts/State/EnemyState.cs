@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI; // For NavMeshAgent
+using UnityEngine.SceneManagement;
 
 namespace YaoLu
 {
@@ -168,32 +169,70 @@ namespace YaoLu
             {
                 // Close enough to engage in battle and player is visible, switch to battle state
                 enemy.ChangeState(enemy.battleState);
+                //SceneManager.LoadScene("MainMenu");
             }
         }
 
     }
-
+    public enum BattleOutcome
+    {
+        Win,
+        Lose
+    }
 
     public class EnemyBattleState : BaseEnemyState
     {
         private Enemy enemy;
+        private BattleOutcome outcome; // Add this line
 
-        public EnemyBattleState(Enemy enemy,Animator animator) : base(animator) {
-        this.enemy = enemy;
+        public EnemyBattleState(Enemy enemy, Animator animator) : base(animator)
+        {
+            this.enemy = enemy;
         }
+
         public override void OnEnter()
         {
-            
+            // Example battle logic that determines the outcome
+            // This should be replaced with your actual battle logic
+            DetermineBattleOutcome();
         }
 
-        private IEnumerator WaitAttack()
+        private void DetermineBattleOutcome()
         {
-            yield return new WaitForSeconds(1.2f);
+            // Placeholder logic for determining the outcome
+            // This needs to be replaced
+            if (Random.value > 0.5f) // Example condition
+            {
+                outcome = BattleOutcome.Win;
+                ProcessBattleOutcome();
+            }
+            else
+            {
+                outcome = BattleOutcome.Lose;
+                ProcessBattleOutcome();
+            }
         }
+
+        private void ProcessBattleOutcome()
+        {
+            if (outcome == BattleOutcome.Win)
+            {
+                // Player wins, destroy the enemy
+                GameObject.Destroy(enemy.gameObject);
+            }
+            else if (outcome == BattleOutcome.Lose)
+            {
+                // Player loses, load the main menu
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+
         public override void Update()
         {
+            // Battle
         }
     }
+
     public class EnemyHurtState : BaseEnemyState
     {
         public EnemyHurtState(Enemy enemy, Animator animator) : base(animator) { }
@@ -213,8 +252,7 @@ namespace YaoLu
         public EnemyDieState(Enemy enemy,Animator animator) : base(animator) { }
         public override void OnEnter()
         {
-            // Die
-            animator.Play("Die");
+         
         }
 
         public override void Update()
