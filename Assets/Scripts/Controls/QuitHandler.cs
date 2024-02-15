@@ -9,7 +9,7 @@ namespace YaoLu
             quitAction.performed += QuitAction_performed;
             quitAction.Enable();
         }
-        private void QuitAction_performed(InputAction.CallbackContext obj)
+        public void QuitAction_performed(InputAction.CallbackContext obj)
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
