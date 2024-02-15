@@ -211,14 +211,6 @@ namespace YaoLu
         {
             // play attack animation
             animator.Play("Kick");
-            fsm.StartCoroutine(WaitKick());
-        }
-
-        private IEnumerator WaitKick()
-        {
-            yield return new WaitForSeconds(1.2f);
-            fsm.footCollider.enabled = false;
-            fsm.isKicking = false;
         }
 
         public override void Update()

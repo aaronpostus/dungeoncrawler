@@ -192,38 +192,22 @@ namespace YaoLu
 
         public override void OnEnter()
         {
-            // Example battle logic that determines the outcome
-            // This should be replaced with your actual battle logic
-            DetermineBattleOutcome();
+            SceneManager.LoadScene("BattleScene");
+           // ProcessBattleOutcome()
         }
 
-        private void DetermineBattleOutcome()
-        {
-            // Placeholder logic for determining the outcome
-            // This needs to be replaced
-            if (Random.value > 0.5f) // Example condition
-            {
-                outcome = BattleOutcome.Win;
-                ProcessBattleOutcome();
-            }
-            else
-            {
-                outcome = BattleOutcome.Lose;
-                ProcessBattleOutcome();
-            }
-        }
+
 
         private void ProcessBattleOutcome()
         {
             if (outcome == BattleOutcome.Win)
             {
-                // Player wins, destroy the enemy
-                GameObject.Destroy(enemy.gameObject);
+                // Assuming you have a method to load the main scene with the player having defeated the enemy
+                SceneManager.LoadScene("SampleScene"); // Win returns to the main scene
             }
             else if (outcome == BattleOutcome.Lose)
             {
-                // Player loses, load the main menu
-                SceneManager.LoadScene("MainMenu");
+                //SceneManager.LoadScene("MainMenu");  Lose goes to the main menu
             }
         }
 
