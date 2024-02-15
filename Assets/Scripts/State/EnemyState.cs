@@ -192,23 +192,10 @@ namespace YaoLu
 
         public override void OnEnter()
         {
+            GameObject.Destroy(enemy.gameObject);
             SceneManager.LoadScene("BattleScene");
-           // ProcessBattleOutcome()
-        }
-
-
-
-        private void ProcessBattleOutcome()
-        {
-            if (outcome == BattleOutcome.Win)
-            {
-                // Assuming you have a method to load the main scene with the player having defeated the enemy
-                SceneManager.LoadScene("SampleScene"); // Win returns to the main scene
-            }
-            else if (outcome == BattleOutcome.Lose)
-            {
-                //SceneManager.LoadScene("MainMenu");  Lose goes to the main menu
-            }
+            
+            // ProcessBattleOutcome()
         }
 
         public override void Update()

@@ -28,7 +28,6 @@ public class Unit : MonoBehaviour
         {
             currentHP = maxHP;
         }
-        slider.value = currentHP;
     }
 
 }

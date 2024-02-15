@@ -101,7 +101,7 @@ public class BattleSystem : MonoBehaviour
         // Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
-        animator.Play("Kick");
+        //animator.Play("Kick");
         // Set HUD
         dialogueText.text = "The attack is successful!";
 

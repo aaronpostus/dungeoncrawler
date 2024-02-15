@@ -2740,7 +2740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359383133}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fa44edf7bf016c40bd09ba566598767, type: 3}
   m_Name: 
@@ -2758,12 +2758,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: dawda
-  unitLevel: 1
-  damage: 2
-  maxHP: 3
-  currentHP: 4
-  defense: 4
-  slider: {fileID: 0}
+  unitLevel: 2
+  damage: 5
+  maxHP: 30
+  currentHP: 30
+  defense: 0
+  slider: {fileID: 133318305}
 --- !u!1 &366864809
 GameObject:
   m_ObjectHideFlags: 0
@@ -10422,7 +10422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623241337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fa44edf7bf016c40bd09ba566598767, type: 3}
   m_Name: 
@@ -10641,7 +10641,6 @@ GameObject:
   - component: {fileID: 1694740018}
   - component: {fileID: 1694740017}
   - component: {fileID: 1694740016}
-  - component: {fileID: 1694740015}
   - component: {fileID: 1694740019}
   - component: {fileID: 1694740020}
   - component: {fileID: 1694740021}
@@ -10652,41 +10651,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1694740015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694740014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5114963a158b1044db3550660404976e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1694740017}
-  controller: {fileID: 0}
-  mainCamera: {fileID: 0}
-  speed: 3
-  crouchSpeed: 3
-  runSpeed: 12
-  jumpHeight: 2
-  gravity: -9.81
-  groundCheck: {fileID: 1860380168}
-  groundDistance: 0.5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  velocity: {x: 0, y: 0, z: 0}
-  lifeSlider: {fileID: 0}
-  life: 50
-  footCollider: {fileID: 1720886948}
-  isGrounded: 1
-  isJumping: 0
-  isFalling: 0
-  isKicking: 0
-  isHurting: 0
-  isDead: 0
 --- !u!143 &1694740016
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10786,12 +10750,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: fsefsef
-  unitLevel: 1
-  damage: 2
-  maxHP: 3
-  currentHP: 4
-  defense: 5
-  slider: {fileID: 0}
+  unitLevel: 2
+  damage: 5
+  maxHP: 20
+  currentHP: 20
+  defense: 0
+  slider: {fileID: 1398034434}
 --- !u!195 &1694740021
 NavMeshAgent:
   m_ObjectHideFlags: 0
