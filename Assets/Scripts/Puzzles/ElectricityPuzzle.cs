@@ -5,35 +5,62 @@ using UnityEngine;
 public class ElectricityPuzzle : MonoBehaviour
 {
     public Transform puzzleHierarchy;
-    public float rotationSpeed = 90f; // Adjust this to control the rotation speed (in degrees per second)
+    public float rotationSpeed = 90f; // Speed of rotation in degrees per second
+    public bool rotateOnStart = false; // Whether to start rotating when the game starts
 
     private bool isRotating = false;
+    private float startAngle; // Store the starting angle before rotating
+    private float targetAngle;
+
+    private void Update()
+    {
+        if (isRotating)
+        {
+            // Calculate the angle to rotate this frame
+            float step = rotationSpeed * Time.deltaTime;
+            float currentAngle = puzzleHierarchy.eulerAngles.y;
+            float angleToRotate = Mathf.MoveTowardsAngle(currentAngle, targetAngle, step);
+
+            // Rotate the object
+            puzzleHierarchy.eulerAngles = new Vector3(0, angleToRotate, 0);
+
+            // Check if rotation is complete
+            if (Mathf.Abs(targetAngle - angleToRotate) < 0.01f)
+            {
+                isRotating = false;
+            }
+        }
+    }
 
     public void RotateLeft()
     {
         if (!isRotating)
         {
-            StartCoroutine(RotateCoroutine(Quaternion.Euler(0, -90, 0)));
+            startAngle = puzzleHierarchy.eulerAngles.y;
+            targetAngle = startAngle - 90f;
+
+            // Ensure the angle is within [0, 360)
+            if (targetAngle < 0f)
+                targetAngle += 360f;
+
+            // Start rotating
+            isRotating = true;
         }
     }
 
-    private IEnumerator RotateCoroutine(Quaternion targetRotation)
+    public void RotateRight()
     {
-        isRotating = true;
-        Quaternion startRotation = puzzleHierarchy.rotation;
-        float t = 0f;
-
-        while (t < 1f)
+        if (!isRotating)
         {
-            t += Time.deltaTime * rotationSpeed / 90f; // Normalized time based on the rotation speed
-            puzzleHierarchy.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
-            yield return null;
-        }
+            startAngle = puzzleHierarchy.eulerAngles.y;
+            targetAngle = startAngle + 90f;
 
-        puzzleHierarchy.rotation = targetRotation; // Ensure we reach the exact target rotation
-        isRotating = false;
-    }
-    public void RotateRight() { 
-    
+            // Ensure the angle is within [0, 360)
+            if (targetAngle >= 360f)
+                targetAngle -= 360f;
+
+            // Start rotating
+            isRotating = true;
+        }
     }
 }
