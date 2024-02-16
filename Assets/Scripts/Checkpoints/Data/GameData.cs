@@ -13,8 +13,10 @@ public class GameData
     public Vector3 ballPosition;
 
     //checkpoint data
-    public bool[] visitedCheckpoints;
-    public bool[] currentlyVisitedCheckpoints;
+    public Dictionary<string, bool> checkpoints;
+
+    public List<string> checkpointKeys;
+    public List<bool> checkpointValues;
 
     //inital values of the game
     public GameData()
@@ -24,7 +26,13 @@ public class GameData
 
         this.ballPosition = new Vector3(5, 1, 2);
 
-        this.visitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
-        this.currentlyVisitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
+        checkpoints = new Dictionary<string, bool>();
+
+        checkpointKeys = new List<string>();
+        checkpointValues = new List<bool>();
+
+
+        //this.visitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
+        //this.currentlyVisitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
     }
 }
