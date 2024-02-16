@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -557,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.082808204, y: 0, z: 0, w: 0.9965655}
-  m_LocalPosition: {x: 0.483273, y: 1.6693733, z: -2.1756818}
+  m_LocalPosition: {x: 0.4832152, y: 1.6693733, z: -2.1756818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -783,7 +783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284612697}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 0.47575808, y: 1.668274, z: -2.2394443}
+  m_LocalPosition: {x: 0.4756774, y: 1.668274, z: -2.2394443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6742,6 +6742,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -25.830194
       objectReference: {fileID: 0}
+    - target: {fileID: 996772440746426573, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 1343659790105629562, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 13.329595
@@ -6818,6 +6822,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.158673
       objectReference: {fileID: 0}
+    - target: {fileID: 2109087539820045044, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 2145848226966887757, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -21.041203
@@ -6902,6 +6910,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 7798920817336447181}
+    - target: {fileID: 3926661364965883011, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
+    - target: {fileID: 4257553826541639074, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 4464799580916823989, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.98195094
@@ -6938,6 +6954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 49.18163
       objectReference: {fileID: 0}
+    - target: {fileID: 4644013671388078552, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 4715845212987958379, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 20.381897
@@ -7038,6 +7058,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -171.19554
       objectReference: {fileID: 0}
+    - target: {fileID: 6178023324791413949, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 6433664853057033251, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -50.954212
@@ -7078,6 +7102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -26.89343
       objectReference: {fileID: 0}
+    - target: {fileID: 6828024669490141146, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 7150976644276147875, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 36.456776
@@ -7160,12 +7188,7 @@ PrefabInstance:
       objectReference: {fileID: 7798920817336447181}
     - target: {fileID: 8261028921429204427, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'RightFoot'\n\tTransform
-        'LeftHandRing2'\n\tTransform 'LeftHandPinky3'\n\tTransform 'LeftHandMiddle3'\n\tTransform
-        'Spine2'\n\tTransform 'LeftHandRing3'\n\tTransform 'Neck'\n\tTransform 'Spine'\n\tTransform
-        'LeftHandMiddle1'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8281209662559351609, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7179,6 +7202,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.1646445
       objectReference: {fileID: 0}
+    - target: {fileID: 8328072043425158467, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
+    - target: {fileID: 8332811097015451056, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d78a59fa451c37a4e9a83d7503398097, type: 2}
     - target: {fileID: 8436326927830019860, guid: 2d02ecdc962fae143b88c832b08953cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.66
