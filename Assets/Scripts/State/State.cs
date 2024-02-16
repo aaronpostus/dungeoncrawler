@@ -37,7 +37,10 @@ namespace YaoLu
             currentState = newState;
             currentState.OnEnter();
         }
-
+        public IState getCurrentState()
+        {
+            return currentState;
+        }
         public void Update()
         {
             currentState?.Update();

@@ -25,7 +25,9 @@ public class SlidePuzzle
 
     PuzzlePiece currPiece;
     Vector3 destinationPos = Vector3.zero;
+#pragma warning disable CS0414 // The field 'SlidePuzzle.gazeAtPic' is assigned but its value is never used
     float opacity = 1f, gazeAtPic = 2f;
+#pragma warning restore CS0414 // The field 'SlidePuzzle.gazeAtPic' is assigned but its value is never used
     public bool ShouldShowColors()
     {
         return true;
