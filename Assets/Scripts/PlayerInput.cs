@@ -116,6 +116,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },{
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c67cfdf-9fd7-49b2-8373-53a3f9c2a7b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -272,6 +280,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Test-losehealth"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78f19eca-8c8e-43e3-b1e9-ca2552ace3d0"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -290,6 +309,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_Mute = m_Gameplay.FindAction("Mute", throwIfNotFound: true);
         m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
         m_Gameplay_Testlosehealth = m_Gameplay.FindAction("Test-losehealth", throwIfNotFound: true);
+        m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,6 +381,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Mute;
     private readonly InputAction m_Gameplay_OpenMenu;
     private readonly InputAction m_Gameplay_Testlosehealth;
+    private readonly InputAction m_Gameplay_OpenInventory;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -375,6 +396,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Mute => m_Wrapper.m_Gameplay_Mute;
         public InputAction @OpenMenu => m_Wrapper.m_Gameplay_OpenMenu;
         public InputAction @Testlosehealth => m_Wrapper.m_Gameplay_Testlosehealth;
+        public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +436,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Testlosehealth.started += instance.OnTestlosehealth;
             @Testlosehealth.performed += instance.OnTestlosehealth;
             @Testlosehealth.canceled += instance.OnTestlosehealth;
+            @OpenInventory.started += instance.OnOpenInventory;
+            @OpenInventory.performed += instance.OnOpenInventory;
+            @OpenInventory.canceled += instance.OnOpenInventory;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -448,6 +473,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Testlosehealth.started -= instance.OnTestlosehealth;
             @Testlosehealth.performed -= instance.OnTestlosehealth;
             @Testlosehealth.canceled -= instance.OnTestlosehealth;
+            @OpenInventory.started -= instance.OnOpenInventory;
+            @OpenInventory.performed -= instance.OnOpenInventory;
+            @OpenInventory.canceled -= instance.OnOpenInventory;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -477,5 +505,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMute(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
         void OnTestlosehealth(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
 }
