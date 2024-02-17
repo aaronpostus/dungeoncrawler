@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour, ISaveData
 {
-    public void LoadData(GameData data)
+    private Vector3 temp;
+
+    public void Start()
     {
-        this.transform.position = data.playerPosition;
-        this.transform.rotation = data.playerRotation; 
+        Debug.Log("THIS IS TEMP: " + temp.ToString());
+        this.transform.position = new Vector3(0f, 0f, 50f);
     }
 
-    public void SaveData(ref GameData data)
+    public void Update()
+    { 
+
+        if(this.transform.position.x == 0f && this.transform.position.z == 0f)
+        {
+            Debug.Log(this.transform.position.ToString());
+            this.gameObject.transform.position = temp;
+            Debug.Log(this.transform.position.ToString());
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        temp = data.playerPosition;
+        //this.transform.position = new Vector3(0f, 50f, 0f);
+        //this.transform.rotation = data.playerRotation; 
+    }
+
+    public void SaveData(GameData data)
     {
         data.playerPosition = this.transform.position;
-        data.playerRotation = this.transform.rotation;
+        //data.playerRotation = this.transform.rotation;
     }
 }

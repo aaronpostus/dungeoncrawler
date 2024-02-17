@@ -61,6 +61,7 @@ public class SaveGameManager : MonoBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
+        SaveGame();
     }
 
     public void NewGame()
@@ -103,7 +104,7 @@ public class SaveGameManager : MonoBehaviour
 
         foreach (ISaveData saveDataObject in saveDataObjects)
         {
-            saveDataObject.SaveData(ref gameData);
+            saveDataObject.SaveData(gameData);
         }
 
         SerializeCheckpoints();
@@ -150,5 +151,10 @@ public class SaveGameManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveGame();
     }
 }

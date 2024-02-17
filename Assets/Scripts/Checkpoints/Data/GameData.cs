@@ -7,7 +7,7 @@ public class GameData
 {
     //player data
     public Vector3 playerPosition;
-    public Quaternion playerRotation;
+    //public Quaternion playerRotation;
 
     //item data
     public Vector3 ballPosition;
@@ -22,7 +22,7 @@ public class GameData
     public GameData()
     {
         this.playerPosition = new Vector3();
-        this.playerRotation = new Quaternion();
+        //this.playerRotation = new Quaternion();
 
         this.ballPosition = new Vector3(5, 1, 2);
 

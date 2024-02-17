@@ -5,19 +5,14 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour, ISaveData
 {
 
-    public bool visited;
+    public bool visited = false;
     public bool currentlyVisited;
-
-    public void Start()
-    {
-        currentlyVisited = false;
-        visited = false;
-    }
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Exo Gray")
-        { 
+        {
+
             if (!visited)
             {
                 visited = true;
@@ -25,7 +20,7 @@ public class Checkpoint : MonoBehaviour, ISaveData
             }
 
             //need to figure out how to not save instantly when a game is loaded.
-            SaveGameManager.instance.SaveGame();
+            //SaveGameManager.instance.SaveGame();
         }
     }
 
@@ -47,7 +42,7 @@ public class Checkpoint : MonoBehaviour, ISaveData
         UpdateColor();
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.checkpoints.ContainsKey(this.name))
         {

@@ -9,7 +9,7 @@ public class BallData : MonoBehaviour, ISaveData
         this.transform.position = data.ballPosition;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.ballPosition = this.transform.position;
     }
