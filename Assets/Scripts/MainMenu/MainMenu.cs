@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject newGamePopUp;
     [SerializeField] private GameObject quitGamePopUp;
 
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject mainMenu;
+
     private void Start()
     {
         instance = this;
@@ -43,6 +46,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("SampleScene");
     }
 
+    public void OnOptionsClicked()
+    {
+        DisableMenuButtons();
+
+        mainMenu.SetActive(false);
+
+        optionsMenu.SetActive(true);
+    }
+
     public void OnQuitClicked()
     {
         DisableMenuButtons();
@@ -64,5 +76,15 @@ public class MainMenu : MonoBehaviour
         continueGameButton.interactable = true;
         quitGameButton.interactable = true;
         optionsButton.interactable = true;
+    }
+
+    //called in options menu OnReturnClicked method
+    public void Return()
+    {
+        EnableMenuButtons();
+
+        optionsMenu.SetActive(false);
+
+        mainMenu.SetActive(true);
     }
 }
