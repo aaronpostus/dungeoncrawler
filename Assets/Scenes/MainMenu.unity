@@ -629,6 +629,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1164205164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 126627265576800520, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+  m_PrefabInstance: {fileID: 820861689483319301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a144f715336c22144854024b59804cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345214777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6157033578639166655, guid: 9c51fe22c55d44c4f98b31e51583aed7, type: 3}
@@ -824,6 +835,34 @@ PrefabInstance:
     - target: {fileID: 1263953141425911152, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
       propertyPath: m_Name
       value: Kyle's Changes Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1164205164}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EnableMenuButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395814085681983657, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
       propertyPath: m_RootOrder
