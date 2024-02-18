@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YaoLu;
 
-public enum BattleSystemState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleSystemState { PLAYERTURN, ENEMYTURN, WON, LOST }
 
 
 public class BattleSystem : MonoBehaviour
@@ -14,11 +15,16 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
+    public GameObject mainCam;
+    public GameObject battleCam;
+
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
     Unit playerUnit;
     Unit enemyUnit;
+    FSMCtrl control;
+    Enemy enemyControl;
 
     public GameObject playerHUD;
     public Slider playerHP;
@@ -27,7 +33,7 @@ public class BattleSystem : MonoBehaviour
     public Animator animator;
     public Text dialogueText;
 
-    public BattleSystemState state { get; private set; }
+    public BattleSystemState state { get; set; }
 
 
     private Vector3 playerOriginalPosition;
@@ -35,8 +41,9 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
+
         playerHUD.SetActive(false);
-        state = BattleSystemState.START;
+        //state = BattleSystemState.START;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
@@ -56,16 +63,44 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        playerPrefab.transform.position = new Vector3(0,0,0);
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
+
 
         if (enemyPrefab != null)
         {
+            mainCam.tag = "Untagged";
+            battleCam.tag = "MainCamera";
+            mainCam.SetActive(false);
+            battleCam.SetActive(true);
+
+            playerPrefab.transform.position = new Vector3(0, 0, 0);
+            GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+            control = playerGO.GetComponent<FSMCtrl>();
+            control.enabled = false;
+            playerGO.transform.rotation = new Quaternion(0, 180, 0, 0);
+            playerUnit = playerGO.GetComponent<Unit>();
+
             enemyPrefab.transform.position = new Vector3(0, 0, 0);
-            GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-            enemyUnit = enemyGO.GetComponent<Unit>();
+            NavMeshAgent navMesh = enemyPrefab.GetComponent<NavMeshAgent>();
+            navMesh.enabled = false;
+            //GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+            
+
+            enemyPrefab.transform.position = enemyBattleStation.transform.position;
+            enemyUnit = enemyPrefab.GetComponent<Unit>();
+            enemyControl = enemyPrefab.GetComponent<Enemy>();
+            enemyControl.enabled = false;
             dialogueText.text = "A wild " + enemyUnit.unitName + " approaches";
+
+            playerHUD.SetActive(true);
+            playerHP.maxValue = playerUnit.maxHP;
+            enemyHP.maxValue = enemyUnit.maxHP;
+
+            state = BattleSystemState.PLAYERTURN;
+
+            yield return new WaitForSeconds(2f);
+
+            
+            PlayerTurn();
         }
         else
         {
@@ -73,19 +108,12 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "Error: No enemy encountered!";
             yield break; // Exit the coroutine early
         }
-
-        playerHUD.SetActive(true);
-        playerHP.maxValue = playerUnit.maxHP;
-        enemyHP.maxValue = enemyUnit.maxHP;
-
-        yield return new WaitForSeconds(2f);
-
-        state = BattleSystemState.PLAYERTURN;
-        PlayerTurn();
+        
     }
 
     void PlayerTurn()
     {
+        Debug.Log(state);
         dialogueText.text = "Choose an action:";
     }
     public void Run()
@@ -96,6 +124,7 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackButton()
     {
         Debug.Log("Attack");
+        Debug.Log(state);
         if (state != BattleSystemState.PLAYERTURN)
         {
             return;
@@ -189,6 +218,9 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "You were defeated...";
             yield return new WaitForSeconds(2f);
         }
+
+        //battleCam.enabled = false;
+        //mainCam.enabled = true;
 
         // Deactivate battle system UI or GameObject here
         this.gameObject.SetActive(false); // Assuming this script is attached to the battle system GameObject
