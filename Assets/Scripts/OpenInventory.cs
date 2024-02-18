@@ -50,7 +50,6 @@ public class OpenInventory : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         inventoryUI.SetActive(true);
-        Debug.Log(inventoryUI.name);
     }
 
     void DeactivateMenu()
