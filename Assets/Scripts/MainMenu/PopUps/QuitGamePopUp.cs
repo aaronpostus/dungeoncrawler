@@ -19,7 +19,6 @@ public class QuitGamePopUp : MonoBehaviour
     public void DoNotQuitGame()
     {
         this.gameObject.SetActive(false);
-        MainMenu.instance.EnableMenuButtons();
         EventSystem.current.SetSelectedGameObject(quitButton);
     }
 }
