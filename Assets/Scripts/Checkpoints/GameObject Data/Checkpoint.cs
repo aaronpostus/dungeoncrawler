@@ -20,7 +20,7 @@ public class Checkpoint : MonoBehaviour, ISaveData
             }
 
             //need to figure out how to not save instantly when a game is loaded.
-            //SaveGameManager.instance.SaveGame();
+            SaveGameManager.instance.SaveGame();
         }
     }
 
