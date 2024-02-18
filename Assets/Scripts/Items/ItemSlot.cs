@@ -22,8 +22,13 @@ public class ItemSlot : MonoBehaviour
         this.itemSprite = itemSprite;
         isFull = true;
 
-        quantityText.text = quantity.ToString();
         quantityText.enabled = true;
+        quantityText.text = quantity.ToString();
         itemImage.sprite = itemSprite;
+    }
+
+    public void UpdateCount(int newCount)
+    {
+        quantityText.text = newCount.ToString();
     }
 }

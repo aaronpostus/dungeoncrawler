@@ -42,10 +42,17 @@ public class Inventory : MonoBehaviour
         {
             items.Add(itemToAdd, 1);
         }
-        
+
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].isFull == false)
+            Debug.Log("item name: "+itemToAdd.name);
+            Debug.Log("slot name: " + itemSlots[i].name);
+            if (itemToAdd.name == itemSlots[i].itemName) 
+            {
+                itemSlots[i].UpdateCount(count);
+                Debug.Log("names match");
+                return;
+            } else if (itemSlots[i].isFull == false)
             {
                 itemSlots[i].AddItem(itemToAdd.name, count, itemToAdd.sprite);
                 return;
