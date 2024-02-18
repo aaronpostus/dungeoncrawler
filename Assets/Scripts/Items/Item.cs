@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
     public string name;
     public string type;
     public Sprite sprite;
+    [TextArea] public string description;
+
     private PlayerInput playerInput;
     private InputAction pickup;
     [SerializeField] private GameObject pickupPopup;

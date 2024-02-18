@@ -45,16 +45,13 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            Debug.Log("item name: "+itemToAdd.name);
-            Debug.Log("slot name: " + itemSlots[i].name);
             if (itemToAdd.name == itemSlots[i].itemName) 
             {
                 itemSlots[i].UpdateCount(count);
-                Debug.Log("names match");
                 return;
             } else if (itemSlots[i].isFull == false)
             {
-                itemSlots[i].AddItem(itemToAdd.name, count, itemToAdd.sprite);
+                itemSlots[i].AddItem(itemToAdd.name, count, itemToAdd.sprite, itemToAdd.description);
                 return;
             }
         }
