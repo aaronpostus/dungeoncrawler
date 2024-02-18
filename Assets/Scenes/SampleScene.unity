@@ -1018,6 +1018,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541326296}
   m_CullTransparentMesh: 1
+--- !u!1 &1544138999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3056541089725132181, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+  m_PrefabInstance: {fileID: 9025247297900933710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554952105
 GameObject:
   m_ObjectHideFlags: 3
@@ -7172,6 +7177,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 528090559912135924, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2419664318642614572, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2419664318699616821, guid: 6695824817cba9f408d9d417775ff432, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7232,6 +7273,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7740446879055907729, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1926125991}
+    - target: {fileID: 7740446879055907729, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnReturnClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740446879055907729, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9025247299541838029, guid: 6695824817cba9f408d9d417775ff432, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -7264,8 +7317,21 @@ PrefabInstance:
       propertyPath: hud
       value: 
       objectReference: {fileID: 1768218898}
+    - target: {fileID: 9025247299632910311, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1544138999}
+    - target: {fileID: 9025247299632910311, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+      propertyPath: optionsMenu
+      value: 
+      objectReference: {fileID: 9025247297900933711}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+--- !u!1 &9025247297900933711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2988089013356417111, guid: 6695824817cba9f408d9d417775ff432, type: 3}
+  m_PrefabInstance: {fileID: 9025247297900933710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9070944312121773966
 Transform:
   m_ObjectHideFlags: 0

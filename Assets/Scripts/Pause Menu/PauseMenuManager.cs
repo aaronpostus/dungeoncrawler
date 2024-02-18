@@ -15,6 +15,9 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject quitGamePopUp;
     [SerializeField] private GameObject mainMenuPopUp;
 
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject pauseMenu;
+
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject hud;
     [SerializeField] private bool paused;
@@ -41,7 +44,20 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnOptionsClicked()
     {
+        DisableMenuButtons();
 
+        pauseMenu.SetActive(false);
+
+        optionsMenu.SetActive(true);
+    }
+
+    public void OnReturnClicked()
+    {
+        EnableMenuButtons();
+
+        optionsMenu.SetActive(false);
+
+        pauseMenu.SetActive(true);
     }
 
     public void OnMainMenuClicked()
