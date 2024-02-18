@@ -11,12 +11,19 @@ public class Item : MonoBehaviour
 {
     public string name;
     public string type;
+    public Sprite typeSprite;
     public Sprite sprite;
     [TextArea] public string description;
 
     private PlayerInput playerInput;
     private InputAction pickup;
     [SerializeField] private GameObject pickupPopup;
+
+    //=====EQUIP ITEM SLOTS=====//
+    [SerializeField] private WeaponSlot weapon;
+    [SerializeField] private ArmorSlot armor;
+    [SerializeField] private BootSlot boot;
+    [SerializeField] private HeadSlot head;
 
     public Item(string itemName, string itemType, Sprite itemSprite)
     {
@@ -36,9 +43,12 @@ public class Item : MonoBehaviour
     }
     public void Pickup(InputAction.CallbackContext context)
     {
-        Inventory.instance.AddItem(this);
-        Destroy(gameObject);
-        pickupPopup.SetActive(false);
+        if (Time.timeScale != 0f)
+        {
+            Inventory.instance.AddItem(this);
+            Destroy(gameObject);
+            pickupPopup.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -57,5 +67,28 @@ public class Item : MonoBehaviour
     {
         pickup.Disable();
         pickupPopup.SetActive(false);
+    }
+
+    public void Equip()
+    {
+        switch (type)
+        {
+            case "Weapon":
+                Debug.Log(sprite.name);
+
+                weapon.EquipWeaponSlot(sprite);
+                break;
+            case "Armor":
+                armor.EquipArmorSlot(sprite);
+                break;
+            case "Boots":
+                boot.EquipBootSlot(sprite);
+                break;
+            case "Head":
+                head.EquipHeadSlot(sprite);
+                break;
+            default:
+                break;
+        }
     }
 }
