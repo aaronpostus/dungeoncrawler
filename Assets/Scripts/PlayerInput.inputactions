@@ -96,27 +96,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OpenInventory",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "8c67cfdf-9fd7-49b2-8373-53a3f9c2a7b8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PickUp",
-                    "type": "Button",
-                    "id": "29017606-2c64-45bf-aa96-f31c6ce24b85",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "EquipItem",
-                    "type": "Button",
-                    "id": "02da184a-cbc6-49a4-b9ef-7fe05f09e4bb",
+                    "id": "9bee93b8-6c21-4257-b65f-83073c11d9ac",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -280,34 +262,12 @@
                 },
                 {
                     "name": "",
-                    "id": "78f19eca-8c8e-43e3-b1e9-ca2552ace3d0",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenInventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "80a81479-5ff9-4682-9a60-d49285ffcb8c",
+                    "id": "81a6792e-625f-4974-98f0-3fc51d095ab8",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "906f560a-79c9-40b2-8c46-435b0ec092ae",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EquipItem",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

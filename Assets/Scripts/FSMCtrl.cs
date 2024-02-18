@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -75,6 +76,7 @@ namespace YaoLu
             playerInput.Gameplay.Sprint.started += _ => OnEnable();
             playerInput.Gameplay.Sprint.canceled += _ => OnEnable();
             playerInput.Gameplay.Crouch.performed += _ => OnEnable();
+            playerInput.Gameplay.Interact.performed += _ => OnEnable();
         }
         private void OnEnable()
         {
@@ -93,6 +95,10 @@ namespace YaoLu
             playerInput.Gameplay.Sprint.performed -= OnRun;
             playerInput.Gameplay.Crouch.performed -= OnCrouch;
             playerInput.Gameplay.Crouch.canceled -= OnCrouchRelease;
+        }
+
+        public void AddInteractListener(Action<InputAction.CallbackContext> interactListener) {
+            playerInput.Gameplay.Interact.performed += interactListener;
         }
         private void OnCrouch(InputAction.CallbackContext context)
         {

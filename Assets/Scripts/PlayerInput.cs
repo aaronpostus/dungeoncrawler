@@ -116,28 +116,11 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },{
-                    ""name"": ""OpenInventory"",
-                    ""type"": ""Button"",
-                    ""id"": ""8c67cfdf-9fd7-49b2-8373-53a3f9c2a7b8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PickUp"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""29017606-2c64-45bf-aa96-f31c6ce24b85"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""EquipItem"",
-                    ""type"": ""Button"",
-                    ""id"": ""02da184a-cbc6-49a4-b9ef-7fe05f09e4bb"",
+                    ""id"": ""9bee93b8-6c21-4257-b65f-83073c11d9ac"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -301,34 +284,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""78f19eca-8c8e-43e3-b1e9-ca2552ace3d0"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenInventory"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""80a81479-5ff9-4682-9a60-d49285ffcb8c"",
+                    ""id"": ""81a6792e-625f-4974-98f0-3fc51d095ab8"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PickUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""906f560a-79c9-40b2-8c46-435b0ec092ae"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EquipItem"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -349,9 +310,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_Mute = m_Gameplay.FindAction("Mute", throwIfNotFound: true);
         m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
         m_Gameplay_Testlosehealth = m_Gameplay.FindAction("Test-losehealth", throwIfNotFound: true);
-        m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
-        m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
-        m_Gameplay_EquipItem = m_Gameplay.FindAction("EquipItem", throwIfNotFound: true);
+        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -423,9 +382,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Mute;
     private readonly InputAction m_Gameplay_OpenMenu;
     private readonly InputAction m_Gameplay_Testlosehealth;
-    private readonly InputAction m_Gameplay_OpenInventory;
-    private readonly InputAction m_Gameplay_PickUp;
-    private readonly InputAction m_Gameplay_EquipItem;
+    private readonly InputAction m_Gameplay_Interact;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -440,9 +397,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Mute => m_Wrapper.m_Gameplay_Mute;
         public InputAction @OpenMenu => m_Wrapper.m_Gameplay_OpenMenu;
         public InputAction @Testlosehealth => m_Wrapper.m_Gameplay_Testlosehealth;
-        public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
-        public InputAction @PickUp => m_Wrapper.m_Gameplay_PickUp;
-        public InputAction @EquipItem => m_Wrapper.m_Gameplay_EquipItem;
+        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -482,15 +437,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Testlosehealth.started += instance.OnTestlosehealth;
             @Testlosehealth.performed += instance.OnTestlosehealth;
             @Testlosehealth.canceled += instance.OnTestlosehealth;
-            @OpenInventory.started += instance.OnOpenInventory;
-            @OpenInventory.performed += instance.OnOpenInventory;
-            @OpenInventory.canceled += instance.OnOpenInventory;
-            @PickUp.started += instance.OnPickUp;
-            @PickUp.performed += instance.OnPickUp;
-            @PickUp.canceled += instance.OnPickUp;
-            @EquipItem.started += instance.OnEquipItem;
-            @EquipItem.performed += instance.OnEquipItem;
-            @EquipItem.canceled += instance.OnEquipItem;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -525,15 +474,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Testlosehealth.started -= instance.OnTestlosehealth;
             @Testlosehealth.performed -= instance.OnTestlosehealth;
             @Testlosehealth.canceled -= instance.OnTestlosehealth;
-            @OpenInventory.started -= instance.OnOpenInventory;
-            @OpenInventory.performed -= instance.OnOpenInventory;
-            @OpenInventory.canceled -= instance.OnOpenInventory;
-            @PickUp.started -= instance.OnPickUp;
-            @PickUp.performed -= instance.OnPickUp;
-            @PickUp.canceled -= instance.OnPickUp;
-            @EquipItem.started -= instance.OnEquipItem;
-            @EquipItem.performed -= instance.OnEquipItem;
-            @EquipItem.canceled -= instance.OnEquipItem;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -563,8 +506,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMute(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
         void OnTestlosehealth(InputAction.CallbackContext context);
-        void OnOpenInventory(InputAction.CallbackContext context);
-        void OnPickUp(InputAction.CallbackContext context);
-        void OnEquipItem(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
