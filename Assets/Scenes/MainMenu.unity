@@ -535,63 +535,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a7ae7dff532e14ca87566e70a78988, type: 3}
---- !u!1001 &314903524
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1940558810519856785, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_Name
-      value: Kyle's Changes Main Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
 --- !u!1 &590360994
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,3 +814,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &820861689483319301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1263953141425911152, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_Name
+      value: Kyle's Changes Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133028851155114433, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3703132fb5f9c53419dffdda23d2b760, type: 3}
