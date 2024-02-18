@@ -13,8 +13,11 @@ public class DraggableNode : MonoBehaviour
 
     private void OnMouseDown()
     {
-        offset = gameObject.transform.position - GetMouseWorldPos();
-        isDragging = true;
+        if (!IsColliderOnCrystalLayer())
+        {
+            offset = gameObject.transform.position - GetMouseWorldPos();
+            isDragging = true;
+        }
     }
 
     private void OnMouseDrag()
@@ -41,5 +44,18 @@ public class DraggableNode : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = mainCamera.nearClipPlane;
         return mainCamera.ScreenToWorldPoint(mousePos);
+    }
+
+    private bool IsColliderOnCrystalLayer()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            return hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Crystals");
+        }
+
+        return false;
     }
 }
