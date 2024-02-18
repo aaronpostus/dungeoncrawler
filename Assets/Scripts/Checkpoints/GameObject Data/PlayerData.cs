@@ -25,7 +25,15 @@ public class PlayerData : MonoBehaviour, ISaveData
 
     public void LoadData(GameData data)
     {
+        CharacterController cc = GetComponent<CharacterController>();
+
+        cc.enabled = false;
+
         temp = data.playerPosition;
+        this.transform.position = temp;
+
+        cc.enabled = true;
+
         //this.transform.position = new Vector3(0f, 50f, 0f);
         //this.transform.rotation = data.playerRotation; 
     }
