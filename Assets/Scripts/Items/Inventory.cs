@@ -5,14 +5,15 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    public List<Item> items = new List<Item>();
+    public Dictionary<Item, int> items = new Dictionary<Item, int>();
 
     void Awake()
     {
         if (instance != null)
         {
             Destroy(gameObject);
-        } else
+        }
+        else
         {
             instance = this;
         }
@@ -22,19 +23,40 @@ public class Inventory : MonoBehaviour
     {
         bool itemExists = false;
 
-        foreach (Item item in items)
+        foreach (KeyValuePair<Item, int> item in items)
         {
-            if (item.name == itemToAdd.name)
+            if (item.Key == itemToAdd)
             {
-                item.count += itemToAdd.count;
+                Item temp = item.Key;
+                int count = item.Value + 1;
+                items.Remove(item.Key);
+                items.Add(temp, count);
                 itemExists = true;
                 break;
             }
         }
         if (!itemExists)
         {
-            items.Add(itemToAdd);
+            items.Add(itemToAdd, 1);
         }
-        Debug.Log(items.ToString());
+    }
+
+    public void RemoveItem(Item itemToRemove)
+    {
+        foreach (KeyValuePair<Item, int> item in items)
+        {
+            if (item.Key == itemToRemove)
+            {
+                Item temp = item.Key;
+                int count = item.Value - 1;
+                items.Remove(item.Key);
+                items.Add(temp, count);
+                if (item.Value <= 0)
+                {
+                    items.Remove(itemToRemove);
+                }
+                break;
+            }
+        }
     }
 }

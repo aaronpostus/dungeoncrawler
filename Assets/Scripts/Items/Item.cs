@@ -6,12 +6,12 @@ using static UnityEditor.Progress;
 public class Item : MonoBehaviour
 {
     public string name;
-    public int count;
+    public string type;
 
-    public Item(string itemName, int itemCount)
+    public Item(string itemName, string itemType)
     {
         name = itemName;
-        count = itemCount;
+        type = itemType;
     }
 
     void OnTriggerEnter(Collider other)
