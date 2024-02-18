@@ -5,11 +5,17 @@ public class NodePair : MonoBehaviour
 {
     public GameObject objectA;
     public GameObject objectB;
+    public Crystal.CrystalType type;
     public LayerMask objectLayerMask; // Optional: you can specify a layer mask to filter objects
-
-    public List<GameObject> FindObjectsBetween()
+    private List<Crystal> gameObjs;
+    
+    public void Awake()
     {
-        List<GameObject> objectsBetween = new List<GameObject>();
+        gameObjs = new List<Crystal>();
+    }
+    public List<Crystal> FindObjectsBetween()
+    {
+        List<Crystal> objectsBetween = new List<Crystal>();
 
         Vector3 direction = objectB.transform.position - objectA.transform.position;
         float distance = direction.magnitude;
@@ -17,24 +23,13 @@ public class NodePair : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            GameObject obj = hit.collider.gameObject;
+            Crystal obj = hit.collider.gameObject.GetComponent<Crystal>();
             // Exclude objectA and objectB themselves
-            if (obj != objectA && obj != objectB)
+            if (obj != objectA && obj != objectB && obj.GetType() == type)
             {
                 objectsBetween.Add(obj);
             }
         }
-
         return objectsBetween;
-    }
-
-    // Example usage
-    public void ListObjectsBetween()
-    {
-        List<GameObject> objectsBetween = FindObjectsBetween();
-        foreach (GameObject obj in objectsBetween)
-        {
-            Debug.Log(obj.name + " is between " + objectA.name + " and " + objectB.name);
-        }
     }
 }
