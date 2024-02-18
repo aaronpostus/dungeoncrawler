@@ -82,10 +82,12 @@ public class Inventory : MonoBehaviour
             if (name == itemSlots[i].itemName)
             {
                 itemSlots[i].UpdateCount(count);
-            }
-            if (count <= 0)
-            {
-                itemSlots[i].RemoveItem();
+
+                if (count <= 0)
+                {
+                    itemSlots[i].RemoveItem();
+                }
+                break;
             }
         }
     }

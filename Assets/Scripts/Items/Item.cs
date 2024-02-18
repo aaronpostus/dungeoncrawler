@@ -74,8 +74,6 @@ public class Item : MonoBehaviour
         switch (type)
         {
             case "Weapon":
-                Debug.Log(sprite.name);
-
                 weapon.EquipWeaponSlot(sprite);
                 break;
             case "Armor":
