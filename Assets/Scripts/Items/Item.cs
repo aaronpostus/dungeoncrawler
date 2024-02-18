@@ -18,6 +18,7 @@ public class Item : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction pickup;
     [SerializeField] private GameObject pickupPopup;
+    [SerializeField] private GameObject playerWeapon;
 
     //=====EQUIP ITEM SLOTS=====//
     [SerializeField] private WeaponSlot weapon;
@@ -74,6 +75,7 @@ public class Item : MonoBehaviour
         switch (type)
         {
             case "Weapon":
+                playerWeapon.SetActive(true);
                 weapon.EquipWeaponSlot(sprite);
                 break;
             case "Armor":
