@@ -19,6 +19,8 @@ public class Crystal : MonoBehaviour
     public void StopPowering() {
         particles.Stop();
     }
-
+    public bool IsPowered() {
+        return particles.isPlaying;
+    }
 }
 

@@ -8,6 +8,7 @@ public class ElectricityPuzzle : MonoBehaviour
     public float rotationSpeed = 90f; // Speed of rotation in degrees per second
     public bool rotateOnStart = false; // Whether to start rotating when the game starts
     public List<NodePair> nodePairs;
+    public List<Crystal> allCrystals;
 
     private List<Crystal> crystals = new List<Crystal>();
     private bool isRotating = false;
@@ -66,6 +67,12 @@ public class ElectricityPuzzle : MonoBehaviour
         // Update the oldCrystals list with the updatedCrystals list for the next frame
         crystals = new List<Crystal>(updatedCrystals);
 
+        foreach (Crystal crystal in allCrystals) {
+            if (!crystal.IsPowered()) {
+                return;
+            }
+        }
+        Debug.Log("Solved");
     }
 
     public void RotateLeft()
