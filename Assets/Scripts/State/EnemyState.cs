@@ -91,11 +91,12 @@ namespace YaoLu
         {
             base.OnEnter();
             animator.Play("Walk");
-            navMeshAgent.isStopped = false;
+            //navMeshAgent.isStopped = false;
             timer = 0f;
             wanderDuration = Random.Range(2f, 5f); // Wander for 2-5 seconds
-                                                   // Move forward in the currently facing direction
-            navMeshAgent.SetDestination(enemy.transform.position + enemy.transform.forward * wanderRadius);
+                       
+            // Move forward in the currently facing direction
+            //navMeshAgent.SetDestination(enemy.transform.position + enemy.transform.forward * wanderRadius);
         }
 
         public override void Update()
@@ -126,7 +127,7 @@ namespace YaoLu
         public override void OnExit()
         {
             base.OnExit();
-            navMeshAgent.isStopped = false ; // Ensure the agent stops moving when exiting this state
+            //navMeshAgent.isStopped = false ; // Ensure the agent stops moving when exiting this state
         }
     }
 
@@ -138,71 +139,138 @@ namespace YaoLu
     {
         private Enemy enemy;
 
-        public EnemyChasingState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, Transform playerTransform,
-            float chaseDistance) : base(animator, navMeshAgent, playerTransform, 0, chaseDistance) {
+        public EnemyChasingState(Enemy enemy, Animator animator, NavMeshAgent navMeshAgent, Transform playerTransform, float chaseDistance)
+            : base(animator, navMeshAgent, playerTransform, 0, chaseDistance)
+        {
             this.enemy = enemy;
         }
 
         public override void OnEnter()
         {
+            base.OnEnter();
             animator.Play("Run");
+            if (navMeshAgent != null && navMeshAgent.enabled)
+            {
+                navMeshAgent.isStopped = false;
+            }
         }
 
         public override void Update()
         {
-            
-            navMeshAgent.destination = playerTransform.position;
+            if (navMeshAgent == null || !navMeshAgent.enabled) return;
 
             float distanceToPlayer = Vector3.Distance(enemy.transform.position, playerTransform.position);
+            if (distanceToPlayer <= chaseDistance)
+            {
+                navMeshAgent.destination = playerTransform.position;
+            }
 
-            // Line-of-sight check
             RaycastHit hit;
             Vector3 directionToPlayer = playerTransform.position - enemy.transform.position;
-            bool playerVisible = Physics.Raycast(enemy.transform.position, directionToPlayer.normalized, out hit, chaseDistance) && hit.transform == playerTransform;
-
-            if (distanceToPlayer > chaseDistance || !playerVisible)
+            if (Physics.Raycast(enemy.transform.position, directionToPlayer.normalized, out hit, chaseDistance))
             {
-                // Player escaped or is not in direct line of sight, switch back to wander state
-                enemy.ChangeState(enemy.wanderState);
-            }
-            else if (distanceToPlayer < 0.2f && playerVisible) // Ensuring player is still visible
-            {
-                // Close enough to engage in battle and player is visible, switch to battle state
-                enemy.ChangeState(enemy.battleState);
-                //SceneManager.LoadScene("MainMenu");
+                if (hit.transform == playerTransform)
+                {
+                    if (distanceToPlayer < 0.2f)
+                    {
+                        enemy.ChangeState(enemy.battleState);
+                    }
+                }
             }
         }
 
+        public override void OnExit()
+        {
+            base.OnExit();
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.isStopped = true; // Ensure the agent stops moving when exiting this state
+            }
+        }
     }
-    public enum BattleOutcome
-    {
-        Win,
-        Lose
-    }
+
 
     public class EnemyBattleState : BaseEnemyState
     {
         private Enemy enemy;
-        private BattleOutcome outcome; // Add this line
+        public BattleSystem battleSystemPrefab; // Reference to a prefab that includes the BattleSystem script
+        private BattleSystem battleSystemInstance;
 
-        public EnemyBattleState(Enemy enemy, Animator animator) : base(animator)
+        public EnemyBattleState(Enemy enemy, Animator animator, BattleSystem battleSystemPrefab)
+            : base(animator)
         {
             this.enemy = enemy;
+            this.battleSystemPrefab = battleSystemPrefab;
         }
 
         public override void OnEnter()
         {
-            GameObject.Destroy(enemy.gameObject);
-            SceneManager.LoadScene("BattleScene");
-            
-            // ProcessBattleOutcome()
+            base.OnEnter();
+            // Ensure the NavMeshAgent is disabled correctly
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = false;
+            }
+            if (battleSystemInstance == null)
+            {
+                battleSystemInstance = GameObject.Instantiate(battleSystemPrefab);
+                // Pass the current enemy to the battle system
+                battleSystemInstance.SetEncounteredEnemy(enemy.gameObject);
+            }
+            else
+            {
+                // Initialize or reactivate the battle system with the current enemy
+                battleSystemInstance.gameObject.SetActive(true);
+                battleSystemInstance.SetEncounteredEnemy(enemy.gameObject);
+                battleSystemInstance.StartBattle();
+            }
         }
+
 
         public override void Update()
         {
-            // Battle
+            if (battleSystemInstance != null)
+            {
+                switch (battleSystemInstance.state)
+                {
+                    case BattleSystemState.WON:
+                        ProcessWin();
+                        break;
+                    case BattleSystemState.LOST:
+                        ProcessLoss();
+                        break;
+                }
+            }
         }
-    }
+
+
+        private void ProcessWin()
+        {
+            // Destroy the enemy and clean up the battle
+            GameObject.Destroy(enemy.gameObject);
+            GameObject.Destroy(battleSystemInstance.gameObject); // Clean up the battle system instance
+            // Transition back to another state as needed
+        }
+
+        private void ProcessLoss()
+        {
+            // Handle player defeat, e.g., restart the level, show a defeat screen, etc.
+            GameObject.Destroy(battleSystemInstance.gameObject); // Clean up the battle system instance
+            SceneManager.LoadScene("MainMenu"); // For example, return to the main menu
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            // Re-enable the NavMeshAgent when exiting the battle state
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = true;
+                // Ensure the enemy is placed on the NavMesh. You might need to manually set the position or use NavMesh.SamplePosition
+            }
+        }
+    
+}
 
     public class EnemyHurtState : BaseEnemyState
     {

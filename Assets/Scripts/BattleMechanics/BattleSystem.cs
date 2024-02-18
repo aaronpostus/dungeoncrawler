@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YaoLu;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleSystemState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+
 
 public class BattleSystem : MonoBehaviour
 {
@@ -22,51 +25,69 @@ public class BattleSystem : MonoBehaviour
     public Slider enemyHP;
 
     public Animator animator;
+    public Text dialogueText;
 
-    [SerializeField]public Text dialogueText;
+    public BattleSystemState state { get; private set; }
 
-    public BattleState state;
-    // Start is called before the first frame update
+
+    private Vector3 playerOriginalPosition;
+    private Vector3 enemyOriginalPosition;
+
     void Start()
     {
-        state = BattleState.START;
+        playerHUD.SetActive(false);
+        state = BattleSystemState.START;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        // Assuming 'SetEncounteredEnemy' was called before starting the battle scene
+        StartCoroutine(SetupBattle());
+    }
+
+    public void SetEncounteredEnemy(GameObject encounteredEnemyPrefab)
+    {
+        enemyPrefab = encounteredEnemyPrefab; // Set the encountered enemy prefab
+    }
+    public void StartBattle()
+    {
+        this.gameObject.SetActive(true);
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
+        playerPrefab.transform.position = new Vector3(0,0,0);
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Unit>();
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyGO.GetComponent<Unit>();
-
-        dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
+        if (enemyPrefab != null)
+        {
+            enemyPrefab.transform.position = new Vector3(0, 0, 0);
+            GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+            dialogueText.text = "A wild " + enemyUnit.unitName + " approaches";
+        }
+        else
+        {
+            // Handle case where no enemy prefab is set
+            dialogueText.text = "Error: No enemy encountered!";
+            yield break; // Exit the coroutine early
+        }
 
         playerHUD.SetActive(true);
         playerHP.maxValue = playerUnit.maxHP;
         enemyHP.maxValue = enemyUnit.maxHP;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
-        state = BattleState.PLAYERTURN;
-        //DEBUG
-        Debug.Log("Game setup complete");
-
+        state = BattleSystemState.PLAYERTURN;
         PlayerTurn();
     }
 
     void PlayerTurn()
     {
-
-        Debug.Log("Player Turn began");
         dialogueText.text = "Choose an action:";
-
-
     }
-
     public void Run()
     {
 
@@ -75,7 +96,7 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackButton()
     {
         Debug.Log("Attack");
-        if (state != BattleState.PLAYERTURN)
+        if (state != BattleSystemState.PLAYERTURN)
         {
             return;
         }
@@ -85,7 +106,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnHealButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state != BattleSystemState.PLAYERTURN)
         {
             return;
         }
@@ -101,7 +122,7 @@ public class BattleSystem : MonoBehaviour
         // Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
-        //animator.Play("Kick");
+        animator.Play("Kick");
         // Set HUD
         dialogueText.text = "The attack is successful!";
 
@@ -111,13 +132,13 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             // End battle
-            state = BattleState.WON;
+            state = BattleSystemState.WON;
             StartCoroutine(EndBattle());
         }
         else
         {
             // Enemys turn
-            state = BattleState.ENEMYTURN;
+            state = BattleSystemState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 
@@ -132,7 +153,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.ENEMYTURN;
+        state = BattleSystemState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
 
@@ -147,40 +168,39 @@ public class BattleSystem : MonoBehaviour
 
         if (isDead)
         {
-            state = BattleState.LOST;
+            state = BattleSystemState.LOST;
             StartCoroutine(EndBattle());
         }
         else
         {
-            state = BattleState.PLAYERTURN;
+            state = BattleSystemState.PLAYERTURN;
             PlayerTurn();
         }
     }
-
     IEnumerator EndBattle()
     {
-        if (state == BattleState.WON)
+        if (state == BattleSystemState.WON)
         {
             dialogueText.text = "You won!";
-            SceneManager.LoadScene("SampleScene");
+            yield return new WaitForSeconds(2f);
         }
-        else if (state == BattleState.LOST)
+        else if (state == BattleSystemState.LOST)
         {
             dialogueText.text = "You were defeated...";
-            SceneManager.LoadScene("MainMenu");
+            yield return new WaitForSeconds(2f);
         }
-        yield return new WaitForSeconds(3f);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        playerHUD.SetActive(false);
+
+        // Deactivate battle system UI or GameObject here
+        this.gameObject.SetActive(false); // Assuming this script is attached to the battle system GameObject
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
+
 
     float RhythmAttack()
     {
-        float multiplier = 1;
-        return multiplier;
+        // Implement rhythm attack logic
+        return 1f; 
     }
-
-
-
 }
