@@ -9,7 +9,7 @@ public class PlayerData : MonoBehaviour, ISaveData
     public void Start()
     {
         Debug.Log("THIS IS TEMP: " + temp.ToString());
-        this.transform.position = new Vector3(0f, 0f, 50f);
+        //this.transform.position = new Vector3(0f, 0f, 50f);
     }
 
     public void Update()
