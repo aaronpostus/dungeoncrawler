@@ -536,7 +536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.082808204, y: 0, z: 0, w: 0.9965655}
-  m_LocalPosition: {x: 0.54585683, y: 1.668274, z: -2.2394443}
+  m_LocalPosition: {x: 0.483273, y: 1.6693733, z: -2.1756818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -762,7 +762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284612697}
   m_LocalRotation: {x: 0.32326594, y: 0, z: 0, w: 0.94630814}
-  m_LocalPosition: {x: 0.54585683, y: 1.668274, z: -2.2394443}
+  m_LocalPosition: {x: 0.47575808, y: 1.668274, z: -2.2394443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -779,7 +779,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 70438479554716642, guid: f2a7ae7dff532e14ca87566e70a78988, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 70438479554716642, guid: f2a7ae7dff532e14ca87566e70a78988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6101,7 +6101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776453435064735606, guid: 55c9cb658be2a5d48b64919f500f0b56, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6776453435064735606, guid: 55c9cb658be2a5d48b64919f500f0b56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6376,6 +6376,7 @@ GameObject:
   - component: {fileID: 7798920817336447183}
   - component: {fileID: 7798920817336447182}
   - component: {fileID: 7798920817336447184}
+  - component: {fileID: 7798920817336447185}
   m_Layer: 7
   m_Name: Exo Gray
   m_TagString: Player
@@ -6580,7 +6581,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a4e0f72435d94914ab8af6c2fa269cd8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -6623,6 +6624,22 @@ MonoBehaviour:
   isKicking: 0
   isHurting: 0
   isDead: 0
+--- !u!54 &7798920817336447185
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453604190347897463}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &7879411121877339500
 Transform:
   m_ObjectHideFlags: 0

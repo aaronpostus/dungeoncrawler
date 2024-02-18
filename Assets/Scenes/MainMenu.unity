@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -485,6 +485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 70438479554716640, guid: f2a7ae7dff532e14ca87566e70a78988, type: 3}
+      propertyPath: fileName
+      value: data.game
+      objectReference: {fileID: 0}
     - target: {fileID: 70438479554716642, guid: f2a7ae7dff532e14ca87566e70a78988, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -545,6 +549,10 @@ PrefabInstance:
     - target: {fileID: 1940558810519856785, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
       propertyPath: m_Name
       value: Kyle's Changes Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769332490669515504, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
+      propertyPath: click
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6807380388306405920, guid: 8cea7fe3d1e562c4787b83fd97c29755, type: 3}
       propertyPath: m_RootOrder
