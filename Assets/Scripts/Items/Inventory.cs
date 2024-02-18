@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Inventory : MonoBehaviour
 
         foreach (KeyValuePair<Item, int> item in items)
         {
-            if (item.Key == itemToAdd)
+            if (item.Key.name == itemToAdd.name)
             {
                 Item temp = item.Key;
                 int count = item.Value + 1;
@@ -39,13 +40,14 @@ public class Inventory : MonoBehaviour
         {
             items.Add(itemToAdd, 1);
         }
+        Debug.Log("count: "+ items.Count);
     }
 
     public void RemoveItem(Item itemToRemove)
     {
         foreach (KeyValuePair<Item, int> item in items)
         {
-            if (item.Key == itemToRemove)
+            if (item.Key.name == itemToRemove.name)
             {
                 Item temp = item.Key;
                 int count = item.Value - 1;
