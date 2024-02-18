@@ -11,9 +11,17 @@ public class Item : MonoBehaviour
 {
     public string name;
     public string type;
+    public Sprite sprite;
     private PlayerInput playerInput;
     private InputAction pickup;
     [SerializeField] private GameObject pickupPopup;
+
+    public Item(string itemName, string itemType, Sprite itemSprite)
+    {
+        name = itemName;
+        type = itemType;
+        sprite = itemSprite;
+    }
 
     private void Awake()
     {
@@ -29,12 +37,6 @@ public class Item : MonoBehaviour
         Inventory.instance.AddItem(this);
         Destroy(gameObject);
         pickupPopup.SetActive(false);
-    }
-
-    public Item(string itemName, string itemType)
-    {
-        name = itemName;
-        type = itemType;
     }
 
     void OnTriggerEnter(Collider other)

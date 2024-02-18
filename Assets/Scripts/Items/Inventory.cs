@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public Dictionary<Item, int> items = new Dictionary<Item, int>();
+    public ItemSlot[] itemSlots;
 
     void Awake()
     {
@@ -23,13 +24,14 @@ public class Inventory : MonoBehaviour
     public void AddItem(Item itemToAdd)
     {
         bool itemExists = false;
-
+        int count = 1;
+        
         foreach (KeyValuePair<Item, int> item in items)
         {
             if (item.Key.name == itemToAdd.name)
             {
                 Item temp = item.Key;
-                int count = item.Value + 1;
+                count = item.Value + 1;
                 items.Remove(item.Key);
                 items.Add(temp, count);
                 itemExists = true;
@@ -40,7 +42,15 @@ public class Inventory : MonoBehaviour
         {
             items.Add(itemToAdd, 1);
         }
-        Debug.Log("count: "+ items.Count);
+        
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].isFull == false)
+            {
+                itemSlots[i].AddItem(itemToAdd.name, count, itemToAdd.sprite);
+                return;
+            }
+        }
     }
 
     public void RemoveItem(Item itemToRemove)
