@@ -11,14 +11,13 @@ public class NodePair : MonoBehaviour
     {
         List<GameObject> objectsBetween = new List<GameObject>();
 
-        Vector3 minPosition = Vector3.Min(objectA.transform.position, objectB.transform.position);
-        Vector3 maxPosition = Vector3.Max(objectA.transform.position, objectB.transform.position);
+        Vector3 direction = objectB.transform.position - objectA.transform.position;
+        float distance = direction.magnitude;
+        RaycastHit[] hits = Physics.RaycastAll(objectA.transform.position, direction, distance, objectLayerMask);
 
-        Collider[] colliders = Physics.OverlapBox((minPosition + maxPosition) / 2f, (maxPosition - minPosition) / 2f, Quaternion.identity, objectLayerMask);
-
-        foreach (Collider collider in colliders)
+        foreach (RaycastHit hit in hits)
         {
-            GameObject obj = collider.gameObject;
+            GameObject obj = hit.collider.gameObject;
             // Exclude objectA and objectB themselves
             if (obj != objectA && obj != objectB)
             {
