@@ -13,6 +13,7 @@ public class MainMenuPopUp : MonoBehaviour
     public void ReturnToMainMenu()
     {
         LoadGameManager.instance.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void DoNotReturnToMainMenu()
