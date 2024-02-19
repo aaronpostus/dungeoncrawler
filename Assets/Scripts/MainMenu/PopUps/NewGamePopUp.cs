@@ -13,7 +13,9 @@ public class NewGamePopUp : MonoBehaviour
     {
         SaveGameManager.instance.NewGame();
 
-        SceneManager.LoadSceneAsync("SampleScene");
+        //SceneManager.LoadSceneAsync("SampleScene");
+
+        LoadGameManager.instance.LoadScene("SampleScene");
     }
 
     public void DoNotStartNewGame()
