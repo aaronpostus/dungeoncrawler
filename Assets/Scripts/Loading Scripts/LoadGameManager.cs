@@ -8,7 +8,7 @@ public class LoadGameManager : MonoBehaviour
 {
     public static LoadGameManager instance { get; private set; }
 
-    float currentProgress;
+    private float currentProgress;
 
     public void Start()
     {
@@ -42,11 +42,17 @@ public class LoadGameManager : MonoBehaviour
         do
         {
             await Task.Delay(100);
+            currentProgress = operation.progress;
 
         } while (operation.progress < 0.9f);
 
         await Task.Delay(5000);
 
         operation.allowSceneActivation = true;
+    }
+
+    public float Progress()
+    {
+        return currentProgress;
     }
 }
