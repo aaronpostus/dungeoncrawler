@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using YaoLu;
 
 public class CircuitBreaker : MonoBehaviour
@@ -39,7 +40,7 @@ public class CircuitBreaker : MonoBehaviour
     {
         if (playerWithinCollider)
         {
-            Debug.Log("Interact method called!");
+            SceneManager.LoadScene("ElectricityScene");
         }
     }
 

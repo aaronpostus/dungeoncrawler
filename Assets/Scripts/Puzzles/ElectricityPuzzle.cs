@@ -21,6 +21,7 @@ public class ElectricityPuzzle : MonoBehaviour
     public float rotationDuration = 5f;
     public TextMeshProUGUI uiText;
     public string nextSceneName;
+    public PuzzleData puzzleData;
     IEnumerator RotateObject()
     {
         float elapsedTime = 0f;
@@ -43,7 +44,11 @@ public class ElectricityPuzzle : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
     }
 
-
+    private void Awake()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     private void Update()
     {
@@ -116,8 +121,7 @@ public class ElectricityPuzzle : MonoBehaviour
         // Start rotating the object
         StartCoroutine(RotateObject());
         uiText.enabled = true;
-
-
+        puzzleData.solved = true;
     }
 
     public void RotateLeft()
