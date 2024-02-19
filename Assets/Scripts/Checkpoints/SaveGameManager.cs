@@ -13,7 +13,6 @@ public class SaveGameManager : MonoBehaviour
 
     [SerializeField] private string fileName;
 
-
     private GameData gameData;
 
     private List<ISaveData> saveDataObjects;
@@ -101,6 +100,11 @@ public class SaveGameManager : MonoBehaviour
         SerializeCheckpoints();
 
         dataHandler.Save(gameData);
+    }
+
+    public void DeleteSave()
+    {
+        dataHandler.Delete();
     }
 
     private List<ISaveData> FindAllISaveDataObjects()
