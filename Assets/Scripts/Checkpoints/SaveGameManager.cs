@@ -53,10 +53,7 @@ public class SaveGameManager : MonoBehaviour
         Debug.Log("Scene Loaded");
         this.saveDataObjects = FindAllISaveDataObjects();
 
-        if(this.gameData == null)
-        {
-            LoadGame();
-        }
+        LoadGame();
     }
 
     public void NewGame()

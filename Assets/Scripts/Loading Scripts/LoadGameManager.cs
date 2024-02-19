@@ -12,6 +12,13 @@ public class LoadGameManager : MonoBehaviour
 
     public void Start()
     {
+        if (instance != null)
+        {
+            Debug.LogError("Found more than one Load Game Manager in the scene. Newest one was destroyed.");
+            Destroy(this.gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(this.gameObject);
 
         instance = this;

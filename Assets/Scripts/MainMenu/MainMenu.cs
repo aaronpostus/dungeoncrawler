@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
         {
             SaveGameManager.instance.NewGame();
 
-            SceneManager.LoadSceneAsync("SampleScene");
+            LoadGameManager.instance.LoadScene("SampleScene");
         }
     }
 
@@ -51,8 +51,7 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
 
-
-        SceneManager.LoadSceneAsync("SampleScene");
+        LoadGameManager.instance.LoadScene("SampleScene");
     }
 
     public void OnOptionsClicked()

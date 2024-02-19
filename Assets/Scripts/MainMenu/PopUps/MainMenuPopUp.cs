@@ -12,7 +12,7 @@ public class MainMenuPopUp : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        pauseMenuManager.gameObject.GetComponent<Loading>().SwitchScene();
+        LoadGameManager.instance.LoadScene("MainMenu");
     }
 
     public void DoNotReturnToMainMenu()
