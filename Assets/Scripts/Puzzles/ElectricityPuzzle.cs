@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ElectricityPuzzle : MonoBehaviour
 {
@@ -14,9 +16,40 @@ public class ElectricityPuzzle : MonoBehaviour
     private bool isRotating = false;
     private float startAngle; // Store the starting angle before rotating
     private float targetAngle;
+    private bool solved = false;
+
+    public float rotationDuration = 5f;
+    public TextMeshProUGUI uiText;
+    public string nextSceneName;
+    IEnumerator RotateObject()
+    {
+        float elapsedTime = 0f;
+        Quaternion startRotation = puzzleParent.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, 360);
+
+        while (elapsedTime < rotationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / rotationDuration);
+            puzzleParent.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+            yield return null;
+        }
+
+
+        // Wait for a few seconds
+        yield return new WaitForSeconds(1f);
+
+        // Transition to the next scene
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+
 
     private void Update()
     {
+        if (solved) {
+            return;
+        }
         if (isRotating)
         {
             // Calculate the angle to rotate this frame
@@ -72,7 +105,19 @@ public class ElectricityPuzzle : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("Solved");
+
+        // Delete all DraggableNode scripts in the scene
+        DraggableNode[] draggableNodes = FindObjectsOfType<DraggableNode>();
+        foreach (DraggableNode node in draggableNodes)
+        {
+            Destroy(node);
+        }
+        solved = true;
+        // Start rotating the object
+        StartCoroutine(RotateObject());
+        uiText.enabled = true;
+
+
     }
 
     public void RotateLeft()
