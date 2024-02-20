@@ -49,7 +49,7 @@ public class OpenMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         hud.SetActive(false);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         AudioListener.pause = true;
         pauseUI.SetActive(true);
     }
@@ -59,7 +59,7 @@ public class OpenMenu : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState= CursorLockMode.Locked;
         hud.SetActive(true);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         AudioListener.pause = true;
         pauseUI.SetActive(false);
         paused = false;
