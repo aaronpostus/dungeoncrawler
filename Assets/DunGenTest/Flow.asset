@@ -47,10 +47,18 @@ MonoBehaviour:
     Keys: []
     Locks: []
     LockPlacement: 0
+  - Graph: {fileID: 11400000}
+    TileSets: []
+    NodeType: 0
+    Position: 0.9559322
+    Label: Boss
+    Keys: []
+    Locks: []
+    LockPlacement: 0
   Lines:
   - Graph: {fileID: 11400000}
     DungeonArchetypes:
-    - {fileID: 11400000, guid: 671a73cb4010e6d4eb8c935de41838df, type: 2}
+    - {fileID: 11400000, guid: 7d58a53a8d4d76c44a8f7fe6c7c891d9, type: 2}
     Position: 0
     Length: 1
     Keys: []
