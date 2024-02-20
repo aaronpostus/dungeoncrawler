@@ -59,7 +59,7 @@ public class RhythmManager : MonoBehaviour
         //checks if it can start the rhythm section, can be used with other features like the battle sequence
         if (!startPlaying)
         {
-            //checks if a key has been pressed before starting to play
+            //change to timer?
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
