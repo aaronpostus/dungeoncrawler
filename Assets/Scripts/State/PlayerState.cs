@@ -280,7 +280,7 @@ namespace YaoLu
                     fsm.isFalling = false;
                     // check falling distance
                     float currentHeight = fsm.transform.position.y;
-                    if (startFallHeight - currentHeight >= 5) // X ÊÇÄãµÄãÐÖµ
+                    if (startFallHeight - currentHeight >= 5) // X ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
                     {
                         fsm.isDead = true;
                         fsm.ChangeState(new DieState(fsm, animator));
