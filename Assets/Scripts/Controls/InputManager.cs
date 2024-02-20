@@ -9,9 +9,12 @@ namespace YaoLu
         private QuitHandler quitHandler;
         private bool isPaused = false;
         private bool isMuted = false;
+        private FSMCtrl playerFSM;
 
         private void Awake()
         {
+
+            playerFSM = GetComponentInParent<FSMCtrl>();
             inputScheme = new PlayerInput();
 
             // Setup quit handler
@@ -20,6 +23,7 @@ namespace YaoLu
             // Subscribe to pause action
             inputScheme.Gameplay.Pause.performed += HandlePausePerformed;
             inputScheme.Gameplay.Mute.performed += HandleMutePerformed;
+            inputScheme.Gameplay.Testlosehealth.performed += HandleLoseHealthPerformed;
         }
 
         private void OnEnable()
@@ -60,5 +64,13 @@ namespace YaoLu
                 // Unmute the audio
             }
         }
-    }
+
+        private void HandleLoseHealthPerformed(InputAction.CallbackContext context)
+        {
+            if (playerFSM != null)
+            {
+                playerFSM.Hurt();
+            }
+        }
+        }
 }
