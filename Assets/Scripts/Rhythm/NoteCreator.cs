@@ -30,9 +30,9 @@ public class NoteCreator : MonoBehaviour
     public int amountOfNotes = 20;
 
     //where the notes generate on screen
-    private int generationPosition = -25;
+    private int generationPosition = -50;
 
-    private int distanceBetweenNotes = 70;
+    private int distanceBetweenNotes = 120;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +54,7 @@ public class NoteCreator : MonoBehaviour
         }
         else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > generationPosition + distanceBetweenNotes)
         {
+            //Debug.Log("Previous Child position: " + transform.GetChild(notesCreated - 1).transform.position.y);
             CreateNote();
         }
     }

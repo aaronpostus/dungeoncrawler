@@ -2,33 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using YaoLu;
 
 public class ButtonController : MonoBehaviour
 {
     //button attached to script
     private Button button;
 
-    //should be changed with new input system
-    public KeyCode arrow;
+    private PlayerInput controls;
+
+    [SerializeField] private Vector2 arrowDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
+
+        controls = new PlayerInput();
+        controls.Gameplay.Rhythm.Enable();
+
+        controls.Gameplay.Rhythm.performed += KeyPress;
+        controls.Gameplay.Rhythm.canceled += KeyUp;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDisable()
     {
-        if (Input.GetKeyDown(arrow))
+        controls.Gameplay.Rhythm.Disable();
+    }
+
+    public void KeyPress(InputAction.CallbackContext context)
+    {
+        if (arrowDirection == context.ReadValue<Vector2>())
         {
             FadeToColor(button.colors.pressedColor);
             button.onClick.Invoke();
         }
-        else if(Input.GetKeyUp(arrow)) 
-        {
-            FadeToColor(button.colors.normalColor);
-        }      
+    }
+
+    public void KeyUp(InputAction.CallbackContext context)
+    {
+        FadeToColor(button.colors.normalColor);
     }
 
     //fades the color of the button
