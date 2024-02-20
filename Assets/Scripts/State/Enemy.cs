@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI; // Import the AI namespace for NavMeshAgent
+using UnityEngine.UI;
 using YaoLu;
 
 public class Enemy : MonoBehaviour
@@ -12,10 +13,14 @@ public class Enemy : MonoBehaviour
     public float chaseDistance = 8f;
     public float WanderSpeed = 1f;
     public float ChaseSpeed = 4f;
-    public int life = 30;
-
+    public int life = 30; // Assuming 'life' is equivalent to 'currentHP'
+    public int maxHP = 30;
+    public int damage; // Attack Damage
+    public int defense;
+    public Slider healthSlider; // Assuming you have a slider to show enemy health
     public float visionAngle = 120f; // The total FOV angle
     public int raysCount = 40;
+    public string enemytype;
 
     // States
     public EnemyBattleState battleState;
@@ -25,6 +30,30 @@ public class Enemy : MonoBehaviour
     public EnemyChasingState chasingState;
     public EnemyIdleState idleState;
     public BattleSystem battleSystemPrefab;
+    public bool TakeDamage(int dmg)
+    {
+        life -= (dmg - defense);
+        healthSlider.value = life;
+        if (life <= 0)
+        {
+            return true; // Enemy is dead
+        }
+        return false; // Enemy is still alive
+    }
+
+    public void Heal(int amount)
+    {
+        life += amount;
+        if (life > maxHP)
+        {
+            life = maxHP;
+        }
+        healthSlider.value = life;
+    }
+    private void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+    }
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>(); // Initialize the NavMeshAgent
@@ -35,13 +64,32 @@ public class Enemy : MonoBehaviour
         battleState = new EnemyBattleState(this,animator,battleSystemPrefab);
         dieState = new EnemyDieState(this,animator);
         hurtState = new EnemyHurtState(this, animator);
-        stateMachine.ChangeState(idleState); // Start in the idle
+        stateMachine.ChangeState(idleState);
+        // Start in the idle
     }
 
     private void Update()
     {
         stateMachine.Update();
         DrawFieldOfView();
+            if (BattleStateManager.IsBattleActive)
+            {
+                if (navMeshAgent.enabled)
+                {
+                    navMeshAgent.isStopped = true;
+                    navMeshAgent.enabled = false;
+                }
+            }
+            else
+            {
+                if (!navMeshAgent.enabled)
+                {
+                    navMeshAgent.enabled = true;
+                    navMeshAgent.isStopped = false;
+                }
+                // Regular enemy behavior
+            }
+        
     }
 
     public void ChangeState(IState newState)

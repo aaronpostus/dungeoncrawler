@@ -206,7 +206,7 @@ namespace YaoLu
         public override void OnEnter()
         {
             base.OnEnter();
-            // Ensure the NavMeshAgent is disabled correctly
+            Debug.Log("Entering Battle State, disabling NavMeshAgent");
             if (navMeshAgent != null)
             {
                 navMeshAgent.enabled = false;
@@ -224,6 +224,7 @@ namespace YaoLu
                 battleSystemInstance.SetEncounteredEnemy(enemy.gameObject);
                 battleSystemInstance.StartBattle();
             }
+            enemy.life -= 10;
         }
 
 
@@ -262,15 +263,16 @@ namespace YaoLu
         public override void OnExit()
         {
             base.OnExit();
-            // Re-enable the NavMeshAgent when exiting the battle state
+            Debug.Log("Exiting Battle State, re-enabling NavMeshAgent");
             if (navMeshAgent != null)
             {
                 navMeshAgent.enabled = true;
-                // Ensure the enemy is placed on the NavMesh. You might need to manually set the position or use NavMesh.SamplePosition
+                // Make sure the enemy is on the NavMesh
+                navMeshAgent.Warp(enemy.transform.position);
             }
         }
-    
-}
+
+    }
 
     public class EnemyHurtState : BaseEnemyState
     {

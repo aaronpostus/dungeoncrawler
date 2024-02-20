@@ -22,7 +22,6 @@ public class BattleSystem : MonoBehaviour
     public Transform enemyBattleStation;
 
     Unit playerUnit;
-    Unit enemyUnit;
     FSMCtrl control;
     Enemy enemyControl;
 
@@ -57,7 +56,8 @@ public class BattleSystem : MonoBehaviour
     }
     public void StartBattle()
     {
-        this.gameObject.SetActive(true);
+        this.gameObject.SetActive(true); // Activate the battle system UI
+        BattleStateManager.StartBattle();
         StartCoroutine(SetupBattle());
     }
 
@@ -86,14 +86,13 @@ public class BattleSystem : MonoBehaviour
             
 
             enemyPrefab.transform.position = enemyBattleStation.transform.position;
-            enemyUnit = enemyPrefab.GetComponent<Unit>();
             enemyControl = enemyPrefab.GetComponent<Enemy>();
             enemyControl.enabled = false;
-            dialogueText.text = "A wild " + enemyUnit.unitName + " approaches";
+            dialogueText.text = "A wild " + enemyControl.enemytype + " approaches";
 
             playerHUD.SetActive(true);
             playerHP.maxValue = playerUnit.maxHP;
-            enemyHP.maxValue = enemyUnit.maxHP;
+            enemyHP.maxValue = enemyControl.maxHP;
 
             state = BattleSystemState.PLAYERTURN;
 
@@ -145,53 +144,43 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        // Rhythm System attack
-        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+        float damage = RhythmAttack();
+        bool isDead = enemyControl.TakeDamage((int)(playerUnit.damage * damage));
+        enemyHP.value = enemyControl.life; // Update to use 'life' from Enemy
 
-        // Damage enemy
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
-        enemyHP.value = enemyUnit.currentHP;
-        animator.Play("Kick");
-        // Set HUD
         dialogueText.text = "The attack is successful!";
-
         yield return new WaitForSeconds(2f);
 
-        // Check if enemy is dead
         if (isDead)
         {
-            // End battle
             state = BattleSystemState.WON;
             StartCoroutine(EndBattle());
         }
         else
         {
-            // Enemys turn
             state = BattleSystemState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
-
-        // Change state accordingly
     }
 
     IEnumerator PlayerHeal()
     {
         playerUnit.Heal(5);
-        // Set HUD
+        playerHP.value = playerUnit.currentHP;
         dialogueText.text = "You were healed!";
-
         yield return new WaitForSeconds(2f);
 
         state = BattleSystemState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
 
+
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.unitName + " attacks!";
+        dialogueText.text = enemyControl.enemytype + " attacks!";
         yield return new WaitForSeconds(2f);
 
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        bool isDead = playerUnit.TakeDamage(enemyControl.damage);
         playerHP.value = playerUnit.currentHP;
         // Set HUD
 
@@ -221,10 +210,9 @@ public class BattleSystem : MonoBehaviour
 
         //battleCam.enabled = false;
         //mainCam.enabled = true;
-
+        BattleStateManager.EndBattle();
         // Deactivate battle system UI or GameObject here
-        this.gameObject.SetActive(false); // Assuming this script is attached to the battle system GameObject
-
+        this.gameObject.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
