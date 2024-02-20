@@ -107,6 +107,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rhythm"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc62a7ab-ad49-4281-8b7d-8f8ae4b1404b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,61 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""19c6d2dc-d048-43b9-9ef8-38c10d045ee4"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rhythm"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8fdf30a7-415c-4706-b70d-facd474da296"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rhythm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""dee107ac-ded2-4641-a78f-eaf49a1ba08f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rhythm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""97401f42-fc24-42f4-ac2c-0aba420ce53e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rhythm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d13b95b5-d6ef-4e12-b453-6b54bf7720e7"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rhythm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -269,6 +333,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Mute = m_Gameplay.FindAction("Mute", throwIfNotFound: true);
         m_Gameplay_OpenMenu = m_Gameplay.FindAction("OpenMenu", throwIfNotFound: true);
+        m_Gameplay_Rhythm = m_Gameplay.FindAction("Rhythm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,6 +404,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Mute;
     private readonly InputAction m_Gameplay_OpenMenu;
+    private readonly InputAction m_Gameplay_Rhythm;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -352,6 +418,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Mute => m_Wrapper.m_Gameplay_Mute;
         public InputAction @OpenMenu => m_Wrapper.m_Gameplay_OpenMenu;
+        public InputAction @Rhythm => m_Wrapper.m_Gameplay_Rhythm;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +455,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OpenMenu.started += instance.OnOpenMenu;
             @OpenMenu.performed += instance.OnOpenMenu;
             @OpenMenu.canceled += instance.OnOpenMenu;
+            @Rhythm.started += instance.OnRhythm;
+            @Rhythm.performed += instance.OnRhythm;
+            @Rhythm.canceled += instance.OnRhythm;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -419,6 +489,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OpenMenu.started -= instance.OnOpenMenu;
             @OpenMenu.performed -= instance.OnOpenMenu;
             @OpenMenu.canceled -= instance.OnOpenMenu;
+            @Rhythm.started -= instance.OnRhythm;
+            @Rhythm.performed -= instance.OnRhythm;
+            @Rhythm.canceled -= instance.OnRhythm;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -447,5 +520,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnMute(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
+        void OnRhythm(InputAction.CallbackContext context);
     }
 }
