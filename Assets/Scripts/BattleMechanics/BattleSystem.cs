@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
@@ -22,7 +23,7 @@ public class BattleSystem : MonoBehaviour
 
     public Animator animator;
 
-    public Text dialogueText;
+    [SerializeField]public Text dialogueText;
 
     public BattleState state;
     // Start is called before the first frame update
@@ -100,7 +101,7 @@ public class BattleSystem : MonoBehaviour
         // Damage enemy
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
-        animator.Play("Kick");
+        //animator.Play("Kick");
         // Set HUD
         dialogueText.text = "The attack is successful!";
 
@@ -161,10 +162,12 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
+            SceneManager.LoadScene("SampleScene");
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
+            SceneManager.LoadScene("MainMenu");
         }
         yield return new WaitForSeconds(3f);
         Cursor.visible = false;
