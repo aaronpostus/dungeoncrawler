@@ -224,9 +224,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6360120497280515979, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: tempo
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497504254944, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: arrowDirection.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497820533645, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: arrowDirection.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497824802588, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_Name
+      value: Text PopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497824802589, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -310
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497824802589, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000025431
+      objectReference: {fileID: 0}
     - target: {fileID: 6360120498346344491, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120498524084295, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: arrowDirection.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6360120498634934584, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_Name
@@ -275,6 +303,10 @@ PrefabInstance:
     - target: {fileID: 6360120498634934585, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120498739845450, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: arrowDirection.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
