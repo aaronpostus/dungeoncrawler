@@ -14,7 +14,7 @@ public class LoadingBar : MonoBehaviour
     public void Update()
     {
         currentProgress = LoadGameManager.instance.Progress();
-        Debug.Log(currentProgress);
+        //Debug.Log(currentProgress);
         loadingBar.value = Mathf.MoveTowards(loadingBar.value, currentProgress, fillSpeed * Time.deltaTime);
     }
 }
