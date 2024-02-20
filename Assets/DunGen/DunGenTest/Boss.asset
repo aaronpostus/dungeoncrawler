@@ -13,5 +13,33 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: 
   TileWeights:
-    Weights: []
+    Weights:
+    - Value: {fileID: 599671069395348831, guid: 4ea4e5578242b7442a47dd905e6ded8b, type: 3}
+      MainPathWeight: 1
+      BranchPathWeight: 1
+      DepthWeightScale:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      TileSet: {fileID: 11400000}
   LockPrefabs: []
