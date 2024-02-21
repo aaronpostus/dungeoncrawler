@@ -17,7 +17,6 @@ public class Item : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction pickup;
-    [SerializeField] private GameObject playerWeapon;
 
 
     public Item(string itemName, string itemType, Sprite itemSprite)
@@ -73,7 +72,6 @@ public class Item : MonoBehaviour
         switch (type)
         {
             case "Weapon":
-                playerWeapon.SetActive(true);
                 Inventory.instance.weapon.EquipWeaponSlot(sprite);
                 break;
             case "Armor":
