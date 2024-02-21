@@ -67,9 +67,13 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    public void Run()
+    public void OnRunButton()
     {
-
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        SceneManager.LoadScene("DunGenTest");
     }
 
     public void OnAttackButton()
@@ -162,7 +166,7 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("DunGenTest");
         }
         else if (state == BattleState.LOST)
         {
