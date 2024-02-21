@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599725247}
   - component: {fileID: 599725246}
+  - component: {fileID: 599725248}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -199,6 +200,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599725248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599725245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76f356143a516846a54607aa83a9ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority: 0
+  BakeMode: 3
+  AddNavMeshLinksBetweenRooms: 1
+  NavMeshAgentTypes:
+  - AgentTypeID: 0
+    AreaTypeID: 0
+    DisableLinkWhenDoorIsClosed: 1
+  NavMeshLinkDistanceFromDoorway: 2.5
+  AutoGenerateFullRebakeSurfaces: 1
+  FullRebakeTargets: []
+--- !u!1001 &1620871207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.212294
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.062439
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.0439425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091590516701904968, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Name
+      value: Yao's Changes
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
 --- !u!1 &2029926031
 GameObject:
   m_ObjectHideFlags: 0
