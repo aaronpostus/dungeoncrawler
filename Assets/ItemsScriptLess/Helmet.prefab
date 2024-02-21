@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 839568377945862635}
   - component: {fileID: 3753509700953610379}
   - component: {fileID: 6281945555318280558}
+  - component: {fileID: -7942645077936632977}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -199,6 +200,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4, y: 3.2, z: 2.8}
   m_Center: {x: -0.007757522, y: 0.0022323057, z: -0.018843137}
+--- !u!114 &-7942645077936632977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862085603246397165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c311ef8507a234796ff1e18b95ee4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Helmet
+  type: Head
+  typeSprite: {fileID: 21300000, guid: cf96a9d698956ea46aa4c6f1f6344157, type: 3}
+  sprite: {fileID: 21300000, guid: 80f6433bdff974e43bd4163279bfb2a3, type: 3}
+  description: 'Basic head armor
+
+    Test'
+  playerWeapon: {fileID: 0}
 --- !u!1 &2088620359138571630
 GameObject:
   m_ObjectHideFlags: 0

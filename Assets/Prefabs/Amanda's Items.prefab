@@ -1412,7 +1412,6 @@ GameObject:
   - component: {fileID: 7318717398226022253}
   - component: {fileID: 3145698087429797519}
   - component: {fileID: 66358961929639592}
-  - component: {fileID: 4655816104060538897}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -1502,39 +1501,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4655816104060538897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107480630817273411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a4141d7d6d7d947ae5bff10092bd5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSlots:
-  - {fileID: 1767844151969829163}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  pickupPopup: {fileID: 0}
-  weapon: {fileID: 0}
-  armor: {fileID: 0}
-  boot: {fileID: 0}
-  head: {fileID: 0}
 --- !u!1 &6271633269762602484
 GameObject:
   m_ObjectHideFlags: 0
