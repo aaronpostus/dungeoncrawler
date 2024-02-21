@@ -13,6 +13,7 @@ public class SaveGameManager : MonoBehaviour
 
     [SerializeField] private string fileName;
 
+
     private GameData gameData;
 
     private List<ISaveData> saveDataObjects;
@@ -41,11 +42,13 @@ public class SaveGameManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,9 +59,17 @@ public class SaveGameManager : MonoBehaviour
         LoadGame();
     }
 
+    public void OnSceneUnloaded(Scene scene)
+    {
+        SaveGame();
+    }
+
     public void NewGame()
     {
+        Debug.Log(this.gameData);
+        Debug.Log("I AM WORKING");
         this.gameData = new GameData();
+        Debug.Log(this.gameData);
     }
 
     public void LoadGame()
@@ -78,7 +89,9 @@ public class SaveGameManager : MonoBehaviour
         foreach (ISaveData saveDataObject in saveDataObjects) 
         {
             saveDataObject.LoadData(gameData);
-        } 
+        }
+
+        
     }
 
     public void SaveGame()
@@ -97,11 +110,6 @@ public class SaveGameManager : MonoBehaviour
         SerializeCheckpoints();
 
         dataHandler.Save(gameData);
-    }
-
-    public void DeleteSave()
-    {
-        dataHandler.Delete();
     }
 
     private List<ISaveData> FindAllISaveDataObjects()
@@ -143,5 +151,10 @@ public class SaveGameManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveGame();
     }
 }

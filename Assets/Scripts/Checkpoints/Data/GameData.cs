@@ -7,10 +7,7 @@ public class GameData
 {
     //player data
     public Vector3 playerPosition;
-    public Quaternion playerRotation;
-
-    //camera rotation
-    public Quaternion cameraRotation;
+    //public Quaternion playerRotation;
 
     //item data
     public Vector3 ballPosition;
@@ -25,9 +22,7 @@ public class GameData
     public GameData()
     {
         this.playerPosition = new Vector3();
-        this.playerRotation = new Quaternion();
-
-        this.cameraRotation = new Quaternion();
+        //this.playerRotation = new Quaternion();
 
         this.ballPosition = new Vector3(5, 1, 2);
 
@@ -35,5 +30,9 @@ public class GameData
 
         checkpointKeys = new List<string>();
         checkpointValues = new List<bool>();
+
+
+        //this.visitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
+        //this.currentlyVisitedCheckpoints = new bool[CheckpointController.instance.checkpoints.Length];
     }
 }

@@ -35,23 +35,15 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
 
-        if (SaveGameManager.instance.HasGameData())
-        {
-            newGamePopUp.SetActive(true);
-        }
-        else
-        {
-            SaveGameManager.instance.NewGame();
-
-            LoadGameManager.instance.LoadScene("SampleScene");
-        }
+        newGamePopUp.SetActive(true);
     }
 
     public void OnContinueGameClicked()
     {
         DisableMenuButtons();
 
-        LoadGameManager.instance.LoadScene("SampleScene");
+
+        SceneManager.LoadSceneAsync("SampleScene");
     }
 
     public void OnOptionsClicked()
