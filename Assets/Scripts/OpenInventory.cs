@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using YaoLu;
 
@@ -11,10 +12,12 @@ public class OpenInventory : MonoBehaviour
     [SerializeField] private bool paused;
     private InputAction inventory;
     private PlayerInput controls;
+    private GameObject myEventSystem;
 
     void Awake()
     {
         controls = new PlayerInput();
+        myEventSystem = GameObject.Find("EventSystem");
     }
 
     private void OnEnable()
@@ -50,6 +53,8 @@ public class OpenInventory : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         inventoryUI.SetActive(true);
+        Debug.Log(EventSystem.current.name);
+        EventSystem.current.SetSelectedGameObject(Inventory.instance.itemSlots[0].gameObject);
     }
 
     void DeactivateMenu()
