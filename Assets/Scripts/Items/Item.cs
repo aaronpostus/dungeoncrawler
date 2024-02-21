@@ -17,14 +17,8 @@ public class Item : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction pickup;
-    [SerializeField] private GameObject pickupPopup;
     [SerializeField] private GameObject playerWeapon;
 
-    //=====EQUIP ITEM SLOTS=====//
-    [SerializeField] private WeaponSlot weapon;
-    [SerializeField] private ArmorSlot armor;
-    [SerializeField] private BootSlot boot;
-    [SerializeField] private HeadSlot head;
 
     public Item(string itemName, string itemType, Sprite itemSprite)
     {
@@ -48,7 +42,7 @@ public class Item : MonoBehaviour
         {
             Inventory.instance.AddItem(this);
             Destroy(gameObject);
-            pickupPopup.SetActive(false);
+            Inventory.instance.pickupPopup.SetActive(false);
         }
     }
 
@@ -57,17 +51,21 @@ public class Item : MonoBehaviour
         pickup = playerInput.Gameplay.PickUp;
         pickup.Enable();
 
+        Debug.Log(other.gameObject.name);
+
+
         if (other.gameObject.name == "Check the floor")
         {
+            Debug.Log(this.gameObject.name);
             pickup.performed += Pickup;
-            pickupPopup.SetActive(true);
+            Inventory.instance.pickupPopup.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         pickup.Disable();
-        pickupPopup.SetActive(false);
+        Inventory.instance.pickupPopup.SetActive(false);
     }
 
     public void Equip()
@@ -76,16 +74,16 @@ public class Item : MonoBehaviour
         {
             case "Weapon":
                 playerWeapon.SetActive(true);
-                weapon.EquipWeaponSlot(sprite);
+                Inventory.instance.weapon.EquipWeaponSlot(sprite);
                 break;
             case "Armor":
-                armor.EquipArmorSlot(sprite);
+                Inventory.instance.armor.EquipArmorSlot(sprite);
                 break;
             case "Boots":
-                boot.EquipBootSlot(sprite);
+                Inventory.instance.boot.EquipBootSlot(sprite);
                 break;
             case "Head":
-                head.EquipHeadSlot(sprite);
+                Inventory.instance.head.EquipHeadSlot(sprite);
                 break;
             default:
                 break;

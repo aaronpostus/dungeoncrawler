@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8253132090769824782}
   - component: {fileID: 1077254654158705397}
-  - component: {fileID: 1841624064602989299}
   - component: {fileID: 1545265158978912680}
   - component: {fileID: 2842590187025044821}
   - component: {fileID: 8139548078405828664}
@@ -52,33 +51,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1841624064602989299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4862746167657777709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c311ef8507a234796ff1e18b95ee4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: BasicBat
-  type: Weapon
-  typeSprite: {fileID: 21300000, guid: 34c9d38328671d7498f798058f1b05e6, type: 3}
-  sprite: {fileID: 21300000, guid: a02188db408142f4b8f772aa591a226e, type: 3}
-  description: 'weapon
-
-    deals minimum damage
-
-    ...'
-  pickupPopup: {fileID: 0}
-  playerWeapon: {fileID: 0}
-  weapon: {fileID: 0}
-  armor: {fileID: 0}
-  boot: {fileID: 0}
-  head: {fileID: 0}
 --- !u!23 &1545265158978912680
 MeshRenderer:
   m_ObjectHideFlags: 0

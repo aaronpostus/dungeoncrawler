@@ -9,6 +9,13 @@ public class Inventory : MonoBehaviour
     public Dictionary<Item, int> items = new Dictionary<Item, int>();
     public ItemSlot[] itemSlots;
 
+    [SerializeField] public GameObject pickupPopup;
+
+    [SerializeField] public WeaponSlot weapon;
+    [SerializeField] public ArmorSlot armor;
+    [SerializeField] public BootSlot boot;
+    [SerializeField] public HeadSlot head;
+
     void Awake()
     {
         if (instance != null)

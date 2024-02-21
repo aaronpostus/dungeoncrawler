@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1783501398783660411}
   - component: {fileID: 2991508865834934853}
   - component: {fileID: 2508890235352513052}
-  - component: {fileID: 9156540843537853928}
+  - component: {fileID: 193378308057611202}
   m_Layer: 0
   m_Name: Machete01_prefab
   m_TagString: Untagged
@@ -115,7 +115,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 0.3, z: 0.08}
   m_Center: {x: 0.17617452, y: 0.0080387, z: 0}
---- !u!114 &9156540843537853928
+--- !u!114 &193378308057611202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,15 +129,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Machete
   type: Weapon
-  typeSprite: {fileID: 21300000, guid: 34c9d38328671d7498f798058f1b05e6, type: 3}
+  typeSprite: {fileID: 21300000, guid: 061f3c808d361e144914a73dd77534de, type: 3}
   sprite: {fileID: 21300000, guid: 0412569620dc7f34c9199851ba8ac5e8, type: 3}
-  description: 'weapon
+  description: 'machete
 
-    deals more damage than bat
+    weapon
 
     ...'
-  pickupPopup: {fileID: 0}
-  weapon: {fileID: 0}
-  armor: {fileID: 0}
-  boot: {fileID: 0}
-  head: {fileID: 0}
+  pickupPopup: {fileID: 4972466222203789711, guid: 2cc64481628d80941a7f1e41ff012f48, type: 3}
+  playerWeapon: {fileID: 4493304274724483039, guid: 557e13303c349624f8aed7873e9eac95, type: 3}
+  weapon: {fileID: 2556040545645277651, guid: a166a848d3215074e9f0f593ad2c2738, type: 3}
+  armor: {fileID: 7383266817089681878, guid: cd61fb2fb1d02dc47a429fb9af9843eb, type: 3}
+  boot: {fileID: 5060009367660899590, guid: f7e96036e28cbf343bd0c11aad8d2f6e, type: 3}
+  head: {fileID: 5375100886652707223, guid: feb2c9d4d593b0f4a85dde51140d4378, type: 3}
