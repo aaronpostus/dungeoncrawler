@@ -84,7 +84,16 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
-        StartCoroutine(PlayerAttack());
+        StartCoroutine(PlayerAttack(false));
+    }
+
+    public void OnStrongAttackButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(PlayerAttack(true));
     }
 
     public void OnHealButton()
@@ -97,12 +106,17 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
-    IEnumerator PlayerAttack()
+    IEnumerator PlayerAttack(bool strong)
     {
         // Rhythm System attack
         float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
 
         // Damage enemy
+        if (strong)
+        {
+            damage *= 2;
+        }
+        Debug.Log(damage);
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
         //animator.Play("Kick");
