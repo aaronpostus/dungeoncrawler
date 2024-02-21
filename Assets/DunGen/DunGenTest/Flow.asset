@@ -24,8 +24,20 @@ MonoBehaviour:
   GlobalProps:
   - ID: 0
     Count:
-      Min: 1
+      Min: 2
       Max: 2
+  - ID: 1
+    Count:
+      Min: 1
+      Max: 1
+  - ID: 2
+    Count:
+      Min: 1
+      Max: 1
+  - ID: 3
+    Count:
+      Min: 1
+      Max: 1
   KeyManager: {fileID: 0}
   DoorwayConnectionChance: 0
   RestrictConnectionToSameSection: 0
