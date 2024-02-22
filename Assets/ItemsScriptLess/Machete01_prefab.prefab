@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1783501398783660411}
   - component: {fileID: 2991508865834934853}
   - component: {fileID: 2508890235352513052}
+  - component: {fileID: 5631544206560978613}
   m_Layer: 0
   m_Name: Machete01_prefab
   m_TagString: Untagged
@@ -114,3 +115,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 0.3, z: 0.08}
   m_Center: {x: 0.17617452, y: 0.0080387, z: 0}
+--- !u!114 &5631544206560978613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783501398781690621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c311ef8507a234796ff1e18b95ee4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Machete
+  type: Weapon
+  typeSprite: {fileID: 21300000, guid: 061f3c808d361e144914a73dd77534de, type: 3}
+  sprite: {fileID: 21300000, guid: 0412569620dc7f34c9199851ba8ac5e8, type: 3}
+  description: 'Big knife
+
+    Testing'
+  playerWeapon: {fileID: 0}

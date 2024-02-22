@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1545265158978912680}
   - component: {fileID: 2842590187025044821}
   - component: {fileID: 8139548078405828664}
+  - component: {fileID: 7964492697785706092}
   m_Layer: 0
   m_Name: bat
   m_TagString: Untagged
@@ -114,3 +115,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.04, z: 0.02}
   m_Center: {x: 0.00002621798, y: 0.0022227154, z: 0.0016864103}
+--- !u!114 &7964492697785706092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862746167657777709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c311ef8507a234796ff1e18b95ee4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Basic Bat
+  type: Weapon
+  typeSprite: {fileID: 21300000, guid: 061f3c808d361e144914a73dd77534de, type: 3}
+  sprite: {fileID: 21300000, guid: a02188db408142f4b8f772aa591a226e, type: 3}
+  description: 'Type weapon
+
+    Hit things
+
+    test'
+  playerWeapon: {fileID: 0}

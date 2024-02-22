@@ -22,7 +22,7 @@ public class BattleSystem : MonoBehaviour
     public Slider enemyHP;
 
     public Animator animator;
-
+    public Animator enemyAnimator;
     [SerializeField]public Text dialogueText;
 
     public BattleState state;
@@ -37,11 +37,11 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
+        //GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+        playerUnit = playerPrefab.GetComponent<Unit>();
 
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+       // GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+        enemyUnit = enemyPrefab.GetComponent<Unit>();
 
         dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
 
@@ -79,6 +79,8 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackButton()
     {
         Debug.Log("Attack");
+        
+
         if (state != BattleState.PLAYERTURN)
         {
             return;
@@ -110,6 +112,8 @@ public class BattleSystem : MonoBehaviour
     {
         // Rhythm System attack
         float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+        animator.Play("Kick");
+        yield return new WaitForSeconds(1.2f);
 
         // Damage enemy
         if (strong)
@@ -156,9 +160,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
+        enemyAnimator.Play("Kick");
         dialogueText.text = enemyUnit.unitName + " attacks!";
         yield return new WaitForSeconds(2f);
-
+        
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHP.value = playerUnit.currentHP;
         // Set HUD
@@ -180,11 +185,13 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
+            enemyAnimator.Play("Die");
             SceneManager.LoadScene("DunGenTest");
         }
         else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
+            animator.Play("Die");
             SceneManager.LoadScene("MainMenu");
         }
         yield return new WaitForSeconds(3f);
