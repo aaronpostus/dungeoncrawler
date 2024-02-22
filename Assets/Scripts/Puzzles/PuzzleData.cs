@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PuzzleData", menuName = "ScriptableObjects/PuzzleData")]
 public class PuzzleData : ScriptableObject
 {
-    public float difficulty;
+    // number from 1 to 5
+    public int difficulty;
     public bool solved = false;
 }

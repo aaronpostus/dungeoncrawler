@@ -11,6 +11,11 @@ public class ElectricityPuzzle : MonoBehaviour
     public bool rotateOnStart = false; // Whether to start rotating when the game starts
     public List<NodePair> nodePairs;
     public List<Crystal> allCrystals;
+    public List<ElectricBolt> electricBolts;
+
+    [SerializeField] private float minDistance = 3f;
+    [SerializeField] private Transform boundsMin;
+    [SerializeField] private Transform boundsMax;
 
     private List<Crystal> crystals = new List<Crystal>();
     private bool isRotating = false;
@@ -48,6 +53,85 @@ public class ElectricityPuzzle : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        List<ElectricBolt> boltsToDisable =  electricBolts.GetRange(puzzleData.difficulty, 5 - puzzleData.difficulty);
+        foreach (ElectricBolt bolt in boltsToDisable) {
+            bolt.enabled = false;
+            Destroy(bolt.gameObject);
+        }
+        for (int i = puzzleData.difficulty * 2; i < 10; i++) {
+            allCrystals[i].gameObject.SetActive(false);
+            Debug.Log("f");
+        }
+        allCrystals.RemoveRange(puzzleData.difficulty * 2, 10 - (puzzleData.difficulty * 2));
+        List<NodePair> pairsToDisable = nodePairs.GetRange(puzzleData.difficulty, 5 - puzzleData.difficulty);
+        foreach (NodePair pair in pairsToDisable)
+        {
+            nodePairs.Remove(pair);
+            pair.Delete();
+
+        }
+
+        MoveObjectsToRandomPositions();
+    }
+    private void MoveObjectsToRandomPositions()
+    {
+        List<GameObject> objectsToMove = new List<GameObject>();
+        foreach (Crystal crystal in allCrystals) {
+            objectsToMove.Add(crystal.gameObject);
+        }
+        foreach (NodePair pair in nodePairs) {
+            objectsToMove.Add(pair.GetNode1());
+            objectsToMove.Add(pair.GetNode2());
+        }
+        foreach (var obj in objectsToMove)
+        {
+            Vector3 randomPosition = GetRandomPosition();
+            obj.transform.position = randomPosition;
+        }
+    }
+
+    private Vector3 GetRandomPosition()
+    {
+        int maxAttempts = 10;
+        int attempts = 0;
+        Vector3 randomPosition = Vector3.zero;
+
+        while (attempts < maxAttempts)
+        {
+            float x = Random.Range(boundsMin.position.x, boundsMax.position.x);
+            float y = Random.Range(boundsMin.position.y, boundsMax.position.y);
+            float z = Random.Range(boundsMin.position.z, boundsMax.position.z);
+
+            randomPosition = new Vector3(x, y, z);
+
+            Collider[] colliders = Physics.OverlapSphere(randomPosition, minDistance);
+            bool positionIsValid = true;
+            foreach (var collider in colliders)
+            {
+                if (collider != null && collider != boundsMin.GetComponent<Collider>() && collider != boundsMax.GetComponent<Collider>())
+                {
+                    positionIsValid = false;
+                    break;
+                }
+            }
+
+            if (positionIsValid)
+                return randomPosition;
+
+            attempts++;
+        }
+
+        Debug.LogWarning("Max attempts reached to find a valid position. Returning a position regardless.");
+        return randomPosition;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (boundsMin != null && boundsMax != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube((boundsMin.position + boundsMax.position) / 2, boundsMax.position - boundsMin.position);
+        }
     }
 
     private void Update()

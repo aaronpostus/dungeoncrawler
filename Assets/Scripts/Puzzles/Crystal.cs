@@ -4,7 +4,7 @@ public class Crystal : MonoBehaviour
 {
     [SerializeField] ParticleSystem particles;
     [SerializeField] CrystalType type;
-    public enum CrystalType { BLUE, RED, GREEN }
+    public enum CrystalType { BLUE, RED, GREEN, ORANGE, WHITE }
     
     public void Start()
     {

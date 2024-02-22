@@ -13,6 +13,18 @@ public class NodePair : MonoBehaviour
     {
         gameObjs = new List<Crystal>();
     }
+    public void Delete() {
+        objectA.SetActive(false);
+        objectB.SetActive(false);
+        Destroy(this.gameObject);
+    }
+    public GameObject GetNode1() { 
+        return objectA;
+    }
+    public GameObject GetNode2()
+    {
+        return objectB;
+    }
     public List<Crystal> FindObjectsBetween()
     {
         List<Crystal> objectsBetween = new List<Crystal>();
