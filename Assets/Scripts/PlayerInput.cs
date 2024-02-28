@@ -116,7 +116,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },{
+                },
+                {
                     ""name"": ""OpenInventory"",
                     ""type"": ""Button"",
                     ""id"": ""8c67cfdf-9fd7-49b2-8373-53a3f9c2a7b8"",
@@ -146,7 +147,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Rhythm"",
                     ""type"": ""Button"",
-                    ""id"": ""cc62a7ab-ad49-4281-8b7d-8f8ae4b1404b"",
+                    ""id"": ""1cf9411e-9656-48cf-abd2-177f5d9a83ec"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -340,8 +341,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""EquipItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                    ""name"": ""Arrow Keys"",
-                    ""id"": ""19c6d2dc-d048-43b9-9ef8-38c10d045ee4"",
+                },
+                {
+                    ""name"": ""ArrowKeys"",
+                    ""id"": ""b91cdedb-e865-4772-8909-78ebb236af52"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -352,7 +355,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""8fdf30a7-415c-4706-b70d-facd474da296"",
+                    ""id"": ""3ff6b07e-dacd-4a58-96d7-ce97c00e9e63"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -363,7 +366,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""dee107ac-ded2-4641-a78f-eaf49a1ba08f"",
+                    ""id"": ""b713c1f8-3c0c-4d30-b4e0-4e60dd888ea4"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -374,7 +377,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""97401f42-fc24-42f4-ac2c-0aba420ce53e"",
+                    ""id"": ""604a2f3b-adf0-48ad-9b0f-54e25a3497d6"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -385,7 +388,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""d13b95b5-d6ef-4e12-b453-6b54bf7720e7"",
+                    ""id"": ""021bee80-cede-4c23-9253-ee503f59ce0e"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
