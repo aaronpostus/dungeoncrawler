@@ -95,6 +95,11 @@ public class NoteCreator : MonoBehaviour
             }
 
             notesCreated++;
+
+            if (notesCreated == totalNotes)
+            {
+                createdNote.GetComponent<Outline>().enabled = true;
+            }
         }
     }
 }
