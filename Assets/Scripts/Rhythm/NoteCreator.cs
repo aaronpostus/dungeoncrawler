@@ -27,7 +27,7 @@ public class NoteCreator : MonoBehaviour
     private int[] notes;
 
     //int for amount of notes
-    public int amountOfNotes = 20;
+    private int totalNotes = 0;
 
     //where the notes generate on screen
     private int generationPosition = -50;
@@ -35,9 +35,16 @@ public class NoteCreator : MonoBehaviour
     //hard coded for position between notes
     private int distanceBetweenNotes = 120;
 
-    // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    // generates the notes for the attack
+    public void GenerateNotes(int amountOfNotes)
+    {
+        Debug.Log("NOTES CREATED!");
+        totalNotes = amountOfNotes;
         notes = new int[amountOfNotes];
 
         for(int i = 0; i < amountOfNotes; i++)
@@ -64,7 +71,7 @@ public class NoteCreator : MonoBehaviour
     //creates a note when called 
     public void CreateNote()
     {
-        if (notesCreated < amountOfNotes)
+        if (notesCreated < totalNotes)
         {
             if (notes[notesCreated] == left)
             {

@@ -49,6 +49,8 @@ public class RhythmManager : MonoBehaviour
     //timer object
     [SerializeField] private Timer timer;
 
+    [SerializeField] private NoteCreator noteCreator;
+
     void Start()
     {
         instance = this;
@@ -176,5 +178,10 @@ public class RhythmManager : MonoBehaviour
         }
 
         return thresholds;
+    }
+
+    public void CreateNotes(int amountOfNotes)
+    {
+        noteCreator.GenerateNotes(amountOfNotes);
     }
 }

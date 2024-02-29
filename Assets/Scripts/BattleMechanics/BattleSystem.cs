@@ -120,7 +120,11 @@ public class BattleSystem : MonoBehaviour
 
         rhythmUI.SetActive(true);
 
+        RhythmManager.instance.CreateNotes(5);
+
         yield return new WaitForSeconds(20f);
+
+        rhythmUI.SetActive(false);
 
         // Damage enemy
         if (strong)

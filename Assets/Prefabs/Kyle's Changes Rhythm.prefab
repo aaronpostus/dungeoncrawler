@@ -408,7 +408,6 @@ MonoBehaviour:
   rightButton: {fileID: 6360120498739845441}
   upButton: {fileID: 6360120497820533632}
   downButton: {fileID: 6360120498524084410}
-  amountOfNotes: 20
 --- !u!1 &6360120497498713722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1064,7 @@ MonoBehaviour:
   missEffect: {fileID: 8164295093901878173, guid: ebac02f16dacdb341bae6d26e8e3deeb, type: 3}
   textArea: {fileID: 6360120497824802588}
   timer: {fileID: 161498094509652662}
+  noteCreator: {fileID: 0}
 --- !u!114 &161498094509652662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 6360120498346344490}
   - component: {fileID: 6360120498346344493}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Rhythm Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
