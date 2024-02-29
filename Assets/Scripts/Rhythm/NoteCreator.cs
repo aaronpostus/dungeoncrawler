@@ -32,6 +32,7 @@ public class NoteCreator : MonoBehaviour
     //where the notes generate on screen
     private int generationPosition = -50;
 
+    //hard coded for position between notes
     private int distanceBetweenNotes = 120;
 
     // Start is called before the first frame update
@@ -41,7 +42,8 @@ public class NoteCreator : MonoBehaviour
 
         for(int i = 0; i < amountOfNotes; i++)
         {
-            notes[i] = Random.Range(1, 4);
+            //generates ints between 1 and 4
+            notes[i] = Random.Range(1, 5);
         }
     }
 
