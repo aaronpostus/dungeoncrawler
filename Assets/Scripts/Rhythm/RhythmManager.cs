@@ -46,6 +46,9 @@ public class RhythmManager : MonoBehaviour
     //position where the text will generate
     [SerializeField] private GameObject textArea;
 
+    //timer object
+    [SerializeField] private Timer timer;
+
     void Start()
     {
         instance = this;
@@ -59,8 +62,8 @@ public class RhythmManager : MonoBehaviour
         //checks if it can start the rhythm section, can be used with other features like the battle sequence
         if (!startPlaying)
         {
-            //change to timer?
-            if (Input.anyKeyDown)
+            //checks if timer is done
+            if (timer.timeRemaining == 0)
             {
                 startPlaying = true;
                 noteScroller.hasStarted = true;
