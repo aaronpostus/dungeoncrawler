@@ -13,10 +13,9 @@ public class Timer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         timerDisplayed = true;
-        timerText.gameObject.SetActive(timerDisplayed);
     }
 
     // Update is called once per frame

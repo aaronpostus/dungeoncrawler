@@ -19,11 +19,11 @@ public class RhythmManager : MonoBehaviour
     public static RhythmManager instance;
 
     //score variables
-    private int currentScore;
+    public float currentScore;
     
     //scores per note hit
-    private int scorePerNote = 100;
-    public int scorePerPerfectNote = 150;
+    private float scorePerNote = 1f;
+    public float scorePerPerfectNote = 1.5f;
 
     //multiplier variables, noteTracker tracks amount of notes hit in a row
     public int currentMultiplier;
@@ -55,6 +55,8 @@ public class RhythmManager : MonoBehaviour
 
     public bool continuePlaying;
 
+    [SerializeField] public GameObject rhythmUI;
+
     void Start()
     {
         instance = this;
@@ -66,7 +68,7 @@ public class RhythmManager : MonoBehaviour
     void Update()
     {
         //checks if it can start the rhythm section, can be used with other features like the battle sequence
-        if (!startPlaying)
+        if (!startPlaying && rhythmUI.active)
         {
             //checks if timer is done
             if (timer.timeRemaining == 0)
@@ -140,6 +142,8 @@ public class RhythmManager : MonoBehaviour
 
         Instantiate(missEffect, textArea.transform);
 
+        notesHit++;
+
         //resets noteTacker and multiplier when a note is missed
         mutliplierCombo = 0;
         currentMultiplier = 1;
@@ -200,8 +204,20 @@ public class RhythmManager : MonoBehaviour
         return thresholds;
     }
 
-    public void CreateNotes(int amountOfNotes)
+    public void CreateNotes(int amountOfNotes, float tempo)
     {
+        noteScroller.tempo = tempo;
         noteCreator.GenerateNotes(amountOfNotes);
+    }
+
+    public void ActivateRhythmUI()
+    {
+        rhythmUI.SetActive(true);
+        timer.gameObject.SetActive(true);
+    }
+
+    public void DeactivateRhythmUI()
+    {
+        rhythmUI.SetActive(false);
     }
 }

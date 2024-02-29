@@ -113,14 +113,16 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool strong)
     {
-        // Rhythm System attack
-        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
-        animator.Play("Kick");
-        yield return new WaitForSeconds(1.2f);
+        RhythmManager.instance.ActivateRhythmUI();
 
-        rhythmUI.SetActive(true);
-
-        RhythmManager.instance.CreateNotes(5);
+        if (strong)
+        {
+            RhythmManager.instance.CreateNotes(10, 300f);
+        }
+        else
+        {
+            RhythmManager.instance.CreateNotes(5, 200f);
+        }
 
         yield return new WaitForSeconds(10);
 
@@ -129,7 +131,12 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        rhythmUI.SetActive(false);
+        RhythmManager.instance.DeactivateRhythmUI();
+
+        // Rhythm System attack
+        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+        animator.Play("Kick");
+        yield return new WaitForSeconds(1.2f);
 
         // Damage enemy
         if (strong)
@@ -218,8 +225,7 @@ public class BattleSystem : MonoBehaviour
 
     float RhythmAttack()
     {
-        float multiplier = 1;
-        return multiplier;
+        return RhythmManager.instance.currentScore;
     }
 
 
