@@ -51,7 +51,7 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] private NoteCreator noteCreator;
 
-    private int notesHit;
+    private int notesDeleted;
 
     public bool continuePlaying;
 
@@ -83,7 +83,7 @@ public class RhythmManager : MonoBehaviour
 
         if (continuePlaying)
         {
-            if(noteCreator.totalNotes > 0 && notesHit == noteCreator.totalNotes)
+            if(noteCreator.totalNotes > 0 && notesDeleted == noteCreator.totalNotes)
             {
                 Debug.Log("Total Notes: " + noteCreator.totalNotes);
                 continuePlaying = false;
@@ -142,7 +142,7 @@ public class RhythmManager : MonoBehaviour
 
         Instantiate(missEffect, textArea.transform);
 
-        notesHit++;
+        notesDeleted++;
 
         //resets noteTacker and multiplier when a note is missed
         mutliplierCombo = 0;
@@ -165,7 +165,7 @@ public class RhythmManager : MonoBehaviour
                 currentMultiplier++;
             }
 
-            notesHit++;
+            notesDeleted++;
         }
 
         //currentScore += scorePerNote * currentMultiplier;
