@@ -8,7 +8,7 @@ using YaoLu;
 public class ButtonController : MonoBehaviour
 {
     //button attached to script
-    private Button button;
+    private Button leftButton, upButton, downButton, rightButton;
 
     private PlayerInput controls;
 
@@ -17,38 +17,81 @@ public class ButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button = GetComponent<Button>();
+        leftButton = transform.GetChild(0).gameObject.GetComponent<Button>(); //left
+        upButton = transform.GetChild(1).gameObject.GetComponent<Button>(); //up
+        downButton = transform.GetChild(2).gameObject.GetComponent<Button>(); //down
+        rightButton = transform.GetChild(3).gameObject.GetComponent<Button>(); //right
 
         controls = new PlayerInput();
-        controls.Gameplay.Rhythm.Enable();
+        controls.Rhythm.Enable();
 
-        controls.Gameplay.Rhythm.performed += KeyPress;
-        controls.Gameplay.Rhythm.canceled += KeyUp;
+        controls.Rhythm.Up.performed += KeyUpPress;
+        controls.Rhythm.Up.canceled += KeyUpRelease;
+
+        controls.Rhythm.Down.performed += KeyDownPress;
+        controls.Rhythm.Down.canceled += KeyDownRelease;
+
+        controls.Rhythm.Left.performed += KeyLeftPress;
+        controls.Rhythm.Left.canceled += KeyLeftRelease;
+
+        controls.Rhythm.Right.performed += KeyRightPress;
+        controls.Rhythm.Right.canceled += KeyRightRelease;
     }
 
     public void OnDisable()
     {
-        controls.Gameplay.Rhythm.Disable();
+        controls.Rhythm.Disable();
     }
 
-    public void KeyPress(InputAction.CallbackContext context)
+    public void KeyUpPress(InputAction.CallbackContext context)
     {
-        if (arrowDirection == context.ReadValue<Vector2>())
-        {
-            FadeToColor(button.colors.pressedColor);
-            button.onClick.Invoke();
-        }
+        FadeToColor(upButton, upButton.colors.pressedColor);
+        upButton.onClick.Invoke();
     }
 
-    public void KeyUp(InputAction.CallbackContext context)
+    public void KeyUpRelease(InputAction.CallbackContext context)
     {
-        FadeToColor(button.colors.normalColor);
+        FadeToColor(upButton, upButton.colors.normalColor);
+    }
+
+
+    public void KeyDownPress(InputAction.CallbackContext context)
+    {
+        FadeToColor(downButton, downButton.colors.pressedColor);
+        downButton.onClick.Invoke();
+    }
+
+    public void KeyDownRelease(InputAction.CallbackContext context)
+    {
+        FadeToColor(downButton, downButton.colors.normalColor);
+    }
+
+    public void KeyLeftPress(InputAction.CallbackContext context)
+    {
+        FadeToColor(leftButton, leftButton.colors.pressedColor);
+        leftButton.onClick.Invoke();
+    }
+
+    public void KeyLeftRelease(InputAction.CallbackContext context)
+    {
+        FadeToColor(leftButton, leftButton.colors.normalColor);
+    }
+
+    public void KeyRightPress(InputAction.CallbackContext context)
+    {
+        FadeToColor(rightButton, rightButton.colors.pressedColor);
+        rightButton.onClick.Invoke();
+    }
+
+    public void KeyRightRelease(InputAction.CallbackContext context)
+    {
+        FadeToColor(rightButton, rightButton.colors.normalColor);
     }
 
     //fades the color of the button
-    void FadeToColor(Color color)
+    void FadeToColor(Button currentButton, Color color)
     {
-        Graphic graphic = GetComponent<Graphic>();
-        graphic.CrossFadeColor(color, button.colors.fadeDuration, true, true);
+        Graphic graphic = currentButton.GetComponent<Graphic>();
+        graphic.CrossFadeColor(color, currentButton.colors.fadeDuration, true, true);
     }
 }

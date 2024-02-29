@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput 1",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Gameplay",
@@ -117,15 +117,6 @@
                     "name": "EquipItem",
                     "type": "Button",
                     "id": "02da184a-cbc6-49a4-b9ef-7fe05f09e4bb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Rhythm",
-                    "type": "Button",
-                    "id": "1cf9411e-9656-48cf-abd2-177f5d9a83ec",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -319,61 +310,94 @@
                     "action": "EquipItem",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Rhythm",
+            "id": "02544eb6-a62e-4ac5-bb03-5ffea214ff99",
+            "actions": [
                 {
-                    "name": "ArrowKeys",
-                    "id": "b91cdedb-e865-4772-8909-78ebb236af52",
-                    "path": "2DVector",
-                    "interactions": "",
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "b44ee65a-9725-4219-b79f-d8639d831791",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "groups": "",
-                    "action": "Rhythm",
-                    "isComposite": true,
-                    "isPartOfComposite": false
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "up",
-                    "id": "3ff6b07e-dacd-4a58-96d7-ce97c00e9e63",
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "4cde00fa-d70a-4a83-8e10-1f14d5224a49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "345ced29-c702-4fce-ac6d-435b02027cbf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "6c178729-bfa0-4419-bc6c-b33a2283db04",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be5aa323-a34d-46b3-9d4e-8a25798fa9de",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rhythm",
+                    "action": "Up",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "b713c1f8-3c0c-4d30-b4e0-4e60dd888ea4",
+                    "name": "",
+                    "id": "1713d8bf-a159-4e79-aa2d-c9a64afe7efa",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rhythm",
+                    "action": "Down",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "left",
-                    "id": "604a2f3b-adf0-48ad-9b0f-54e25a3497d6",
+                    "name": "",
+                    "id": "cb1e894c-5912-4f0f-aa88-4826257e8a64",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rhythm",
+                    "action": "Left",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "right",
-                    "id": "021bee80-cede-4c23-9253-ee503f59ce0e",
+                    "name": "",
+                    "id": "a653a4ed-3bd5-4e95-abe2-74e1b92e5e10",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rhythm",
+                    "action": "Right",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }

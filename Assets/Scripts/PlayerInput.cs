@@ -143,15 +143,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Rhythm"",
-                    ""type"": ""Button"",
-                    ""id"": ""1cf9411e-9656-48cf-abd2-177f5d9a83ec"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -341,61 +332,94 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""EquipItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Rhythm"",
+            ""id"": ""02544eb6-a62e-4ac5-bb03-5ffea214ff99"",
+            ""actions"": [
                 {
-                    ""name"": ""ArrowKeys"",
-                    ""id"": ""b91cdedb-e865-4772-8909-78ebb236af52"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""b44ee65a-9725-4219-b79f-d8639d831791"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rhythm"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""3ff6b07e-dacd-4a58-96d7-ce97c00e9e63"",
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""4cde00fa-d70a-4a83-8e10-1f14d5224a49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""345ced29-c702-4fce-ac6d-435b02027cbf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c178729-bfa0-4419-bc6c-b33a2283db04"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be5aa323-a34d-46b3-9d4e-8a25798fa9de"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rhythm"",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""b713c1f8-3c0c-4d30-b4e0-4e60dd888ea4"",
+                    ""name"": """",
+                    ""id"": ""1713d8bf-a159-4e79-aa2d-c9a64afe7efa"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rhythm"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""604a2f3b-adf0-48ad-9b0f-54e25a3497d6"",
+                    ""name"": """",
+                    ""id"": ""cb1e894c-5912-4f0f-aa88-4826257e8a64"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rhythm"",
+                    ""action"": ""Left"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""021bee80-cede-4c23-9253-ee503f59ce0e"",
+                    ""name"": """",
+                    ""id"": ""a653a4ed-3bd5-4e95-abe2-74e1b92e5e10"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rhythm"",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -417,7 +441,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
         m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
         m_Gameplay_EquipItem = m_Gameplay.FindAction("EquipItem", throwIfNotFound: true);
-        m_Gameplay_Rhythm = m_Gameplay.FindAction("Rhythm", throwIfNotFound: true);
+        // Rhythm
+        m_Rhythm = asset.FindActionMap("Rhythm", throwIfNotFound: true);
+        m_Rhythm_Up = m_Rhythm.FindAction("Up", throwIfNotFound: true);
+        m_Rhythm_Down = m_Rhythm.FindAction("Down", throwIfNotFound: true);
+        m_Rhythm_Left = m_Rhythm.FindAction("Left", throwIfNotFound: true);
+        m_Rhythm_Right = m_Rhythm.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -492,7 +521,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_OpenInventory;
     private readonly InputAction m_Gameplay_PickUp;
     private readonly InputAction m_Gameplay_EquipItem;
-    private readonly InputAction m_Gameplay_Rhythm;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -510,7 +538,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
         public InputAction @PickUp => m_Wrapper.m_Gameplay_PickUp;
         public InputAction @EquipItem => m_Wrapper.m_Gameplay_EquipItem;
-        public InputAction @Rhythm => m_Wrapper.m_Gameplay_Rhythm;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -559,9 +586,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @EquipItem.started += instance.OnEquipItem;
             @EquipItem.performed += instance.OnEquipItem;
             @EquipItem.canceled += instance.OnEquipItem;
-            @Rhythm.started += instance.OnRhythm;
-            @Rhythm.performed += instance.OnRhythm;
-            @Rhythm.canceled += instance.OnRhythm;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -605,9 +629,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @EquipItem.started -= instance.OnEquipItem;
             @EquipItem.performed -= instance.OnEquipItem;
             @EquipItem.canceled -= instance.OnEquipItem;
-            @Rhythm.started -= instance.OnRhythm;
-            @Rhythm.performed -= instance.OnRhythm;
-            @Rhythm.canceled -= instance.OnRhythm;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -625,6 +646,76 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Rhythm
+    private readonly InputActionMap m_Rhythm;
+    private List<IRhythmActions> m_RhythmActionsCallbackInterfaces = new List<IRhythmActions>();
+    private readonly InputAction m_Rhythm_Up;
+    private readonly InputAction m_Rhythm_Down;
+    private readonly InputAction m_Rhythm_Left;
+    private readonly InputAction m_Rhythm_Right;
+    public struct RhythmActions
+    {
+        private @PlayerInput m_Wrapper;
+        public RhythmActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_Rhythm_Up;
+        public InputAction @Down => m_Wrapper.m_Rhythm_Down;
+        public InputAction @Left => m_Wrapper.m_Rhythm_Left;
+        public InputAction @Right => m_Wrapper.m_Rhythm_Right;
+        public InputActionMap Get() { return m_Wrapper.m_Rhythm; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RhythmActions set) { return set.Get(); }
+        public void AddCallbacks(IRhythmActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RhythmActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RhythmActionsCallbackInterfaces.Add(instance);
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+        }
+
+        private void UnregisterCallbacks(IRhythmActions instance)
+        {
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+        }
+
+        public void RemoveCallbacks(IRhythmActions instance)
+        {
+            if (m_Wrapper.m_RhythmActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRhythmActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RhythmActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RhythmActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RhythmActions @Rhythm => new RhythmActions(this);
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -640,6 +731,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnEquipItem(InputAction.CallbackContext context);
-        void OnRhythm(InputAction.CallbackContext context);
+    }
+    public interface IRhythmActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }
