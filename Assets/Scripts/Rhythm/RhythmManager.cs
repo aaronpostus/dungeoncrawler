@@ -55,8 +55,6 @@ public class RhythmManager : MonoBehaviour
 
     public bool continuePlaying;
 
-    [SerializeField] public GameObject rhythmUI;
-
     void Start()
     {
         instance = this;
@@ -68,7 +66,7 @@ public class RhythmManager : MonoBehaviour
     void Update()
     {
         //checks if it can start the rhythm section, can be used with other features like the battle sequence
-        if (!startPlaying && rhythmUI.active)
+        if (!startPlaying)
         {
             //checks if timer is done
             if (timer.timeRemaining == 0)
@@ -77,7 +75,7 @@ public class RhythmManager : MonoBehaviour
                 continuePlaying = true;
                 noteScroller.hasStarted = true;
 
-                music.Play();
+                //  music.Play();
             }
         }
 
@@ -208,16 +206,5 @@ public class RhythmManager : MonoBehaviour
     {
         noteScroller.tempo = tempo;
         noteCreator.GenerateNotes(amountOfNotes);
-    }
-
-    public void ActivateRhythmUI()
-    {
-        rhythmUI.SetActive(true);
-        timer.gameObject.SetActive(true);
-    }
-
-    public void DeactivateRhythmUI()
-    {
-        rhythmUI.SetActive(false);
     }
 }

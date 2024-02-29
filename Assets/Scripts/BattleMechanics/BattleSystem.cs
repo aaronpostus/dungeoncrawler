@@ -113,7 +113,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool strong)
     {
-        RhythmManager.instance.ActivateRhythmUI();
+        RhythmBattleManager.instance.ActivateRhythmUI();
+
+        yield return new WaitForSeconds(3f);
 
         if (strong)
         {
@@ -131,7 +133,7 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        RhythmManager.instance.DeactivateRhythmUI();
+        RhythmBattleManager.instance.DeactivateRhythmUI();
 
         // Rhythm System attack
         float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
