@@ -23,7 +23,7 @@ public class RhythmManager : MonoBehaviour
     
     //scores per note hit
     private float scorePerNote = 1f;
-    public float scorePerPerfectNote = 1.5f;
+    private float scorePerPerfectNote = 1.5f;
 
     //multiplier variables, noteTracker tracks amount of notes hit in a row
     public int currentMultiplier;

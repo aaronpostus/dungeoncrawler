@@ -2803,6 +2803,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnRunButton
       objectReference: {fileID: 0}
+    - target: {fileID: 9024645980051871683, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9024645980062580376, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
       propertyPath: m_Name
       value: Kyle's Changes Battle UI
@@ -3914,6 +3918,7 @@ MonoBehaviour:
   animator: {fileID: 359383136}
   enemyAnimator: {fileID: 1141540590}
   dialogueText: {fileID: 1420184591}
+  rhythmUI: {fileID: 0}
   state: 0
 --- !u!4 &839358627
 Transform:
@@ -4427,6 +4432,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1347119177457801492, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6360120497058796812, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
@@ -4437,6 +4446,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6360120497058796815, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120497693890405, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6360120497824802589, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
@@ -4454,6 +4467,14 @@ PrefabInstance:
     - target: {fileID: 6360120498137336838, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120498346344495, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360120498582791124, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6360120498634934584, guid: a45805b8e98762f4d98c2c2c0fb1123a, type: 3}
       propertyPath: m_Name
