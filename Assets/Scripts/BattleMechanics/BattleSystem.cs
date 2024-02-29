@@ -25,6 +25,9 @@ public class BattleSystem : MonoBehaviour
     public Animator enemyAnimator;
     [SerializeField]public Text dialogueText;
 
+    //rhythm ui
+    [SerializeField] private GameObject rhythmUI;
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -114,6 +117,10 @@ public class BattleSystem : MonoBehaviour
         float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
         animator.Play("Kick");
         yield return new WaitForSeconds(1.2f);
+
+        rhythmUI.SetActive(true);
+
+        yield return new WaitForSeconds(20f);
 
         // Damage enemy
         if (strong)
