@@ -27,7 +27,7 @@ public class NoteCreator : MonoBehaviour
     private int[] notes;
 
     //int for amount of notes
-    private int totalNotes = 0;
+    public int totalNotes = 0;
 
     //where the notes generate on screen
     private int generationPosition = -50;

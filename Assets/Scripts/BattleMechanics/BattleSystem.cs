@@ -122,7 +122,12 @@ public class BattleSystem : MonoBehaviour
 
         RhythmManager.instance.CreateNotes(5);
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(10);
+
+        while (RhythmManager.instance.continuePlaying)
+        {
+            yield return null;
+        }
 
         rhythmUI.SetActive(false);
 

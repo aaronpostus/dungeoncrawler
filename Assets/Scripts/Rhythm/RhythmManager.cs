@@ -51,6 +51,10 @@ public class RhythmManager : MonoBehaviour
 
     [SerializeField] private NoteCreator noteCreator;
 
+    private int notesHit;
+
+    public bool continuePlaying;
+
     void Start()
     {
         instance = this;
@@ -68,9 +72,19 @@ public class RhythmManager : MonoBehaviour
             if (timer.timeRemaining == 0)
             {
                 startPlaying = true;
+                continuePlaying = true;
                 noteScroller.hasStarted = true;
 
                 music.Play();
+            }
+        }
+
+        if (continuePlaying)
+        {
+            if(noteCreator.totalNotes > 0 && notesHit == noteCreator.totalNotes)
+            {
+                Debug.Log("Total Notes: " + noteCreator.totalNotes);
+                continuePlaying = false;
             }
         }
     }
@@ -146,6 +160,8 @@ public class RhythmManager : MonoBehaviour
                 mutliplierCombo = 0;
                 currentMultiplier++;
             }
+
+            notesHit++;
         }
 
         //currentScore += scorePerNote * currentMultiplier;
@@ -162,6 +178,10 @@ public class RhythmManager : MonoBehaviour
         if (currentMultiplier == noteThresholds.Length)
         {
             multiplierText.text = "MAX MULTIPLIER!!";
+        }
+        else
+        {
+            multiplierText.text = "Multiplier: x" + currentMultiplier;
         }
     }
 
