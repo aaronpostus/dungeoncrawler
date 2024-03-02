@@ -125,7 +125,7 @@ public class ElectricityPuzzle : MonoBehaviour
         Debug.LogWarning("Max attempts reached to find a valid position. Returning a position regardless.");
         return randomPosition;
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (boundsMin != null && boundsMax != null)
         {
