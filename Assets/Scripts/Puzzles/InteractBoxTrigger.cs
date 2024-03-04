@@ -10,6 +10,7 @@ public class InteractBoxTrigger : MonoBehaviour
     private FSMCtrl fsmCtrl;
     private bool playerWithinCollider = false;
     [SerializeField] string interactString = "Interact";
+    [SerializeField] InteractionEvent interactEvent;
     private void Start()
     {
         // Find the GameObject with FSMCtrl script attached
@@ -40,7 +41,7 @@ public class InteractBoxTrigger : MonoBehaviour
     {
         if (playerWithinCollider)
         {
-            SceneManager.LoadScene("ElectricityScene");
+            interactEvent.Interact();
         }
     }
 
