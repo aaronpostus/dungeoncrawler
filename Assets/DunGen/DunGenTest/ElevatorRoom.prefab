@@ -348,7 +348,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -4919091027099848080, guid: 143ec1504a7cb1c4ea24d2bf1751fde6, type: 2}
+  socket: {fileID: 4095367749409265103, guid: 143ec1504a7cb1c4ea24d2bf1751fde6, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
@@ -2446,10 +2446,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 599671069395348830}
     m_Modifications:
-    - target: {fileID: 1727710240110808656, guid: b41cbabd4a596db459db5b6a1f83d32e, type: 3}
-      propertyPath: circuitBoxTrigger
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1727710240110808670, guid: b41cbabd4a596db459db5b6a1f83d32e, type: 3}
       propertyPath: m_Name
       value: Elevator 1
