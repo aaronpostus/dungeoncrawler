@@ -25,9 +25,6 @@ public class BattleSystem : MonoBehaviour
     public Animator enemyAnimator;
     [SerializeField]public Text dialogueText;
 
-    //rhythm ui
-    [SerializeField] private GameObject rhythmUI;
-
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -113,7 +110,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool strong)
     {
-        RhythmBattleManager.instance.ActivateRhythmUI();
+        if (!RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            RhythmBattleManager.instance.ActivateRhythmUI();
+        }
 
         yield return new WaitForSeconds(3f);
 
@@ -133,7 +133,10 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        RhythmBattleManager.instance.DeactivateRhythmUI();
+        if (RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            RhythmBattleManager.instance.DeactivateRhythmUI();
+        }
 
         // Rhythm System attack
         float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system

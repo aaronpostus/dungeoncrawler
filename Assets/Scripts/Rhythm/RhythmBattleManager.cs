@@ -25,4 +25,9 @@ public class RhythmBattleManager : MonoBehaviour
     {
         Destroy(rhythmUI);
     }
+
+    public bool isRhythmUIActive()
+    {
+        return rhythmUI != null;
+    }
 }
