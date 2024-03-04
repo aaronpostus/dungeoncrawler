@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject mainMenu;
 
+    [SerializeField] private string sceneToLoad;
     private void Start()
     {
         instance = this;
@@ -43,7 +44,7 @@ public class MainMenu : MonoBehaviour
         {
             SaveGameManager.instance.NewGame();
 
-            LoadGameManager.instance.LoadScene("SampleScene");
+            LoadGameManager.instance.LoadScene(sceneToLoad);
         }
     }
 
@@ -51,7 +52,7 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
 
-        LoadGameManager.instance.LoadScene("SampleScene");
+        LoadGameManager.instance.LoadScene(sceneToLoad);
     }
 
     public void OnOptionsClicked()
