@@ -3,13 +3,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using YaoLu;
 
-public class CircuitBreaker : MonoBehaviour
+public class InteractBoxTrigger : MonoBehaviour
 {
     public Collider interactCollider; // Reference to the collider for interaction
     public StringReference interactText;
     private FSMCtrl fsmCtrl;
     private bool playerWithinCollider = false;
-
+    [SerializeField] string interactString = "Interact";
     private void Start()
     {
         // Find the GameObject with FSMCtrl script attached
@@ -49,7 +49,7 @@ public class CircuitBreaker : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerWithinCollider = true;
-            interactText.Value = "[E] Repair Circuit Breaker";
+            interactText.Value = "[E] " + interactString;
         }
     }
 
