@@ -35,9 +35,11 @@ public class NoteCreator : MonoBehaviour
     //hard coded for position between notes
     private int distanceBetweenNotes = 120;
 
+    private List<int> noteSequences;
+
     void Start()
     {
-
+        noteSequences = new List<int>();
     }
 
     // generates the notes for the attack
@@ -64,6 +66,8 @@ public class NoteCreator : MonoBehaviour
                 notes.Add(Random.Range(1, 5));
             }
         }
+
+        addSequence(amountOfNotes);
     }
 
     // Update is called once per frame
@@ -108,10 +112,25 @@ public class NoteCreator : MonoBehaviour
 
             notesCreated++;
 
-            if (notesCreated == totalNotes)
+            if (notesCreated == noteSequences[0])
             {
                 createdNote.GetComponent<Outline>().enabled = true;
             }
+            else if(notesCreated == totalNotes)
+            {
+                createdNote.GetComponent<Outline>().enabled = true;
+            }
+            else if (noteSequences.Count > 1 && (notesCreated - noteSequences[0]) % noteSequences[1] == 1 && notesCreated != noteSequences[0]+1)
+            {
+                createdNote.GetComponent<Outline>().enabled = true;
+                noteSequences[0] += noteSequences[1];
+                noteSequences.Remove(noteSequences[1]);
+            }
         }
+    }
+
+    private void addSequence(int newSequence)
+    {
+        noteSequences.Add(newSequence);
     }
 }
