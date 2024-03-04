@@ -202,9 +202,8 @@ public class RhythmManager : MonoBehaviour
         return thresholds;
     }
 
-    public void CreateNotes(int amountOfNotes, float tempo)
+    public void CreateNotes(int amountOfNotes)
     {
-        noteScroller.tempo = tempo;
         noteCreator.GenerateNotes(amountOfNotes);
     }
 }

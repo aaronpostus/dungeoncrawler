@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteScroller : MonoBehaviour
 {
     //bpm of song/beat used
-    public float tempo;
+    public float tempo = 200;
 
     //true if the rhythm section has started
     public bool hasStarted;

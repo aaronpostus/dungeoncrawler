@@ -24,7 +24,7 @@ public class NoteCreator : MonoBehaviour
     [SerializeField] private GameObject leftButton, rightButton, upButton, downButton;
 
     //array for random note positions
-    private int[] notes;
+    private List<int> notes;
 
     //int for amount of notes
     public int totalNotes = 0;
@@ -43,14 +43,26 @@ public class NoteCreator : MonoBehaviour
     // generates the notes for the attack
     public void GenerateNotes(int amountOfNotes)
     {
-        Debug.Log("NOTES CREATED!");
-        totalNotes = amountOfNotes;
-        notes = new int[amountOfNotes];
-
-        for(int i = 0; i < amountOfNotes; i++)
+        //Debug.Log("NOTES CREATED!");
+        if (notes == null)
         {
-            //generates ints between 1 and 4
-            notes[i] = Random.Range(1, 5);
+            totalNotes = amountOfNotes;
+            notes = new List<int>();
+
+            for (int i = 0; i < amountOfNotes; i++)
+            {
+                //generates ints between 1 and 4
+                notes.Add(Random.Range(1, 5));
+            }
+        }
+        else
+        {
+            totalNotes += amountOfNotes;
+
+            for (int i = totalNotes - amountOfNotes;i < totalNotes; i++)
+            {
+                notes.Add(Random.Range(1, 5));
+            }
         }
     }
 

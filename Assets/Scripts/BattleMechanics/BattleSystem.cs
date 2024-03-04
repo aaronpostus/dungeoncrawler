@@ -119,11 +119,11 @@ public class BattleSystem : MonoBehaviour
 
         if (strong)
         {
-            RhythmManager.instance.CreateNotes(10, 300f);
+            RhythmManager.instance.CreateNotes(10);
         }
         else
         {
-            RhythmManager.instance.CreateNotes(5, 200f);
+            RhythmManager.instance.CreateNotes(5);
         }
 
         yield return new WaitForSeconds(10);
