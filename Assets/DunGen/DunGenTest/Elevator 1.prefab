@@ -188,8 +188,9 @@ GameObject:
   - component: {fileID: 8061194010462680583}
   - component: {fileID: 8061194010462680582}
   - component: {fileID: 8061194010462680698}
+  - component: {fileID: 727143306852751700}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: TriggerBoxInteract
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,8 +286,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ed173776be52c4e91aa6e4e2ffb9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactCollider: {fileID: 0}
+  interactCollider: {fileID: 8061194010364141774}
   interactText: {fileID: 11400000, guid: 64b088bc7119485488e7d843e9dad70e, type: 2}
+  interactString: Repair Circuit Breaker
+  interactEvent: {fileID: 727143306852751700}
+--- !u!114 &727143306852751700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061194010462680581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472e97fbd38be0d4386bd546c4fae786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: ElectricityScene
 --- !u!1 &8061194010755189789
 GameObject:
   m_ObjectHideFlags: 0
