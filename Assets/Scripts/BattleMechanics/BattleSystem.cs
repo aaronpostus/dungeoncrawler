@@ -69,7 +69,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.ENEMYTURN && enemyAttackTimer < 0)
         {
-            // Enemys turn
+            // Enemy's turn
             state = BattleState.ENEMYTURN;
             enemyAttackTimer = enemyAttackInterval;
             StartCoroutine(EnemyTurn());
@@ -96,6 +96,8 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
+        QueueManager.instance.addToQueue("Run");
+
         SceneManager.LoadScene("DunGenTest");
     }
 
@@ -119,6 +121,8 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }*/
+        QueueManager.instance.addToQueue("Strong Attack");
+
         StartCoroutine(RhythmAttack(true));
     }
 
@@ -128,6 +132,8 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }*/
+
+        QueueManager.instance.addToQueue("Heal");
 
         StartCoroutine(PlayerHeal());
     }
