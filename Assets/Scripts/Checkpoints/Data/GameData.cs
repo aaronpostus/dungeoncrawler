@@ -21,6 +21,9 @@ public class GameData
     public List<string> checkpointKeys;
     public List<bool> checkpointValues;
 
+    //seed for dungen
+    public int seed;
+
     //inital values of the game
     public GameData()
     {
