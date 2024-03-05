@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808225830118762162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactCollider: {fileID: 8154349005895559950}
   interactText: {fileID: 11400000, guid: 64b088bc7119485488e7d843e9dad70e, type: 2}
-  interactString: Take a Breather
+  interactString: Rest
   interactEvent: {fileID: 5770134691469454288}
 --- !u!114 &5770134691469454288
 MonoBehaviour:
