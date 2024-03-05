@@ -118,10 +118,14 @@ public class NoteCreator : MonoBehaviour
             notesCreated++;
             sequenceTracker++;
 
+            Debug.Log("Current Sequence Val is " + currentSequence);
+            Debug.Log("Current Not Sequence is " + noteSequences[currentSequence]);
+
             if (sequenceTracker == noteSequences[currentSequence])
             {
                 createdNote.GetComponent<Outline>().enabled = true;
                 sequenceTracker = 0;
+                Debug.Log("Current Sequence Updated");
                 currentSequence++;
             }
         }

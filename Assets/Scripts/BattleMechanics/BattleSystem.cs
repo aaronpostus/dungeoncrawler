@@ -246,10 +246,22 @@ public class BattleSystem : MonoBehaviour
     {
         if (!RhythmBattleManager.instance.isRhythmUIActive())
         {
+            //activates UI
             RhythmBattleManager.instance.ActivateRhythmUI();
-            yield return new WaitForSeconds(3f);
+
+            //waits for one second for UI to load in
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            //when starting, makes sure that the first note pressed is the first in the queue
+            while (!RhythmManager.instance.continuePlaying)
+            {
+                yield return null;
+            }
         }
 
+        //creates notes based on difficulty - to be changed later
         RhythmManager.instance.createDifficulty(difficulty);
 
 
