@@ -12,11 +12,12 @@ namespace Connect.Core
 
         private void Awake()
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             if (Instance == null)
             {
                 Instance = this;
                 Init();
-                DontDestroyOnLoad(gameObject);
                 return;
             }
             else
@@ -28,7 +29,7 @@ namespace Connect.Core
         private void Init()
         {
             CurrentStage = 1;
-            CurrentLevel= 1;
+            CurrentLevel = 1;
 
             Levels = new Dictionary<string, LevelData>();
 
