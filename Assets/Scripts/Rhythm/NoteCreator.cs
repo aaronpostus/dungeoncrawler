@@ -117,16 +117,6 @@ public class NoteCreator : MonoBehaviour
             notesCreated++;
             sequenceTracker++;
 
-            /**if (notesCreated == noteSequences[0] && noteSequences.Count > 1)
-            {
-                createdNote.GetComponent<Outline>().enabled = true;
-                noteSequences[0] += noteSequences[1];
-                noteSequences.Remove(noteSequences[1]);
-            }else if(notesCreated == totalNotes)
-            {
-                createdNote.GetComponent<Outline>().enabled = true;
-            }*/
-
             if (sequenceTracker == noteSequences[0])
             {
                 createdNote.GetComponent<Outline>().enabled = true;
