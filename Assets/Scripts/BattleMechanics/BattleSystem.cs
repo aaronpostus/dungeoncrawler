@@ -81,14 +81,8 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackButton()
     {
         Debug.Log("Attack");
-        
 
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-
-        StartCoroutine(PlayerAttack(false));
+        StartCoroutine(RhythmAttack(false));
     }
 
     public void OnStrongAttackButton()
@@ -97,7 +91,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        StartCoroutine(PlayerAttack(true));
+        StartCoroutine(RhythmAttack(true));
     }
 
     public void OnHealButton()
@@ -112,30 +106,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool strong)
     {
-        if (!RhythmBattleManager.instance.isRhythmUIActive())
-        {
-            RhythmBattleManager.instance.ActivateRhythmUI();
-        }
-
-        yield return new WaitForSeconds(3f);
-
-        RhythmManager.instance.createDifficulty(strong);
-
-
-        yield return new WaitForSeconds(5f);
-
-        while (RhythmManager.instance.continuePlaying)
-        {
-            yield return null;
-        }
-
-        if (RhythmBattleManager.instance.isRhythmUIActive())
-        {
-            RhythmBattleManager.instance.DeactivateRhythmUI();
-        }
-
+        //StartCoroutine(RhythmAttack(strong));
         // Rhythm System attack
-        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+        float damage = RhythmManager.instance.currentScore; // Placeholder for method to get multiplier from rhythm system
         animator.Play("Kick");
         yield return new WaitForSeconds(1.2f);
 
@@ -160,7 +133,7 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.WON;
             StartCoroutine(EndBattle());
         }
-        else
+        else if (state != BattleState.ENEMYTURN) 
         {
             // Enemys turn
             state = BattleState.ENEMYTURN;
@@ -199,7 +172,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            state = BattleState.PLAYERTURN;
+            //state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
@@ -225,9 +198,34 @@ public class BattleSystem : MonoBehaviour
         //playerHUD.SetActive(false);
     }
 
-    float RhythmAttack()
+    IEnumerator RhythmAttack(bool difficulty)
     {
-        return RhythmManager.instance.currentScore;
+        if (!RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            RhythmBattleManager.instance.ActivateRhythmUI();
+            yield return new WaitForSeconds(3f);
+        }
+
+        RhythmManager.instance.createDifficulty(difficulty);
+
+
+        yield return new WaitForSeconds(3f);
+
+        while (RhythmManager.instance.continuePlaying || state == BattleState.LOST || state == BattleState.WON)
+        {
+            if (RhythmManager.instance.isCurrentSequenceDone())
+            {
+                Debug.Log("Player is doing damage!");
+                StartCoroutine(PlayerAttack(difficulty));
+            }
+            yield return null;
+        }
+
+        if (RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            RhythmBattleManager.instance.DeactivateRhythmUI();
+        }
+
     }
 
 

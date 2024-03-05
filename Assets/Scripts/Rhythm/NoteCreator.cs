@@ -40,6 +40,7 @@ public class NoteCreator : MonoBehaviour
     private bool canDamage;
 
     private int sequenceTracker;
+    private int currentSequence = 0;
 
     void Start()
     {
@@ -117,11 +118,11 @@ public class NoteCreator : MonoBehaviour
             notesCreated++;
             sequenceTracker++;
 
-            if (sequenceTracker == noteSequences[0])
+            if (sequenceTracker == noteSequences[currentSequence])
             {
                 createdNote.GetComponent<Outline>().enabled = true;
                 sequenceTracker = 0;
-                noteSequences.Remove(noteSequences[0]);
+                currentSequence++;
             }
         }
     }

@@ -52,6 +52,8 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private NoteCreator noteCreator;
 
     private int notesDeleted;
+    private int noteSequenceTracker;
+    private int currentSequence = 0;
 
     public bool continuePlaying;
 
@@ -141,6 +143,7 @@ public class RhythmManager : MonoBehaviour
         Instantiate(missEffect, textArea.transform);
 
         notesDeleted++;
+        noteSequenceTracker++;
 
         //resets noteTacker and multiplier when a note is missed
         mutliplierCombo = 0;
@@ -164,6 +167,7 @@ public class RhythmManager : MonoBehaviour
             }
 
             notesDeleted++;
+            noteSequenceTracker++;
         }
 
         //currentScore += scorePerNote * currentMultiplier;
@@ -216,6 +220,21 @@ public class RhythmManager : MonoBehaviour
         else
         {
             CreateNotes(5);
+        }
+    }
+
+    public bool isCurrentSequenceDone()
+    {
+        if (noteSequenceTracker == noteCreator.noteSequences[currentSequence])
+        {
+            //Debug.Log("Damagable! 1");
+            noteSequenceTracker = 0;
+            currentSequence++;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
