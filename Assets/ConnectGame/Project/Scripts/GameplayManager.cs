@@ -1,11 +1,13 @@
 using Connect.Common;
 using System.Collections.Generic;
 using TMPro;
+using PuzzleData;
 using UnityEngine;
 
 namespace Connect.Core
 {
-	public class GameplayManager : MonoBehaviour
+
+    public class GameplayManager : MonoBehaviour
 	{
         #region START_METHODS
 
@@ -17,6 +19,7 @@ namespace Connect.Core
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private GameObject _winText;
         [SerializeField] private SpriteRenderer _clickHighlight;
+        [SerializeField] private PuzzleData puzzleData;
 
         private void Awake()
         {
@@ -44,6 +47,7 @@ namespace Connect.Core
 
         private void SpawnBoard()
         {
+            Debug.Log("")
             int currentLevelSize = GameManager.Instance.CurrentStage + 4;
 
             var board = Instantiate(_boardPrefab,
