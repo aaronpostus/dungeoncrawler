@@ -1,6 +1,7 @@
 using Connect.Common;
 using System.Collections.Generic;
 using TMPro;
+using PuzzleData;
 using UnityEngine;
 
 namespace Connect.Core
