@@ -25,6 +25,8 @@ public class BattleSystem : MonoBehaviour
     public Animator enemyAnimator;
     [SerializeField]public Text dialogueText;
 
+    [SerializeField] private GameObject deathUI;
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -220,12 +222,13 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated...";
             animator.Play("Die");
-            SceneManager.LoadScene("MainMenu");
+            playerHUD.SetActive(false);
+            Instantiate(deathUI);
         }
         yield return new WaitForSeconds(3f);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        playerHUD.SetActive(false);
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //playerHUD.SetActive(false);
     }
 
     float RhythmAttack()
