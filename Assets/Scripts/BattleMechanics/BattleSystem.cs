@@ -108,6 +108,8 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
+        QueueManager.instance.addToQueue("Attack");
+
         StartCoroutine(RhythmAttack(false));
     }
 
@@ -133,7 +135,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack(bool strong)
     {
         //takes current score as damage
-        float damage = RhythmManager.instance.currentScore; 
+        float damage = RhythmManager.instance.damage;
+        Debug.Log("Damage = " + damage);
         animator.Play("Kick");
         yield return new WaitForSeconds(1.2f);
 
@@ -221,7 +224,7 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated...";
             animator.Play("Die");
-            if (playerHUD.active)
+            if (playerHUD.activeSelf)
             {
                 playerHUD.SetActive(false);
                 Instantiate(deathUI);
@@ -244,7 +247,7 @@ public class BattleSystem : MonoBehaviour
         RhythmManager.instance.createDifficulty(difficulty);
 
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         while (RhythmManager.instance.continuePlaying || state == BattleState.LOST || state == BattleState.WON)
         {

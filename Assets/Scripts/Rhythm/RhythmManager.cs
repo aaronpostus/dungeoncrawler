@@ -57,6 +57,8 @@ public class RhythmManager : MonoBehaviour
 
     public bool continuePlaying;
 
+    public float damage;
+
     void Start()
     {
         instance = this;
@@ -230,6 +232,12 @@ public class RhythmManager : MonoBehaviour
             //Debug.Log("Damagable! 1");
             noteSequenceTracker = 0;
             currentSequence++;
+
+            damage = currentScore;
+            currentScore = 0;
+
+            QueueManager.instance.removeTopFromQueue();
+
             return true;
         }
         else
