@@ -1,8 +1,10 @@
+using Assets.ConnectGame.Project.Scripts;
 using Connect.Common;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using PuzzleData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Connect.Core
 {
@@ -16,10 +18,10 @@ namespace Connect.Core
 
         [HideInInspector] public bool hasGameFinished;
 
+        [SerializeField] PuzzleDataFileHandler fileHandler;
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private GameObject _winText;
         [SerializeField] private SpriteRenderer _clickHighlight;
-        [SerializeField] private PuzzleData puzzleData;
 
         private void Awake()
         {
@@ -47,7 +49,7 @@ namespace Connect.Core
 
         private void SpawnBoard()
         {
-            Debug.Log("")
+            Debug.Log("");
             int currentLevelSize = GameManager.Instance.CurrentStage + 4;
 
             var board = Instantiate(_boardPrefab,
@@ -250,8 +252,15 @@ namespace Connect.Core
             _winText.GetComponent<TextMeshProUGUI>().text = "Elevator Power Restored.";
             _winText.gameObject.SetActive(true);
             _clickHighlight.gameObject.SetActive(false);
+            fileHandler.SetDifficultyAndSolvedStatus(fileHandler.GetDifficulty() + 1, true);
 
             hasGameFinished = true;
+            StartCoroutine(GoBackAfterDelay());
+        }
+        private IEnumerator GoBackAfterDelay() {
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("DunGenTest");
+            yield return null;
         }
 
         #endregion
