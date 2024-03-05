@@ -27,6 +27,11 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private GameObject deathUI;
 
+    private static float enemyAttackInterval = 10f;
+    private float enemyAttackTimer = enemyAttackInterval;
+    private bool enemyHasBeenDamaged = false;
+
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,21 @@ public class BattleSystem : MonoBehaviour
         PlayerTurn();
     }
 
+    void Update()
+    {
+        if (state != BattleState.ENEMYTURN && enemyAttackInterval < 0)
+        {
+            // Enemys turn
+            state = BattleState.ENEMYTURN;
+            enemyAttackTimer = enemyAttackInterval;
+            StartCoroutine(EnemyTurn());
+        }
+        else if(enemyHasBeenDamaged)
+        {
+            enemyAttackTimer -= Time.deltaTime;
+        }
+    }
+
     void PlayerTurn()
     {
 
@@ -71,10 +91,11 @@ public class BattleSystem : MonoBehaviour
 
     public void OnRunButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
+
         SceneManager.LoadScene("DunGenTest");
     }
 
@@ -82,33 +103,37 @@ public class BattleSystem : MonoBehaviour
     {
         Debug.Log("Attack");
 
+        /**if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }*/
+
         StartCoroutine(RhythmAttack(false));
     }
 
     public void OnStrongAttackButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
         StartCoroutine(RhythmAttack(true));
     }
 
     public void OnHealButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
 
         StartCoroutine(PlayerHeal());
     }
 
     IEnumerator PlayerAttack(bool strong)
     {
-        //StartCoroutine(RhythmAttack(strong));
-        // Rhythm System attack
-        float damage = RhythmManager.instance.currentScore; // Placeholder for method to get multiplier from rhythm system
+        //takes current score as damage
+        float damage = RhythmManager.instance.currentScore; 
         animator.Play("Kick");
         yield return new WaitForSeconds(1.2f);
 
@@ -133,12 +158,19 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.WON;
             StartCoroutine(EndBattle());
         }
-        else if (state != BattleState.ENEMYTURN) 
+
+        if (!enemyHasBeenDamaged)
+        {
+            enemyHasBeenDamaged = true;
+        }
+
+        //removed to add a timer to it
+        /**else if (state != BattleState.ENEMYTURN) 
         {
             // Enemys turn
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
-        }
+        }*/
 
         // Change state accordingly
     }
@@ -227,7 +259,4 @@ public class BattleSystem : MonoBehaviour
         }
 
     }
-
-
-
 }
