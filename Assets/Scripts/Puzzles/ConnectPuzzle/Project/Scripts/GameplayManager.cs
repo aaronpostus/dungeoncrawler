@@ -46,7 +46,7 @@ namespace Connect.Core
 
         private void SpawnBoard()
         {
-            Debug.Log("")
+            Debug.Log("");
             int currentLevelSize = GameManager.Instance.CurrentStage + 4;
 
             var board = Instantiate(_boardPrefab,
