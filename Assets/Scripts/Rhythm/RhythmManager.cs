@@ -206,4 +206,16 @@ public class RhythmManager : MonoBehaviour
     {
         noteCreator.GenerateNotes(amountOfNotes);
     }
+
+    public void createDifficulty(bool hard)
+    {
+        if (hard)
+        {
+            CreateNotes(10);
+        }
+        else
+        {
+            CreateNotes(5);
+        }
+    }
 }

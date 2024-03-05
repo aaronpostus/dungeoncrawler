@@ -119,16 +119,10 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        if (strong)
-        {
-            RhythmManager.instance.CreateNotes(10);
-        }
-        else
-        {
-            RhythmManager.instance.CreateNotes(5);
-        }
+        RhythmManager.instance.createDifficulty(strong);
 
-        yield return new WaitForSeconds(10);
+
+        yield return new WaitForSeconds(5f);
 
         while (RhythmManager.instance.continuePlaying)
         {
