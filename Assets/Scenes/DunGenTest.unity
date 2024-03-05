@@ -903,6 +903,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 421360094865499233, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409444676805953267, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803694894298926032, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4696993710487658367, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.556
@@ -952,6 +964,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5087337263073320498, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Name
+      value: Fast Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087337263073320498, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -975,6 +991,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.x
       value: 0.082808204
       objectReference: {fileID: 0}
+    - target: {fileID: 6046074731350806491, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
     - target: {fileID: 6687895718666749888, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.688051
@@ -999,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.15
       objectReference: {fileID: 0}
+    - target: {fileID: 8579718915316739628, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8c0032217654add4985622943ba4ec93, type: 2}
     - target: {fileID: 8579718915325788230, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
