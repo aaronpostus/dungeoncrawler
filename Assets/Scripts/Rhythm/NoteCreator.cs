@@ -35,7 +35,9 @@ public class NoteCreator : MonoBehaviour
     //hard coded for position between notes
     private int distanceBetweenNotes = 120;
 
-    private List<int> noteSequences;
+    public List<int> noteSequences;
+
+    private bool canDamage;
 
     void Start()
     {
@@ -112,19 +114,14 @@ public class NoteCreator : MonoBehaviour
 
             notesCreated++;
 
-            if (notesCreated == noteSequences[0])
-            {
-                createdNote.GetComponent<Outline>().enabled = true;
-            }
-            else if(notesCreated == totalNotes)
-            {
-                createdNote.GetComponent<Outline>().enabled = true;
-            }
-            else if (noteSequences.Count > 1 && (notesCreated - noteSequences[0]) % noteSequences[1] == 1 && notesCreated != noteSequences[0]+1)
+            if (notesCreated == noteSequences[0] && noteSequences.Count > 1)
             {
                 createdNote.GetComponent<Outline>().enabled = true;
                 noteSequences[0] += noteSequences[1];
                 noteSequences.Remove(noteSequences[1]);
+            }else if(notesCreated == totalNotes)
+            {
+                createdNote.GetComponent<Outline>().enabled = true;
             }
         }
     }
