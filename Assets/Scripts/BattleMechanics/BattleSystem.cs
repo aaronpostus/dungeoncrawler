@@ -67,7 +67,7 @@ public class BattleSystem : MonoBehaviour
 
     void Update()
     {
-        if (state != BattleState.ENEMYTURN && enemyAttackInterval < 0)
+        if (state != BattleState.ENEMYTURN && enemyAttackTimer < 0)
         {
             // Enemys turn
             state = BattleState.ENEMYTURN;
@@ -204,7 +204,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            //state = BattleState.PLAYERTURN;
+            state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
@@ -221,8 +221,11 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated...";
             animator.Play("Die");
-            playerHUD.SetActive(false);
-            Instantiate(deathUI);
+            if (playerHUD.active)
+            {
+                playerHUD.SetActive(false);
+                Instantiate(deathUI);
+            }
         }
         yield return new WaitForSeconds(3f);
         //Cursor.visible = false;
@@ -241,7 +244,7 @@ public class BattleSystem : MonoBehaviour
         RhythmManager.instance.createDifficulty(difficulty);
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         while (RhythmManager.instance.continuePlaying || state == BattleState.LOST || state == BattleState.WON)
         {
@@ -252,6 +255,11 @@ public class BattleSystem : MonoBehaviour
             }
             yield return null;
         }
+
+        //added as rhythm section is complete so a full attack must have completed
+        StartCoroutine(PlayerAttack(difficulty));
+
+        yield return new WaitForSeconds(1f);
 
         if (RhythmBattleManager.instance.isRhythmUIActive())
         {
