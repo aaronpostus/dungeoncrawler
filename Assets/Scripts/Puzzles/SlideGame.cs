@@ -6,6 +6,8 @@ public class SlideGame : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
+    [SerializeField] List<Material> materials;
+    [SerializeField] PuzzleData puzzleData;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -51,13 +53,17 @@ public class SlideGame : MonoBehaviour
                 }
             }
         }
+        while (CheckCompletion()) {
+            Shuffle();
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         pieces = new List<Transform>();
-        size = 4;
+        piecePrefab.GetComponent<Renderer>().material = materials[Random.Range(0, materials.Count)];
+        size = 2 + (puzzleData.difficulty - 1);
         CreateGamePieces(0.01f);
     }
 
@@ -94,6 +100,7 @@ public class SlideGame : MonoBehaviour
                 }
             }
         }
+        CheckCompletionForWin();
     }
 
     // colCheck is used to stop horizontal moves wrapping.
@@ -123,6 +130,12 @@ public class SlideGame : MonoBehaviour
             }
         }
         return true;
+    }
+    private void CheckCompletionForWin() {
+        if (CheckCompletion()) {
+            // Win
+            Debug.Log("Win");
+        }
     }
 
     private IEnumerator WaitShuffle(float duration)
