@@ -175,6 +175,8 @@ public class BattleSystem : MonoBehaviour
     {
         enemyAnimator.Play("Kick");
         dialogueText.text = enemyUnit.unitName + " attacks!";
+
+        //good to test for now but should be changed later
         yield return new WaitForSeconds(2f);
         
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
