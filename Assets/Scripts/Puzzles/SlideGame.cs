@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlideGame : MonoBehaviour
 {
@@ -8,11 +10,13 @@ public class SlideGame : MonoBehaviour
     [SerializeField] private Transform piecePrefab;
     [SerializeField] List<Material> materials;
     [SerializeField] PuzzleData puzzleData;
+    [SerializeField] TextMeshProUGUI text;
 
     private List<Transform> pieces;
     private int emptyLocation;
     private int size;
     private bool shuffling = false;
+    bool winning = false;
 
     // Create the game setup with size x size pieces.
     private void CreateGamePieces(float gapThickness)
@@ -70,13 +74,6 @@ public class SlideGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check for completion.
-        if (!shuffling && CheckCompletion())
-        {
-            shuffling = true;
-            StartCoroutine(WaitShuffle(0.5f));
-        }
-
         // On click send out ray to see if we click a piece.
         if (Input.GetMouseButtonDown(0))
         {
@@ -100,10 +97,12 @@ public class SlideGame : MonoBehaviour
                 }
             }
         }
-        CheckCompletionForWin();
+        if (!winning)
+        {
+            CheckCompletionForWin();
+        }
     }
-
-    // colCheck is used to stop horizontal moves wrapping.
+        // colCheck is used to stop horizontal moves wrapping.
     private bool SwapIfValid(int i, int offset, int colCheck)
     {
         if (((i % size) != colCheck) && ((i + offset) == emptyLocation))
@@ -134,8 +133,15 @@ public class SlideGame : MonoBehaviour
     private void CheckCompletionForWin() {
         if (CheckCompletion()) {
             // Win
+            text.enabled = true;
             Debug.Log("Win");
+            winning = true;
+            StartCoroutine(TransitionBack());
         }
+    }
+    private IEnumerator TransitionBack() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("DunGenTest");
     }
 
     private IEnumerator WaitShuffle(float duration)
