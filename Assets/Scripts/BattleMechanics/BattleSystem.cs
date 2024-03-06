@@ -27,10 +27,6 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private GameObject deathUI;
 
-    private static float enemyAttackInterval = 10f;
-    private float enemyAttackTimer = enemyAttackInterval;
-    private bool enemyHasBeenDamaged = false;
-
 
     public BattleState state;
     // Start is called before the first frame update
@@ -63,21 +59,6 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Game setup complete");
 
         PlayerTurn();
-    }
-
-    void Update()
-    {
-        if (state != BattleState.ENEMYTURN && enemyAttackTimer < 0)
-        {
-            // Enemy's turn
-            state = BattleState.ENEMYTURN;
-            enemyAttackTimer = enemyAttackInterval;
-            StartCoroutine(EnemyTurn());
-        }
-        else if(enemyHasBeenDamaged)
-        {
-            enemyAttackTimer -= Time.deltaTime;
-        }
     }
 
     void PlayerTurn()
@@ -168,18 +149,12 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EndBattle());
         }
 
-        if (!enemyHasBeenDamaged)
-        {
-            enemyHasBeenDamaged = true;
-        }
-
-        //removed to add a timer to it
-        /**else if (state != BattleState.ENEMYTURN) 
+        else if (state != BattleState.ENEMYTURN) 
         {
             // Enemys turn
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
-        }*/
+        }
 
         // Change state accordingly
     }
