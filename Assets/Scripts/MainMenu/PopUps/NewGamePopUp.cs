@@ -9,6 +9,8 @@ public class NewGamePopUp : MonoBehaviour
 {
     [SerializeField] private GameObject newGameButton;
 
+    [SerializeField] private string sceneToLoad;
+
     public void StartNewGame()
     {
         SaveGameManager.instance.DeleteSave();
@@ -17,7 +19,7 @@ public class NewGamePopUp : MonoBehaviour
 
         //SceneManager.LoadSceneAsync("SampleScene");
 
-        LoadGameManager.instance.LoadScene("SampleScene");
+        LoadGameManager.instance.LoadScene(sceneToLoad);
     }
 
     public void DoNotStartNewGame()

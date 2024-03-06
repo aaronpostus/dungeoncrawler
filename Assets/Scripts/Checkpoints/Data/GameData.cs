@@ -12,14 +12,14 @@ public class GameData
     //camera rotation
     public Quaternion cameraRotation;
 
-    //item data
-    public Vector3 ballPosition;
-
     //checkpoint data
     public Dictionary<string, bool> checkpoints;
 
     public List<string> checkpointKeys;
     public List<bool> checkpointValues;
+
+    //seed for dungen
+    public int seed;
 
     //inital values of the game
     public GameData()
@@ -28,8 +28,6 @@ public class GameData
         this.playerRotation = new Quaternion();
 
         this.cameraRotation = new Quaternion();
-
-        this.ballPosition = new Vector3(5, 1, 2);
 
         checkpoints = new Dictionary<string, bool>();
 
