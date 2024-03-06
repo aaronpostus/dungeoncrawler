@@ -82,7 +82,7 @@ namespace Connect.Generator
         {
             Levels = new Dictionary<string, LevelData>();
 
-            foreach (var item in _allLevelList.Levels)
+            foreach (var item in LevelDataLoader.allLevelData)
             {
                 Levels[item.LevelName] = item;
             }
@@ -98,8 +98,6 @@ namespace Connect.Generator
 
             _simulateButton.SetActive(false);
         }
-
-        [SerializeField] private LevelList _allLevelList;
         private Dictionary<string, LevelData> Levels;
 
         #region GENERATE_SINGLE_LEVEL
@@ -118,12 +116,13 @@ namespace Connect.Generator
             {
 #if UNITY_EDITOR
                 currentLevelData = ScriptableObject.CreateInstance<LevelData>();
+                EditorUtility.SetDirty(currentLevelData);
                 AssetDatabase.CreateAsset(currentLevelData, "Assets/Common/Prefabs/Levels/" +
                     currentLevelName + ".asset");
                 AssetDatabase.SaveAssets();
+
 #endif
                 Levels[currentLevelName] = currentLevelData;
-                _allLevelList.Levels.Add(currentLevelData);
             }
 
             currentLevelData = Levels[currentLevelName];
@@ -168,7 +167,6 @@ namespace Connect.Generator
                 AssetDatabase.SaveAssets();
 #endif
                 Levels[currentLevelName] = currentLevelData;
-                _allLevelList.Levels.Add(currentLevelData);
             }
 
             currentLevelData = Levels[currentLevelName];

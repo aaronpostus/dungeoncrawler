@@ -33,7 +33,7 @@ namespace Connect.Core
 
             Levels = new Dictionary<string, LevelData>();
 
-            foreach (var item in _allLevels.Levels)
+            foreach (var item in LevelDataLoader.allLevelData)
             {
                 Levels[item.LevelName] = item;
             }
@@ -98,9 +98,6 @@ namespace Connect.Core
 
         [SerializeField]
         private LevelData DefaultLevel;
-
-        [SerializeField]
-        private LevelList _allLevels;
 
         private Dictionary<string, LevelData> Levels;
 

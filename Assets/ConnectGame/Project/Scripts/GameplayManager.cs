@@ -33,7 +33,7 @@ namespace Connect.Core
             //_titleText.text = GameManager.Instance.StageName + 
             //    " - " + GameManager.Instance.CurrentLevel.ToString();
 
-            CurrentLevelData = GameManager.Instance.GetLevel();
+            CurrentLevelData = LevelDataLoader.allLevelData[Random.Range(0, LevelDataLoader.allLevelData.Count)];
 
             SpawnBoard();
 
@@ -83,7 +83,6 @@ namespace Connect.Core
         private List<Node> _nodes;
 
         public Dictionary<Vector2Int, Node> _nodeGrid;
-
         private void SpawnNodes()
         {
             _nodes = new List<Node>();
