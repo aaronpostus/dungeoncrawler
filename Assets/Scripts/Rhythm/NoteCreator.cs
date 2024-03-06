@@ -42,6 +42,9 @@ public class NoteCreator : MonoBehaviour
     private int sequenceTracker;
     private int currentSequence = 0;
 
+    [SerializeField] private GameObject attackIcon;
+    private GameObject createdIcon;
+
     void Start()
     {
         noteSequences = new List<int>();
@@ -82,9 +85,9 @@ public class NoteCreator : MonoBehaviour
         {
             CreateNote();
         }
-        else if (transform.childCount > 0 && transform.GetChild(notesCreated - 1).transform.position.y > generationPosition + distanceBetweenNotes)
+        else if (transform.childCount > 0 && createdNote.transform.position.y > generationPosition + distanceBetweenNotes)
         {
-            //Debug.Log("Previous Child position: " + transform.GetChild(notesCreated - 1).transform.position.y);
+            //Debug.Log("This is the " + notesCreated + " note. The previous child note was at " + transform.GetChild(notesCreated - 1).transform.position.y + ". The stored note was created at " + createdNote.transform.position.y);
             CreateNote();
         }
     }
@@ -118,12 +121,14 @@ public class NoteCreator : MonoBehaviour
             notesCreated++;
             sequenceTracker++;
 
-            Debug.Log("Current Sequence Val is " + currentSequence);
-            Debug.Log("Current Not Sequence is " + noteSequences[currentSequence]);
+            //Debug.Log("Current Sequence Val is " + currentSequence);
+            //Debug.Log("Current Not Sequence is " + noteSequences[currentSequence]);
 
             if (sequenceTracker == noteSequences[currentSequence])
             {
-                createdNote.GetComponent<Outline>().enabled = true;
+                createdIcon = Instantiate(attackIcon, new Vector3(leftButton.transform.position.x - 150, generationPosition, 0), Quaternion.Euler(0, 0, 0));
+                createdIcon.transform.SetParent(gameObject.transform, true);
+
                 sequenceTracker = 0;
                 Debug.Log("Current Sequence Updated");
                 currentSequence++;
