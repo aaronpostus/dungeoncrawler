@@ -65,6 +65,8 @@ public class SlideGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         pieces = new List<Transform>();
         piecePrefab.GetComponent<Renderer>().material = materials[Random.Range(0, materials.Count)];
         size = 2 + (puzzleData.difficulty - 1);
