@@ -8,7 +8,7 @@ public class QueueManager : MonoBehaviour
 
     [SerializeField] private GameObject playerQueue;
 
-    [SerializeField] private GameObject enemyNextUp;
+    //[SerializeField] private GameObject enemyNextUp;
 
     [SerializeField] private GameObject attackIcon;
 
@@ -104,6 +104,6 @@ public class QueueManager : MonoBehaviour
     public void DeactivateQueue()
     {
         playerQueue.SetActive(false);
-        enemyNextUp.SetActive(false);
+        //enemyNextUp.SetActive(false);
     }
 }
