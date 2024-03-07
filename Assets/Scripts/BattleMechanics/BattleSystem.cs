@@ -181,6 +181,7 @@ public class BattleSystem : MonoBehaviour
         
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHP.value = playerUnit.currentHP;
+        isDead = false;
         // Set HUD
 
         if (isDead)

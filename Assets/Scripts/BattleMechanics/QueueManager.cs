@@ -18,6 +18,8 @@ public class QueueManager : MonoBehaviour
 
     [SerializeField] private GameObject healIcon;
 
+    public int queueMax = 5;
+
     private List<GameObject> queue;
     private List<GameObject> icons;
 
@@ -37,30 +39,37 @@ public class QueueManager : MonoBehaviour
 
     public void addToQueue(string name)
     {
-        Vector3 queuePosition = playerQueue.transform.position;
-        if (name == "Attack")
+        if (queueLength < queueMax)
         {
-            queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
-            icons.Add(attackIcon);
+            Vector3 queuePosition = playerQueue.transform.position;
+            if (name == "Attack")
+            {
+                queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                icons.Add(attackIcon);
+            }
+            else if (name == "Strong Attack")
+            {
+                queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                icons.Add(strongAttackIcon);
+            }
+            else if (name == "Run")
+            {
+                queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                icons.Add(runIcon);
+            }
+            else if (name == "Heal")
+            {
+                queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                icons.Add(healIcon);
+            }
+            //Debug.Log("Icon length is: " + icons.Count + ". Icon name is " + icons[icons.Count - 1].gameObject.name);
+            queue[queueLength].transform.SetParent(playerQueue.transform, true);
+            queueLength++;
         }
-        else if (name == "Strong Attack")
+        else
         {
-            queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
-            icons.Add(strongAttackIcon);
+            Debug.Log("Tried to queue more than 5 options at once.");
         }
-        else if (name == "Run")
-        {
-            queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
-            icons.Add(runIcon);
-        }
-        else if (name == "Heal")
-        {
-            queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
-            icons.Add(healIcon);
-        }
-        //Debug.Log("Icon length is: " + icons.Count + ". Icon name is " + icons[icons.Count - 1].gameObject.name);
-        queue[queueLength].transform.SetParent(playerQueue.transform, true);
-        queueLength++;
     }
 
     public void removeTopFromQueue()

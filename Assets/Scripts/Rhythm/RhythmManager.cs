@@ -210,7 +210,10 @@ public class RhythmManager : MonoBehaviour
 
     public void CreateNotes(int amountOfNotes)
     {
-        noteCreator.GenerateNotes(amountOfNotes);
+        if((noteCreator.noteSequences.Count - currentSequence) < QueueManager.instance.queueMax)
+        {
+            noteCreator.GenerateNotes(amountOfNotes);
+        }
     }
 
     public void createDifficulty(bool hard)
