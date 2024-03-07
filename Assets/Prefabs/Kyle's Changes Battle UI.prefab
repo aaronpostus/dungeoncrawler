@@ -391,8 +391,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -572,7 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerQueue: {fileID: 3115125508950093763}
-  enemyNextUp: {fileID: 0}
   attackIcon: {fileID: 2654541720695089899, guid: 3d31ecca85d69c44684a4706901baa22, type: 3}
   strongAttackIcon: {fileID: 3955045997369563747, guid: 5c1cc8d2160b593459c826daf20a9c78, type: 3}
   runIcon: {fileID: 6496693267890344166, guid: 7a9dca9bee8d5ab46aa43ab492eb2cb0, type: 3}
