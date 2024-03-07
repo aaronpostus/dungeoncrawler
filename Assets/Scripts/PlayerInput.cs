@@ -486,6 +486,56 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Minimap"",
+            ""id"": ""2dd74ac4-214c-49ba-b6d2-d55e332877aa"",
+            ""actions"": [
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Button"",
+                    ""id"": ""9816e2c2-358e-4e8e-b085-366b60374dbd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Zooming"",
+                    ""id"": ""47bf4522-2b10-45a1-a9f8-633d118b7e8c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""95e6ba36-5240-4fd3-8546-4623d3506513"",
+                    ""path"": ""<Keyboard>/leftBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""abbb25ec-64dc-4164-9db7-bb069781ee04"",
+                    ""path"": ""<Keyboard>/rightBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -512,6 +562,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Rhythm_Down = m_Rhythm.FindAction("Down", throwIfNotFound: true);
         m_Rhythm_Left = m_Rhythm.FindAction("Left", throwIfNotFound: true);
         m_Rhythm_Right = m_Rhythm.FindAction("Right", throwIfNotFound: true);
+        // Minimap
+        m_Minimap = asset.FindActionMap("Minimap", throwIfNotFound: true);
+        m_Minimap_Zoom = m_Minimap.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -789,6 +842,52 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public RhythmActions @Rhythm => new RhythmActions(this);
+
+    // Minimap
+    private readonly InputActionMap m_Minimap;
+    private List<IMinimapActions> m_MinimapActionsCallbackInterfaces = new List<IMinimapActions>();
+    private readonly InputAction m_Minimap_Zoom;
+    public struct MinimapActions
+    {
+        private @PlayerInput m_Wrapper;
+        public MinimapActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Zoom => m_Wrapper.m_Minimap_Zoom;
+        public InputActionMap Get() { return m_Wrapper.m_Minimap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MinimapActions set) { return set.Get(); }
+        public void AddCallbacks(IMinimapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MinimapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MinimapActionsCallbackInterfaces.Add(instance);
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
+        }
+
+        private void UnregisterCallbacks(IMinimapActions instance)
+        {
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
+        }
+
+        public void RemoveCallbacks(IMinimapActions instance)
+        {
+            if (m_Wrapper.m_MinimapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMinimapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MinimapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MinimapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MinimapActions @Minimap => new MinimapActions(this);
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -812,5 +911,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IMinimapActions
+    {
+        void OnZoom(InputAction.CallbackContext context);
     }
 }

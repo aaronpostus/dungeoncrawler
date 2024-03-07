@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 96421983959838234}
   - component: {fileID: 929838126011689566}
   - component: {fileID: 7643525735553197902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,6 +2127,10 @@ PrefabInstance:
     - target: {fileID: 2502009009460425218, guid: 956fca7c5ff065b4ebdcc8f905d5ea02, type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502009009460425218, guid: 956fca7c5ff065b4ebdcc8f905d5ea02, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3662202714578079193, guid: 956fca7c5ff065b4ebdcc8f905d5ea02, type: 3}
       propertyPath: m_RootOrder
