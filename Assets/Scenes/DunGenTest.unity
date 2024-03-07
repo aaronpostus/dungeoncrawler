@@ -218,6 +218,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interact
       objectReference: {fileID: 0}
+    - target: {fileID: 3526429027724466488, guid: 88e630dd7e9eaa447816c774acd52532, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 44ee407ceac32c94983f6c9af8115149, type: 2}
+    - target: {fileID: 3526429027724466488, guid: 88e630dd7e9eaa447816c774acd52532, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3144057059406566797, guid: 44ee407ceac32c94983f6c9af8115149, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88e630dd7e9eaa447816c774acd52532, type: 3}
 --- !u!1 &599725245
@@ -1043,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 4840129445278806132, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657020220777925148, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5657020220777925150, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_LocalPosition.x

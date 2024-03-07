@@ -38,6 +38,10 @@ MonoBehaviour:
     Count:
       Min: 1
       Max: 1
+  - ID: 4
+    Count:
+      Min: 1
+      Max: 3
   KeyManager: {fileID: 0}
   DoorwayConnectionChance: 0
   RestrictConnectionToSameSection: 0
@@ -47,7 +51,7 @@ MonoBehaviour:
   Nodes:
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: eef9ace2b97bcbd47a9ea966998d04ce, type: 2}
+    - {fileID: 11400000, guid: ea6c92ad1e9ee3048a41d0d7c6911833, type: 2}
     NodeType: 1
     Position: 0
     Label: Start

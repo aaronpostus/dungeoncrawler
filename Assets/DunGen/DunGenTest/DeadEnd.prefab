@@ -317,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 599671070590491990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.25, y: 3.625, z: 10.375}
-  m_LocalScale: {x: 4, y: 7, z: 0.25}
+  m_LocalScale: {x: 4, y: 7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 599671069395348830}
@@ -347,7 +347,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: -3437142490748342793, guid: 143ec1504a7cb1c4ea24d2bf1751fde6, type: 2}
+  socket: {fileID: 4095367749409265103, guid: 143ec1504a7cb1c4ea24d2bf1751fde6, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
