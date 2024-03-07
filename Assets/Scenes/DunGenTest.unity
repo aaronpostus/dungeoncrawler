@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 205204048527337986, guid: 468e84490b902dc4ebf1954361482eb5, type: 3}
+      propertyPath: m_FadeMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 205204048527337986, guid: 468e84490b902dc4ebf1954361482eb5, type: 3}
+      propertyPath: m_AnimateCrossFading
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 468e84490b902dc4ebf1954361482eb5, type: 3}
 --- !u!95 &252473557 stripped
@@ -1028,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 421360094865499233, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2409444676805953267, guid: e69bcca7be0ee6a4183e1b241f93ed66, type: 3}
       propertyPath: m_Speed
