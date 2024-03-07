@@ -26,6 +26,7 @@ public class QueueManager : MonoBehaviour
     private int queueLength;
 
     private const int distBetweenIcons = 100;
+    private const int distDown = 50;
 
     private void Awake()
     {
@@ -44,22 +45,22 @@ public class QueueManager : MonoBehaviour
             Vector3 queuePosition = playerQueue.transform.position;
             if (name == "Attack")
             {
-                queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(attackIcon);
             }
             else if (name == "Strong Attack")
             {
-                queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(strongAttackIcon);
             }
             else if (name == "Run")
             {
-                queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(runIcon);
             }
             else if (name == "Heal")
             {
-                queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(healIcon);
             }
             //Debug.Log("Icon length is: " + icons.Count + ". Icon name is " + icons[icons.Count - 1].gameObject.name);
@@ -79,7 +80,7 @@ public class QueueManager : MonoBehaviour
         {
             for (int i = 1; i < queueLength; i++)
             {
-                queue[i].transform.position = new Vector3(queue[i].transform.position.x, queue[i].transform.position.y + distBetweenIcons, queue[i].transform.position.z);
+                queue[i].transform.position = new Vector3(queue[i].transform.position.x + distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);
             }
         }
 
