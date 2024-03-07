@@ -19,6 +19,7 @@ public class QueueManager : MonoBehaviour
     [SerializeField] private GameObject healIcon;
 
     private List<GameObject> queue;
+    private List<GameObject> icons;
 
     private int queueLength;
 
@@ -29,6 +30,7 @@ public class QueueManager : MonoBehaviour
         instance = this;
 
         queue = new List<GameObject>();
+        icons = new List<GameObject>();
 
         queueLength = 0;
     }
@@ -39,26 +41,31 @@ public class QueueManager : MonoBehaviour
         if (name == "Attack")
         {
             queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+            icons.Add(attackIcon);
         }
         else if (name == "Strong Attack")
         {
             queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+            icons.Add(strongAttackIcon);
         }
         else if (name == "Run")
         {
             queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+            icons.Add(runIcon);
         }
         else if (name == "Heal")
         {
             queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x, queuePosition.y - (distBetweenIcons * (queueLength + 1)), queuePosition.z), Quaternion.Euler(0, 0, 0)));
+            icons.Add(healIcon);
         }
+        //Debug.Log("Icon length is: " + icons.Count + ". Icon name is " + icons[icons.Count - 1].gameObject.name);
         queue[queueLength].transform.SetParent(playerQueue.transform, true);
         queueLength++;
     }
 
     public void removeTopFromQueue()
     {
-        Debug.Log("Removed: " + queue[0]);
+        //Debug.Log("Removed: " + queue[0]);
         if (queueLength > 1)
         {
             for (int i = 1; i < queueLength; i++)
@@ -67,7 +74,21 @@ public class QueueManager : MonoBehaviour
             }
         }
 
+        queue[0].SetActive(false);
         queue.Remove(queue[0]);
         queueLength--;
+    }
+
+    public GameObject currentIcon(int currentSequence)
+    {
+        if(icons.Count > 0)
+        {
+            //Debug.Log("Icon length is: " + currentSequence + ". Icon name is " + icons[currentSequence].gameObject.name);
+            return icons[currentSequence];
+        }
+        else
+        {
+            return null;
+        }
     }
 }

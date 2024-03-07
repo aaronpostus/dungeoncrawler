@@ -42,7 +42,6 @@ public class NoteCreator : MonoBehaviour
     private int sequenceTracker;
     private int currentSequence = 0;
 
-    [SerializeField] private GameObject attackIcon;
     private GameObject createdIcon;
 
     void Start()
@@ -126,7 +125,7 @@ public class NoteCreator : MonoBehaviour
 
             if (sequenceTracker == noteSequences[currentSequence])
             {
-                createdIcon = Instantiate(attackIcon, new Vector3(leftButton.transform.position.x - 150, generationPosition, 0), Quaternion.Euler(0, 0, 0));
+                createdIcon = Instantiate(QueueManager.instance.currentIcon(currentSequence), new Vector3(leftButton.transform.position.x - 150, generationPosition, 0), Quaternion.Euler(0, 0, 0));
                 createdIcon.transform.SetParent(gameObject.transform, true);
 
                 sequenceTracker = 0;
