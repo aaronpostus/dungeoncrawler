@@ -4586,6 +4586,45 @@ MonoBehaviour:
   puzzleData: {fileID: 11400000, guid: ed9b981a47e218d4e94192d68a170e87, type: 2}
   anim: {fileID: 3246227570313427464}
   triggerBox: {fileID: 5262756740557891835}
+--- !u!114 &2051766216357853080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5959932235560727864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d7fdc2f82e8404a870095acb8edcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PropGroupID: 4
+  MainPathWeight: 1
+  BranchPathWeight: 1
+  DepthWeightScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &6484689121591652226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e65ab2c997139fc459fce00af98184e1, type: 3}
