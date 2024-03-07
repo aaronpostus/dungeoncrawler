@@ -43,8 +43,10 @@ public class NoteCreator : MonoBehaviour
     private int currentSequence = 0;
 
     private GameObject createdIcon;
+    public List<GameObject> icons;
 
     private GameObject createdLine;
+    public List<GameObject> lines;
 
     [SerializeField] private GameObject line;
 
@@ -135,6 +137,9 @@ public class NoteCreator : MonoBehaviour
                 createdLine = Instantiate(line, new Vector3(downButton.transform.position.x - 50, generationPosition - 50, 0), Quaternion.Euler(0, 0, 0));
                 createdLine.transform.SetParent(gameObject.transform, true);
                 createdLine.GetComponent<Image>().color = createdIcon.GetComponent<Image>().color;
+
+                icons.Add(createdIcon);
+                lines.Add(createdLine);
 
                 sequenceTracker = 0;
                 Debug.Log("Current Sequence Updated");

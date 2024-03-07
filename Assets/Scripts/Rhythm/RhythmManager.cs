@@ -237,6 +237,7 @@ public class RhythmManager : MonoBehaviour
             currentScore = 0;
 
             QueueManager.instance.removeTopFromQueue();
+            removeIconAndLine();
 
             return true;
         }
@@ -244,5 +245,11 @@ public class RhythmManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void removeIconAndLine()
+    {
+        noteCreator.icons[currentSequence - 1].SetActive(false);
+        noteCreator.lines[currentSequence - 1].SetActive(false);
     }
 }
