@@ -91,4 +91,10 @@ public class QueueManager : MonoBehaviour
             return null;
         }
     }
+
+    public void DeactivateQueue()
+    {
+        playerQueue.SetActive(false);
+        enemyNextUp.SetActive(false);
+    }
 }

@@ -197,11 +197,15 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle()
     {
+        RhythmBattleManager.instance.DeactivateRhythmUI();
+        QueueManager.instance.DeactivateQueue();
+
+
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
             enemyAnimator.Play("Die");
-            SceneManager.LoadScene("DunGenTest");
+            //SceneManager.LoadScene("DunGenTest");
         }
         else if (state == BattleState.LOST)
         {
