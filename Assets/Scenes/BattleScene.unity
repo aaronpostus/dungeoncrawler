@@ -361,6 +361,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9024645979112838744, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839358626}
+    - target: {fileID: 9024645979112838744, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHealButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645979482001153, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839358626}
+    - target: {fileID: 9024645979482001153, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnStrongAttackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645979676690621, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839358626}
+    - target: {fileID: 9024645979676690621, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRunButton
+      objectReference: {fileID: 0}
     - target: {fileID: 9024645980062580376, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
       propertyPath: m_Name
       value: Kyle's Changes Battle UI
@@ -409,8 +433,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9024645980288800116, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839358626}
+    - target: {fileID: 9024645980288800116, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttackButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+--- !u!114 &116684324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1813128359836673546, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+  m_PrefabInstance: {fileID: 116684323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &116684325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 706729838509452939, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+  m_PrefabInstance: {fileID: 116684323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &116684326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6096421630399580616, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+  m_PrefabInstance: {fileID: 116684323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &133318303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,11 +1192,11 @@ MonoBehaviour:
   playerBattleStation: {fileID: 1443195088}
   enemyBattleStation: {fileID: 62516395}
   playerHUD: {fileID: 1174516605}
-  playerHP: {fileID: 133318305}
-  enemyHP: {fileID: 1398034434}
+  playerHP: {fileID: 116684326}
+  enemyHP: {fileID: 116684325}
   animator: {fileID: 359383136}
   enemyAnimator: {fileID: 1141540590}
-  dialogueText: {fileID: 1961844441}
+  dialogueText: {fileID: 116684324}
   deathUI: {fileID: 0}
   state: 0
 --- !u!4 &839358627
