@@ -244,7 +244,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        while (RhythmManager.instance.continuePlaying || state == BattleState.LOST || state == BattleState.WON)
+        while (RhythmManager.instance.continuePlaying && !(state == BattleState.LOST || state == BattleState.WON))
         {
             if (RhythmManager.instance.isCurrentSequenceDone())
             {
