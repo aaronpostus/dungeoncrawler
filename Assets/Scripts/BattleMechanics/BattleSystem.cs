@@ -25,6 +25,9 @@ public class BattleSystem : MonoBehaviour
     public Animator enemyAnimator;
     [SerializeField]public Text dialogueText;
 
+    [SerializeField] private GameObject deathUI;
+
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -69,49 +72,58 @@ public class BattleSystem : MonoBehaviour
 
     public void OnRunButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
+
+        QueueManager.instance.addToQueue("Run");
+
         SceneManager.LoadScene("DunGenTest");
     }
 
     public void OnAttackButton()
     {
         Debug.Log("Attack");
-        
 
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
 
-        StartCoroutine(PlayerAttack(false));
+        QueueManager.instance.addToQueue("Attack");
+
+        StartCoroutine(RhythmAttack(false));
     }
 
     public void OnStrongAttackButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
-        StartCoroutine(PlayerAttack(true));
+        }*/
+        QueueManager.instance.addToQueue("Strong Attack");
+
+        StartCoroutine(RhythmAttack(true));
     }
 
     public void OnHealButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        /**if (state != BattleState.PLAYERTURN)
         {
             return;
-        }
+        }*/
+
+        QueueManager.instance.addToQueue("Heal");
 
         StartCoroutine(PlayerHeal());
     }
 
     IEnumerator PlayerAttack(bool strong)
     {
-        // Rhythm System attack
-        float damage = RhythmAttack(); // Placeholder for method to get multiplier from rhythm system
+        //takes current score as damage
+        float damage = RhythmManager.instance.damage;
+        Debug.Log("Damage = " + damage);
         animator.Play("Kick");
         yield return new WaitForSeconds(1.2f);
 
@@ -136,7 +148,8 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.WON;
             StartCoroutine(EndBattle());
         }
-        else
+
+        else if (state != BattleState.ENEMYTURN) 
         {
             // Enemys turn
             state = BattleState.ENEMYTURN;
@@ -162,10 +175,13 @@ public class BattleSystem : MonoBehaviour
     {
         enemyAnimator.Play("Kick");
         dialogueText.text = enemyUnit.unitName + " attacks!";
+
+        //good to test for now but should be changed later
         yield return new WaitForSeconds(2f);
         
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
         playerHP.value = playerUnit.currentHP;
+        isDead = false;
         // Set HUD
 
         if (isDead)
@@ -182,6 +198,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle()
     {
+        RhythmBattleManager.instance.DeactivateRhythmUI();
+
+
         if (state == BattleState.WON)
         {
             dialogueText.text = "You won!";
@@ -192,20 +211,62 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated...";
             animator.Play("Die");
-            SceneManager.LoadScene("MainMenu");
+            if (playerHUD.activeSelf)
+            {
+                playerHUD.SetActive(false);
+                Instantiate(deathUI);
+            }
         }
         yield return new WaitForSeconds(3f);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        playerHUD.SetActive(false);
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //playerHUD.SetActive(false);
     }
 
-    float RhythmAttack()
+    IEnumerator RhythmAttack(bool difficulty)
     {
-        float multiplier = 1;
-        return multiplier;
+        if (!RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            //activates UI
+            RhythmBattleManager.instance.ActivateRhythmUI();
+
+            //waits for one second for UI to load in
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            //when starting, makes sure that the first note pressed is the first in the queue
+            while (!RhythmManager.instance.continuePlaying)
+            {
+                yield return null;
+            }
+        }
+
+        //creates notes based on difficulty - to be changed later
+        RhythmManager.instance.createDifficulty(difficulty);
+
+
+        yield return new WaitForSeconds(3f);
+
+        while (RhythmManager.instance.continuePlaying && !(state == BattleState.LOST || state == BattleState.WON))
+        {
+            if (RhythmManager.instance.isCurrentSequenceDone())
+            {
+                Debug.Log("Player is doing damage!");
+                StartCoroutine(PlayerAttack(difficulty));
+            }
+            yield return null;
+        }
+
+        //added as rhythm section is complete so a full attack must have completed
+        StartCoroutine(PlayerAttack(difficulty));
+
+        yield return new WaitForSeconds(1f);
+
+        if (RhythmBattleManager.instance.isRhythmUIActive())
+        {
+            RhythmBattleManager.instance.DeactivateRhythmUI();
+        }
+
     }
-
-
-
 }
