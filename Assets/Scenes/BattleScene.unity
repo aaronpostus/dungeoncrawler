@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003140541, g: 0.006170615, b: 0.014241756, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031405292, g: 0.0061706104, b: 0.014241753, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,7 +157,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -338,6 +338,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111022824}
   m_CullTransparentMesh: 1
+--- !u!1001 &116684323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6371740043955958783, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371740043955958783, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126006497955811139, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126006497955811139, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580376, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_Name
+      value: Kyle's Changes Battle UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.139056
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.443985
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.524182
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9024645980062580383, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3a130cca9c74e449d9d3ac4e79ed2a, type: 3}
 --- !u!1 &133318303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1132,7 @@ MonoBehaviour:
   animator: {fileID: 359383136}
   enemyAnimator: {fileID: 1141540590}
   dialogueText: {fileID: 1961844441}
+  deathUI: {fileID: 0}
   state: 0
 --- !u!4 &839358627
 Transform:
@@ -2523,7 +2597,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3014,6 +3088,10 @@ PrefabInstance:
     - target: {fileID: 6451925190165057924, guid: 6437fbeaabe8a0c4fa477b01d33b55a0, type: 3}
       propertyPath: m_Name
       value: battlepiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451925190165057924, guid: 6437fbeaabe8a0c4fa477b01d33b55a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6437fbeaabe8a0c4fa477b01d33b55a0, type: 3}
