@@ -354,6 +354,138 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Rhythm"",
+            ""id"": ""02544eb6-a62e-4ac5-bb03-5ffea214ff99"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""b44ee65a-9725-4219-b79f-d8639d831791"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""4cde00fa-d70a-4a83-8e10-1f14d5224a49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""345ced29-c702-4fce-ac6d-435b02027cbf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c178729-bfa0-4419-bc6c-b33a2283db04"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be5aa323-a34d-46b3-9d4e-8a25798fa9de"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e4860c4-a412-484d-9e34-fdd789b6b2d0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1713d8bf-a159-4e79-aa2d-c9a64afe7efa"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""109dcf9d-a253-447e-8f88-7a35785bfad1"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb1e894c-5912-4f0f-aa88-4826257e8a64"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb020d7e-5da3-4d45-8885-991563a27b33"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a653a4ed-3bd5-4e95-abe2-74e1b92e5e10"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b92cc263-ab60-430e-a45e-19016e2e1b0b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -374,6 +506,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
         m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
         m_Gameplay_EquipItem = m_Gameplay.FindAction("EquipItem", throwIfNotFound: true);
+        // Rhythm
+        m_Rhythm = asset.FindActionMap("Rhythm", throwIfNotFound: true);
+        m_Rhythm_Up = m_Rhythm.FindAction("Up", throwIfNotFound: true);
+        m_Rhythm_Down = m_Rhythm.FindAction("Down", throwIfNotFound: true);
+        m_Rhythm_Left = m_Rhythm.FindAction("Left", throwIfNotFound: true);
+        m_Rhythm_Right = m_Rhythm.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -581,6 +719,76 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Rhythm
+    private readonly InputActionMap m_Rhythm;
+    private List<IRhythmActions> m_RhythmActionsCallbackInterfaces = new List<IRhythmActions>();
+    private readonly InputAction m_Rhythm_Up;
+    private readonly InputAction m_Rhythm_Down;
+    private readonly InputAction m_Rhythm_Left;
+    private readonly InputAction m_Rhythm_Right;
+    public struct RhythmActions
+    {
+        private @PlayerInput m_Wrapper;
+        public RhythmActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_Rhythm_Up;
+        public InputAction @Down => m_Wrapper.m_Rhythm_Down;
+        public InputAction @Left => m_Wrapper.m_Rhythm_Left;
+        public InputAction @Right => m_Wrapper.m_Rhythm_Right;
+        public InputActionMap Get() { return m_Wrapper.m_Rhythm; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RhythmActions set) { return set.Get(); }
+        public void AddCallbacks(IRhythmActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RhythmActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RhythmActionsCallbackInterfaces.Add(instance);
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+        }
+
+        private void UnregisterCallbacks(IRhythmActions instance)
+        {
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+        }
+
+        public void RemoveCallbacks(IRhythmActions instance)
+        {
+            if (m_Wrapper.m_RhythmActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRhythmActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RhythmActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RhythmActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RhythmActions @Rhythm => new RhythmActions(this);
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -597,5 +805,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnEquipItem(InputAction.CallbackContext context);
+    }
+    public interface IRhythmActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }
