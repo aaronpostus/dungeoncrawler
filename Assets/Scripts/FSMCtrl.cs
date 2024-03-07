@@ -9,6 +9,8 @@ namespace YaoLu
     {
         public Animator animator;
 
+        [SerializeField] private PlayerSound playerSounds;
+
         private StateMachine stateMachine;
         private PlayerInput playerInput;
         public CharacterController controller;
@@ -207,6 +209,37 @@ namespace YaoLu
             }
             isHurting = true;
             stateMachine.ChangeState(hurtState);
+        }
+
+        // functions for animation event to call
+        private void PlayFootstep()
+        {
+            playerSounds.PlayFootsteps();
+        }
+
+        private void PlayJumpStart()
+        {
+            playerSounds.PlayJumpStart();
+        }
+
+        private void PlayJumpLand()
+        {
+            playerSounds.PlayJumpLand();
+        }
+
+        private void PlayPain()
+        {
+            playerSounds.PlayPain();
+        }
+
+        private void PlayDeath()
+        {
+            playerSounds.PlayDeath();
+        }
+
+        private void PlayKick()
+        {
+            playerSounds.PlayKick();
         }
     }
 }

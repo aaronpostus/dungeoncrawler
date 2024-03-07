@@ -1,0 +1,736 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9088437816781160719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Ambiance.bank
+  Name: Ambiance
+  StudioPath: bank:/Ambiance
+  lastModified: 638427696584434934
+  FileSizes:
+  - Name: Desktop
+    Value: 7370656
+  Exists: 1
+--- !u!114 &-7058889024115436620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpLand/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
+--- !u!114 &-5601339285766884888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Die
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Die
+  Guid:
+    Data1: 571367925
+    Data2: 1222591972
+    Data3: -1876587589
+    Data4: -801617479
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1600
+--- !u!114 &-5354250218614044199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
+--- !u!114 &-5161143491524476015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638450811819524570
+  FileSizes:
+  - Name: Desktop
+    Value: 1864
+  Exists: 1
+--- !u!114 &-4787212464372808000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Player.bank
+  Name: Player
+  StudioPath: bank:/Player
+  lastModified: 638450786919583851
+  FileSizes:
+  - Name: Desktop
+    Value: 341248
+  Exists: 1
+--- !u!114 &-4582442673465901248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Jump/JumpLand
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Jump/JumpLand
+  Guid:
+    Data1: -787730626
+    Data2: 1106253693
+    Data3: 1694659505
+    Data4: 1653879334
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7058889024115436620}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2021236332861406891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Punch
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Punch
+  Guid:
+    Data1: -1451921225
+    Data2: 1101023292
+    Data3: 1631238044
+    Data4: 1458308835
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 762
+--- !u!114 &-1735484704795611175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemy.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Enemy.bank
+  Name: Enemy
+  StudioPath: bank:/Enemy
+  lastModified: 638430148171062726
+  FileSizes:
+  - Name: Desktop
+    Value: 271296
+  Exists: 1
+--- !u!114 &-1340506281784048528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
+--- !u!114 &-802382429901213545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpStart/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
+--- !u!114 &-168451556858790955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Main Menu Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Main Menu Music
+  Guid:
+    Data1: 1140593297
+    Data2: 1163985596
+    Data3: -1569257025
+    Data4: -1257370506
+  Banks:
+  - {fileID: 1910050113245289247}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 119996
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -5161143491524476015}
+  - {fileID: -9088437816781160719}
+  - {fileID: -1735484704795611175}
+  - {fileID: 446443738545867118}
+  - {fileID: 1910050113245289247}
+  - {fileID: -4787212464372808000}
+  - {fileID: 41509352065847454}
+  EditorEvents:
+  - {fileID: 7519569959112140786}
+  - {fileID: -168451556858790955}
+  - {fileID: 7432937974991885611}
+  - {fileID: 4934312155421698381}
+  - {fileID: 5978291031192417226}
+  - {fileID: 2062897562839812182}
+  - {fileID: -4582442673465901248}
+  - {fileID: 6151449421273255286}
+  - {fileID: -2021236332861406891}
+  - {fileID: 5799091053780979487}
+  - {fileID: 2095770861453039879}
+  - {fileID: 6810149123613290159}
+  - {fileID: -5601339285766884888}
+  - {fileID: 2932841118197916802}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 446443738545867118}
+  StringsBanks:
+  - {fileID: -5161143491524476015}
+  cacheTime: 638450811819524570
+  cacheVersion: 131616
+--- !u!114 &41509352065847454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638427629876689404
+  FileSizes:
+  - Name: Desktop
+    Value: 6528
+  Exists: 1
+--- !u!114 &446443738545867118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638450811819484486
+  FileSizes:
+  - Name: Desktop
+    Value: 1778
+  Exists: 1
+--- !u!114 &1910050113245289247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/dungeonCrawlerAudio/dungeonCrawlerAudio/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638427629875347473
+  FileSizes:
+  - Name: Desktop
+    Value: 10124000
+  Exists: 1
+--- !u!114 &2062897562839812182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Footsteps
+  Guid:
+    Data1: 1086858969
+    Data2: 1141769901
+    Data3: -1915646567
+    Data4: -1138827722
+  Banks:
+  - {fileID: -1735484704795611175}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5354250218614044199}
+  MinDistance: 1
+  MaxDistance: 450
+  Length: 0
+--- !u!114 &2095770861453039879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Pain
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Pain
+  Guid:
+    Data1: -1442772773
+    Data2: 1148603129
+    Data3: -1036394363
+    Data4: -1056125842
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1600
+--- !u!114 &2932841118197916802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI Click
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/UI Click
+  Guid:
+    Data1: 990572356
+    Data2: 1079251182
+    Data3: -150145130
+    Data4: 1502216357
+  Banks:
+  - {fileID: 41509352065847454}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 750
+--- !u!114 &3277387162967782009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpLand/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
+--- !u!114 &4934312155421698381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Jump/JumpStart
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Jump/JumpStart
+  Guid:
+    Data1: -1037099149
+    Data2: 1203780381
+    Data3: -1610936645
+    Data4: 1650986688
+  Banks:
+  - {fileID: -1735484704795611175}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -802382429901213545}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5799091053780979487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Kick
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Kick
+  Guid:
+    Data1: -47069740
+    Data2: 1133579663
+    Data3: 360059792
+    Data4: 718765801
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1424
+--- !u!114 &5978291031192417226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/Jump/JumpLand
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Jump/JumpLand
+  Guid:
+    Data1: 440049867
+    Data2: 1259307388
+    Data3: -2087045757
+    Data4: 2138987763
+  Banks:
+  - {fileID: -1735484704795611175}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3277387162967782009}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6151449421273255286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Footsteps
+  Guid:
+    Data1: -1170491519
+    Data2: 1148698498
+    Data3: -2115846753
+    Data4: -313339610
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1340506281784048528}
+  MinDistance: 1
+  MaxDistance: 450
+  Length: 0
+--- !u!114 &6810149123613290159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Jump/JumpStart
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Jump/JumpStart
+  Guid:
+    Data1: 952636655
+    Data2: 1241686097
+    Data3: -892478287
+    Data4: -74808099
+  Banks:
+  - {fileID: -4787212464372808000}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8070726677488239566}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7432937974991885611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Startup Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Startup Music
+  Guid:
+    Data1: 1215829966
+    Data2: 1084456864
+    Data3: -690861429
+    Data4: 1689486378
+  Banks:
+  - {fileID: 1910050113245289247}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 853394
+--- !u!114 &7519569959112140786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Dungeon  Ambiance
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Dungeon  Ambiance
+  Guid:
+    Data1: 78802186
+    Data2: 1281028409
+    Data3: 1352034944
+    Data4: 1567552078
+  Banks:
+  - {fileID: -9088437816781160719}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600058
+--- !u!114 &8070726677488239566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JumpStart/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 434030557
+    data2: 3166025882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Basic Ground
+  - Water
+  - Metal
+  - Glass
+  Exists: 1
