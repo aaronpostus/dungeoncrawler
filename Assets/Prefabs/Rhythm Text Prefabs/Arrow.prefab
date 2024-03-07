@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8432009641227000712}
   - component: {fileID: 8432009641227000719}
   - component: {fileID: 8432009641227000716}
-  - component: {fileID: 8855527594197325035}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -109,18 +108,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.5
---- !u!114 &8855527594197325035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8432009641227000714}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 1, b: 0.9812038, a: 1}
-  m_EffectDistance: {x: 0.4, y: -0.4}
-  m_UseGraphicAlpha: 1
