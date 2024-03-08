@@ -80,7 +80,7 @@ public class QueueManager : MonoBehaviour
         {
             for (int i = 1; i < queueLength; i++)
             {
-                queue[i].transform.position = new Vector3(queue[i].transform.position.x + distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);
+                queue[i].transform.position = new Vector3(queue[i].transform.position.x - distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);
             }
         }
 
