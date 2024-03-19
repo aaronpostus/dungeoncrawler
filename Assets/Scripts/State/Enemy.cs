@@ -42,7 +42,6 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         stateMachine.Update();
-        DrawFieldOfView();
     }
 
     public void ChangeState(IState newState)
@@ -62,20 +61,4 @@ public class Enemy : MonoBehaviour
             ChangeState(hurtState);
         }
     }
-
-    //DEBUG
-    void DrawFieldOfView()
-    {
-        Vector3 forward = transform.forward;
-        float startAngle = -visionAngle / 2;
-        float angleStep = visionAngle / (raysCount - 1);
-
-        for (int i = 0; i < raysCount; i++)
-        {
-            float angle = startAngle + angleStep * i;
-            Vector3 direction = Quaternion.Euler(0, angle, 0) * forward;
-            Debug.DrawLine(transform.position, transform.position + direction * chaseDistance, Color.red);
-        }
-    }
-
 }
