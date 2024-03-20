@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -58,7 +59,7 @@ namespace YaoLu
             runState = new RunState(this, animator);
             jumpState = new JumpState(this, animator);
             crouchState = new CrouchState(this, animator);
-            kickState = new KickState(this, animator);
+           // basic attack
             fallState = new FallState(this, animator);
             hurtState = new HurtState(this, animator);
             stateMachine.ChangeState(idleState);
@@ -72,15 +73,15 @@ namespace YaoLu
         {
             playerInput = new PlayerInput();
             playerInput.Gameplay.Jump.performed += _ => OnEnable();
-            playerInput.Gameplay.Kick.performed += _ => OnEnable();
             playerInput.Gameplay.Sprint.started += _ => OnEnable();
             playerInput.Gameplay.Sprint.canceled += _ => OnEnable();
             playerInput.Gameplay.Crouch.performed += _ => OnEnable();
+            playerInput.Gameplay.Interact.performed += _ => OnEnable();
         }
         private void OnEnable()
         {
             playerInput.Gameplay.Jump.performed += OnJump;
-            playerInput.Gameplay.Kick.performed += OnKick;
+
             playerInput.Gameplay.Sprint.performed += OnRun;
             playerInput.Gameplay.Crouch.performed += OnCrouch;
             playerInput.Gameplay.Crouch.canceled += OnCrouchRelease;
@@ -91,10 +92,13 @@ namespace YaoLu
         private void OnDisable()
         {
             playerInput.Gameplay.Jump.performed -= OnJump;
-            playerInput.Gameplay.Kick.performed -= OnKick;
             playerInput.Gameplay.Sprint.performed -= OnRun;
             playerInput.Gameplay.Crouch.performed -= OnCrouch;
             playerInput.Gameplay.Crouch.canceled -= OnCrouchRelease;
+        }
+
+        public void AddInteractListener(Action<InputAction.CallbackContext> interactListener) {
+            playerInput.Gameplay.Interact.performed += interactListener;
         }
         private void OnCrouch(InputAction.CallbackContext context)
         {
@@ -126,13 +130,6 @@ namespace YaoLu
                 stateMachine.ChangeState(jumpState);
                 isJumping = true;
             }
-        }
-        // kick action
-        private void OnKick(InputAction.CallbackContext context)
-        {
-            stateMachine.ChangeState(kickState);
-            footCollider.enabled = true;
-            isKicking = true;
         }
 
         private void Update()

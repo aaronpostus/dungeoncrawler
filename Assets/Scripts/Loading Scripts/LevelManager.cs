@@ -60,7 +60,6 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        
-        _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _target, fillSpeed * Time.deltaTime);
+            _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _target, fillSpeed * Time.deltaTime);
     }
 }
