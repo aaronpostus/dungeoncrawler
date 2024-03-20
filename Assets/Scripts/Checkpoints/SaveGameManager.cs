@@ -35,7 +35,7 @@ public class SaveGameManager : MonoBehaviour
         instance = this;
 
         //Debug.Log(Application.dataPath);
-        this.dataHandler = new FileDataHandler(Application.dataPath + "/SaveGame", fileName);
+        this.dataHandler = new FileDataHandler(Application.dataPath + "/Save", fileName);
     }
 
     private void OnEnable()

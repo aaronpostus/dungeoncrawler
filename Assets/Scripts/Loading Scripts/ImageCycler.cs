@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +19,7 @@ namespace Assets.Scripts.Loading_Scripts
         private void Awake()
         {
             imageOutput.preserveAspect = true;
-
-            TextAsset file = Resources.Load<TextAsset>("XML/" + xmlFileName);
+            TextAsset file = Resources.Load<TextAsset>("Assets/Essentials/Created/XML/" + xmlFileName);
             XmlDocument xmlFile = new XmlDocument();
             xmlFile.LoadXml(file.text);
 
