@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum StatusType { BURN, PARALYSIS, SLEEP }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -27,8 +28,9 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] private GameObject deathUI;
 
-
     public BattleState state;
+    public StatusType attack1Type = StatusType.BURN;
+    public StatusType attack2Type = StatusType.PARALYSIS;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +123,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool strong)
     {
+        System.Random rnd = new System.Random()
         //takes current score as damage
         float damage = RhythmManager.instance.damage;
         Debug.Log("Damage = " + damage);
