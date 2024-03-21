@@ -121,9 +121,9 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
-    IEnumerator PlayerAttack(bool strong)
+    IEnumerator PlayerAttack(bool strong, StatusType status)
     {
-        System.Random rnd = new System.Random()
+        System.Random rnd = new System.Random();
         //takes current score as damage
         float damage = RhythmManager.instance.damage;
         Debug.Log("Damage = " + damage);
@@ -137,6 +137,32 @@ public class BattleSystem : MonoBehaviour
         }
         Debug.Log(damage);
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
+        int rand = rnd.Next(100);
+        if (enemyUnit.currentStatus == Status.HEALTHY)
+        {
+            switch (status)
+            {
+                case StatusType.BURN:
+                    if (rand < 33)
+                    {
+                        enemyUnit.currentStatus = Status.BURN;
+                    }
+                    break;
+                case StatusType.PARALYSIS:
+                    if (rand < 33)
+                    {
+                        enemyUnit.currentStatus = Status.PARALYSIS;
+                    }
+                    break;
+                case StatusType.SLEEP:
+                    if (rand < 10)
+                    {
+                        enemyUnit.currentStatus = Status.SLEEP;
+                    }
+                    break;
+
+            }
+        }
         enemyHP.value = enemyUnit.currentHP;
         //animator.Play("Kick");
         // Set HUD
@@ -256,13 +282,13 @@ public class BattleSystem : MonoBehaviour
             if (RhythmManager.instance.isCurrentSequenceDone())
             {
                 Debug.Log("Player is doing damage!");
-                StartCoroutine(PlayerAttack(difficulty));
+                StartCoroutine(PlayerAttack(difficulty, attack1Type));
             }
             yield return null;
         }
 
         //added as rhythm section is complete so a full attack must have completed
-        StartCoroutine(PlayerAttack(difficulty));
+        StartCoroutine(PlayerAttack(difficulty, attack1Type));
 
         yield return new WaitForSeconds(1f);
 
