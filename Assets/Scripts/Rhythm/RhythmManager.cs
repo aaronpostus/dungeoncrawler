@@ -178,10 +178,15 @@ public class RhythmManager : MonoBehaviour
 
         //currentScore += scorePerNote * currentMultiplier;
 
-        scoreText.text = "Score: " + currentScore;
-
+        
+        ScoreText();
         MultiplierText();
 
+    }
+
+    public void ScoreText()
+    {
+        scoreText.text = "Score: " + currentScore;
     }
 
     //method called when multiplier text should be updated
@@ -251,6 +256,7 @@ public class RhythmManager : MonoBehaviour
 
             damage = currentScore;
             currentScore = 0;
+            ScoreText();
 
             QueueManager.instance.removeTopFromQueue();
             removeIconAndLine();
