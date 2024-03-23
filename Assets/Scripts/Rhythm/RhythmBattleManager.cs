@@ -9,6 +9,11 @@ public class RhythmBattleManager : MonoBehaviour
 
     [SerializeField] public GameObject rhythmUIPrefab;
 
+    public string attack = "Attack";
+    public string strongAttack = "Strong Attack";
+    public string heal = "Heal";
+    public string run = "Run";
+
     private GameObject rhythmUI;
 
     void Start()

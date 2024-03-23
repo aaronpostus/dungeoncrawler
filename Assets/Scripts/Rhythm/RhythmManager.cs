@@ -59,9 +59,13 @@ public class RhythmManager : MonoBehaviour
 
     public float damage;
 
+    private RhythmBattleManager battleManager;
+
     void Start()
     {
         instance = this;
+
+        battleManager = RhythmBattleManager.instance;
 
         noteThresholds = createThresholds();
         currentMultiplier = 1;
@@ -216,15 +220,24 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
-    public void createDifficulty(bool hard)
+    public void createAttack(string attackType)
     {
-        if (hard)
+        switch (attackType)
         {
-            CreateNotes(10);
-        }
-        else
-        {
-            CreateNotes(5);
+            case var value when value == battleManager.attack:
+                CreateNotes(5);
+                break;
+            case var value when value == battleManager.strongAttack:
+                CreateNotes(10);
+                break;
+            case var value when value == battleManager.heal:
+                CreateNotes(1);
+                break;
+            case var value when value == battleManager.run:
+                CreateNotes(1);
+                break;
+            default:
+                break;  
         }
     }
 

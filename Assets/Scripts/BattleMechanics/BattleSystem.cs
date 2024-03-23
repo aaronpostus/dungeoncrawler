@@ -77,23 +77,23 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
-        QueueManager.instance.addToQueue("Run");
+        QueueManager.instance.addToQueue(RhythmBattleManager.instance.run);
 
         SceneManager.LoadScene("DunGenTest");
     }
 
     public void OnAttackButton()
     {
-        Debug.Log("Attack");
+        Debug.Log(RhythmBattleManager.instance.attack);
 
         /**if (state != BattleState.PLAYERTURN)
         {
             return;
         }*/
 
-        QueueManager.instance.addToQueue("Attack");
+        QueueManager.instance.addToQueue(RhythmBattleManager.instance.attack);
 
-        StartCoroutine(RhythmAttack(false));
+        StartCoroutine(RhythmAttack(RhythmBattleManager.instance.attack));
     }
 
     public void OnStrongAttackButton()
@@ -102,9 +102,9 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }*/
-        QueueManager.instance.addToQueue("Strong Attack");
+        QueueManager.instance.addToQueue(RhythmBattleManager.instance.strongAttack);
 
-        StartCoroutine(RhythmAttack(true));
+        StartCoroutine(RhythmAttack(RhythmBattleManager.instance.strongAttack));
     }
 
     public void OnHealButton()
@@ -114,7 +114,7 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
-        QueueManager.instance.addToQueue("Heal");
+        QueueManager.instance.addToQueue(RhythmBattleManager.instance.heal);
 
         StartCoroutine(PlayerHeal());
     }
@@ -223,7 +223,7 @@ public class BattleSystem : MonoBehaviour
         //playerHUD.SetActive(false);
     }
 
-    IEnumerator RhythmAttack(bool difficulty)
+    IEnumerator RhythmAttack(string attackType)
     {
         if (!RhythmBattleManager.instance.isRhythmUIActive())
         {
@@ -243,7 +243,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //creates notes based on difficulty - to be changed later
-        RhythmManager.instance.createDifficulty(difficulty);
+        RhythmManager.instance.createAttack(attackType);
 
 
         yield return new WaitForSeconds(3f);
@@ -252,14 +252,28 @@ public class BattleSystem : MonoBehaviour
         {
             if (RhythmManager.instance.isCurrentSequenceDone())
             {
-                Debug.Log("Player is doing damage!");
-                StartCoroutine(PlayerAttack(difficulty));
+                //Debug.Log("Player is doing damage!");
+                if (attackType == "Strong Attack")
+                {
+                    StartCoroutine(PlayerAttack(true));
+                }
+                else
+                {
+                    StartCoroutine(PlayerAttack(false));
+                }
             }
             yield return null;
         }
 
         //added as rhythm section is complete so a full attack must have completed
-        StartCoroutine(PlayerAttack(difficulty));
+        if (attackType == "Strong Attack")
+        {
+            StartCoroutine(PlayerAttack(true));
+        }
+        else
+        {
+            StartCoroutine(PlayerAttack(false));
+        }
 
         yield return new WaitForSeconds(1f);
 
