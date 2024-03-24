@@ -94,6 +94,9 @@ public class RhythmManager : MonoBehaviour
                 //Debug.Log("Total Notes: " + noteCreator.totalNotes);
                 continuePlaying = false;
             }
+        }else if (!continuePlaying && currentSequence <= noteCreator.noteSequences.Count)
+        {
+            continuePlaying=true;   
         }
     }
 

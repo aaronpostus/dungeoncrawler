@@ -276,9 +276,12 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(PlayerAttack(false));
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
-        if (RhythmBattleManager.instance.isRhythmUIActive())
+        if (RhythmManager.instance.continuePlaying)
+        {
+            yield return null;
+        }else if(RhythmBattleManager.instance.isRhythmUIActive())
         {
             RhythmBattleManager.instance.DeactivateRhythmUI();
         }
