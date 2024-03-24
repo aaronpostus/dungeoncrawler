@@ -91,7 +91,7 @@ public class RhythmManager : MonoBehaviour
         {
             if(noteCreator.totalNotes > 0 && notesDeleted == noteCreator.totalNotes)
             {
-                Debug.Log("Total Notes: " + noteCreator.totalNotes);
+                //Debug.Log("Total Notes: " + noteCreator.totalNotes);
                 continuePlaying = false;
             }
         }
@@ -248,18 +248,15 @@ public class RhythmManager : MonoBehaviour
 
     public bool isCurrentSequenceDone()
     {
+        //Debug.Log("Notes currently deleted " + noteSequenceTracker);
+        //Debug.Log("Notes deleted overall " + notesDeleted);
+        //Debug.Log("Notes in this sequence " + noteCreator.noteSequences[currentSequence]);
         if (noteSequenceTracker == noteCreator.noteSequences[currentSequence])
         {
             //Debug.Log("Damagable! 1");
-            noteSequenceTracker = 0;
-            currentSequence++;
-
-            damage = currentScore;
-            currentScore = 0;
-            ScoreText();
-
-            QueueManager.instance.removeTopFromQueue();
-            removeIconAndLine();
+               
+            updateQueue();
+            
 
             return true;
         }
@@ -271,7 +268,19 @@ public class RhythmManager : MonoBehaviour
 
     private void removeIconAndLine()
     {
+        //Debug.Log("Icon :" + noteCreator.icons[currentSequence - 1] + " removed.");
         noteCreator.icons[currentSequence - 1].SetActive(false);
         noteCreator.lines[currentSequence - 1].SetActive(false);
+    }
+
+    public void updateQueue()
+    {
+        noteSequenceTracker = 0;
+        currentSequence++;
+        removeIconAndLine();
+        damage = currentScore;
+        currentScore = 0;
+        ScoreText();
+        QueueManager.instance.removeTopFromQueue();
     }
 }

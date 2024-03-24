@@ -142,7 +142,7 @@ public class NoteCreator : MonoBehaviour
                 lines.Add(createdLine);
 
                 sequenceTracker = 0;
-                Debug.Log("Current Sequence Updated");
+                //Debug.Log("Current Sequence Updated");
                 currentSequence++;
             }
         }

@@ -75,18 +75,19 @@ public class QueueManager : MonoBehaviour
 
     public void removeTopFromQueue()
     {
-        //Debug.Log("Removed: " + queue[0]);
-        if (queueLength > 1)
+        Debug.Log("Queue Length = " + queueLength);
+        if (queueLength > 0)
         {
+            Debug.Log("Removed: " + queue[0]);
             for (int i = 1; i < queueLength; i++)
             {
-                queue[i].transform.position = new Vector3(queue[i].transform.position.x - distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);
+                    queue[i].transform.position = new Vector3(queue[i].transform.position.x - distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);
             }
+            
+            queue[0].SetActive(false);
+            queue.Remove(queue[0]);
+            queueLength--;
         }
-
-        queue[0].SetActive(false);
-        queue.Remove(queue[0]);
-        queueLength--;
     }
 
     public GameObject currentIcon(int currentSequence)

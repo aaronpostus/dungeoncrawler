@@ -29,7 +29,7 @@ public class RhythmBattleManager : MonoBehaviour
     public void DeactivateRhythmUI()
     {
         Destroy(rhythmUI);
-        QueueManager.instance.DeactivateQueue();
+        //QueueManager.instance.DeactivateQueue();
     }
 
     public bool isRhythmUIActive()

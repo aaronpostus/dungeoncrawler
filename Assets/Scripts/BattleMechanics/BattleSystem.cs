@@ -132,7 +132,7 @@ public class BattleSystem : MonoBehaviour
         {
             damage *= 2;
         }
-        Debug.Log(damage);
+        //Debug.Log(damage);
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage * damage);
         enemyHP.value = enemyUnit.currentHP;
         //animator.Play("Kick");
@@ -265,6 +265,7 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
+        RhythmManager.instance.updateQueue();
         //added as rhythm section is complete so a full attack must have completed
         if (attackType == "Strong Attack")
         {
