@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public enum StatusType { BURN, PARALYSIS, SLEEP }
 
+public enum Level { FIRST, SECOND, THIRD, FOURTH }
+
 public class BattleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -61,6 +63,31 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Game setup complete");
 
         PlayerTurn();
+    }
+
+    public void enemyScale(Level level)
+    {
+        switch (level)
+        {
+            case Level.SECOND:
+                enemyUnit.damage = (int) (enemyUnit.damage * 1.2);
+                enemyUnit.defense = (int)(enemyUnit.defense * 1.2);
+                enemyUnit.maxHP = (int)(enemyUnit.maxHP * 1.2);
+                enemyUnit.currentHP = (int)(enemyUnit.currentHP * 1.2);
+                break;
+            case Level.THIRD:
+                enemyUnit.damage = (int)(enemyUnit.damage * 1.4);
+                enemyUnit.defense = (int)(enemyUnit.defense * 1.4);
+                enemyUnit.maxHP = (int)(enemyUnit.maxHP * 1.4);
+                enemyUnit.currentHP = (int)(enemyUnit.currentHP * 1.4);
+                break;
+            case Level.FOURTH:
+                enemyUnit.damage = (int)(enemyUnit.damage * 1.6);
+                enemyUnit.defense = (int)(enemyUnit.defense * 1.6);
+                enemyUnit.maxHP = (int)(enemyUnit.maxHP * 1.6);
+                enemyUnit.currentHP = (int)(enemyUnit.currentHP * 1.6);
+                break;
+        }
     }
 
     void PlayerTurn()
