@@ -28,6 +28,8 @@ public class QueueManager : MonoBehaviour
     private const int distBetweenIcons = 100;
     private const int distDown = 50;
 
+    private RhythmBattleManager rhythmBattleManager;
+
     private void Awake()
     {
         instance = this;
@@ -38,27 +40,33 @@ public class QueueManager : MonoBehaviour
         queueLength = 0;
     }
 
+    private void Start()
+    {
+        rhythmBattleManager = RhythmBattleManager.instance;
+    }
+
     public void addToQueue(string name)
     {
         if (queueLength < queueMax)
         {
             Vector3 queuePosition = playerQueue.transform.position;
-            if (name == "Attack")
+            if (name == rhythmBattleManager.attack)
             {
                 queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(attackIcon);
             }
-            else if (name == "Strong Attack")
+            else if (name == rhythmBattleManager.attack)
             {
                 queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(strongAttackIcon);
             }
-            else if (name == "Run")
+            else if (name == rhythmBattleManager.run)
             {
                 queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
+                queueMax = queue.Count;
                 icons.Add(runIcon);
             }
-            else if (name == "Heal")
+            else if (name == rhythmBattleManager.heal)
             {
                 queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(healIcon);
@@ -69,16 +77,16 @@ public class QueueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Tried to queue more than 5 options at once.");
+            Debug.Log("Tried to queue more than the max amount queue at once.");
         }
     }
 
     public void removeTopFromQueue()
     {
-        Debug.Log("Queue Length = " + queueLength);
+        //Debug.Log("Queue Length = " + queueLength);
         if (queueLength > 0)
         {
-            Debug.Log("Removed: " + queue[0]);
+            //Debug.Log("Removed: " + queue[0]);
             for (int i = 1; i < queueLength; i++)
             {
                     queue[i].transform.position = new Vector3(queue[i].transform.position.x - distBetweenIcons, queue[i].transform.position.y, queue[i].transform.position.z);

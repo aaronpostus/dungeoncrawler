@@ -57,7 +57,8 @@ public class RhythmManager : MonoBehaviour
 
     public bool continuePlaying;
 
-    public float damage;
+    private float damage;
+    private List<bool> damagable;
 
     private RhythmBattleManager battleManager;
 
@@ -69,6 +70,8 @@ public class RhythmManager : MonoBehaviour
 
         noteThresholds = createThresholds();
         currentMultiplier = 1;
+
+        damagable = new List<bool>();
     }
 
     void Update()
@@ -233,15 +236,19 @@ public class RhythmManager : MonoBehaviour
         switch (attackType)
         {
             case var value when value == battleManager.attack:
+                damagable.Add(true);
                 CreateNotes(5);
                 break;
             case var value when value == battleManager.strongAttack:
+                damagable.Add(true);
                 CreateNotes(10);
                 break;
             case var value when value == battleManager.heal:
+                damagable.Add(false);
                 CreateNotes(1);
                 break;
             case var value when value == battleManager.run:
+                damagable.Add(false);
                 CreateNotes(1);
                 break;
             default:
@@ -280,10 +287,27 @@ public class RhythmManager : MonoBehaviour
     {
         noteSequenceTracker = 0;
         currentSequence++;
-        removeIconAndLine();
+        if (noteCreator.icons.Count > currentSequence - 1)
+        {
+            removeIconAndLine();
+        }
         damage = currentScore;
         currentScore = 0;
         ScoreText();
         QueueManager.instance.removeTopFromQueue();
+    }
+
+    public float getDamage()
+    {
+        bool isCurrentDamagable = damagable[0];
+        damagable.RemoveAt(0);
+        if (isCurrentDamagable)
+        {
+            return damage;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
