@@ -186,7 +186,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -301,7 +301,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -416,7 +416,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -464,7 +464,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &599671069223234714
 Transform:
@@ -587,6 +587,7 @@ Transform:
   - {fileID: 3317357578753452421}
   - {fileID: 178116476110898065}
   - {fileID: 1465701824793950345}
+  - {fileID: 8406105229836942274}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -665,7 +666,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &599671070086621781
 Transform:
@@ -824,7 +825,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &599671070659534497
 Transform:
@@ -1307,7 +1308,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1422,7 +1423,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1453,6 +1454,138 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1471561708170321544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8406105229836942274}
+  - component: {fileID: 4336759593194254732}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8406105229836942274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471561708170321544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28650284, y: 2.44, z: -6.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 599671069395348830}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &4336759593194254732
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471561708170321544}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -2.7574947, y: 0.15110683, z: 5.2489805}
+  - {x: -2.794228, y: -1.9937999, z: 5.2489805}
+  - {x: -4.2633204, y: 0.15110683, z: 5.2489805}
+  - {x: -4.365864, y: -1.9816624, z: 5.2489805}
+  - {x: -2.794228, y: -1.9937999, z: -1}
+  - {x: -2.7574947, y: 0.15110683, z: -1}
+  - {x: -4.2633204, y: 0.15110683, z: -1}
+  - {x: -4.365864, y: -1.9816624, z: -1}
+  - {x: -2.794228, y: -1.9937999, z: 12.974346}
+  - {x: -2.7574947, y: 0.15110683, z: 12.974346}
+  - {x: -4.2633204, y: 0.15110683, z: 12.974346}
+  - {x: -4.365864, y: -1.9816624, z: 12.974346}
+  - {x: -2.794228, y: -1.9937999, z: 7.267659}
+  - {x: -2.7574947, y: 0.15110683, z: 7.267659}
+  - {x: -4.2633204, y: 0.15110683, z: 7.267659}
+  - {x: -4.365864, y: -1.9816624, z: 7.267659}
+  - {x: -2.794228, y: -1.9937999, z: 6.34031}
+  - {x: -2.7574947, y: 0.15110683, z: 6.34031}
+  - {x: -4.2633204, y: 0.15110683, z: 6.34031}
+  - {x: -4.365864, y: -1.9816624, z: 6.34031}
+  - {x: 4.8622293, y: 0.15110683, z: 5.2489805}
+  - {x: 4.8254957, y: -1.9937999, z: 5.2489805}
+  - {x: 4.8254957, y: -1.9937999, z: -1}
+  - {x: 4.8622293, y: 0.15110683, z: -1}
+  - {x: 4.8254957, y: -1.9937999, z: 12.974346}
+  - {x: 4.8622293, y: 0.15110683, z: 12.974346}
+  - {x: 4.8254957, y: -1.9937999, z: 7.267659}
+  - {x: 4.8622293, y: 0.15110683, z: 7.267659}
+  - {x: 4.8254957, y: -1.9937999, z: 6.34031}
+  - {x: 4.8622293, y: 0.15110683, z: 6.34031}
+  - {x: 1.4561814, y: 0.15110683, z: 5.2489805}
+  - {x: 1.4194478, y: -1.9937999, z: 5.2489805}
+  - {x: 1.4194478, y: -1.9937999, z: -1}
+  - {x: 1.4561814, y: 0.15110683, z: -1}
+  - {x: 1.4194478, y: -1.9937999, z: 12.974346}
+  - {x: 1.4561814, y: 0.15110683, z: 12.974346}
+  - {x: 1.4194478, y: -1.9937999, z: 7.267659}
+  - {x: 1.4561814, y: 0.15110683, z: 7.267659}
+  - {x: 1.4194478, y: -1.9937999, z: 6.34031}
+  - {x: 1.4561814, y: 0.15110683, z: 6.34031}
+  - {x: 3.209648, y: 0.15110683, z: 5.2489805}
+  - {x: 3.1729145, y: -1.9937999, z: 5.2489805}
+  - {x: 3.1729145, y: -1.9937999, z: -1}
+  - {x: 3.209648, y: 0.15110683, z: -1}
+  - {x: 3.1729145, y: -1.9937999, z: 12.974346}
+  - {x: 3.209648, y: 0.15110683, z: 12.974346}
+  - {x: 3.1729145, y: -1.9937999, z: 7.267659}
+  - {x: 3.209648, y: 0.15110683, z: 7.267659}
+  - {x: 3.1729145, y: -1.9937999, z: 6.34031}
+  - {x: 3.209648, y: 0.15110683, z: 6.34031}
+  - {x: -0.79864407, y: 0.15110683, z: 5.2489805}
+  - {x: -0.83537745, y: -1.9937999, z: 5.2489805}
+  - {x: -0.83537745, y: -1.9937999, z: -1}
+  - {x: -0.79864407, y: 0.15110683, z: -1}
+  - {x: -0.83537745, y: -1.9937999, z: 12.974346}
+  - {x: -0.79864407, y: 0.15110683, z: 12.974346}
+  - {x: -0.83537745, y: -1.9937999, z: 7.267659}
+  - {x: -0.79864407, y: 0.15110683, z: 7.267659}
+  - {x: -0.83537745, y: -1.9937999, z: 6.34031}
+  - {x: -0.79864407, y: 0.15110683, z: 6.34031}
+  - {x: -2.7574947, y: 1, z: 5.2489805}
+  - {x: -4.2633204, y: 1, z: 5.2489805}
+  - {x: -2.7574947, y: 1, z: -1}
+  - {x: -4.2633204, y: 1, z: -1}
+  - {x: -2.7574947, y: 1, z: 12.974346}
+  - {x: -4.2633204, y: 1, z: 12.974346}
+  - {x: -2.7574947, y: 1, z: 7.267659}
+  - {x: -4.2633204, y: 1, z: 7.267659}
+  - {x: -2.7574947, y: 1, z: 6.34031}
+  - {x: -4.2633204, y: 1, z: 6.34031}
+  - {x: 4.8622293, y: 1, z: 5.2489805}
+  - {x: 4.8622293, y: 1, z: -1}
+  - {x: 4.8622293, y: 1, z: 12.974346}
+  - {x: 4.8622293, y: 1, z: 7.267659}
+  - {x: 4.8622293, y: 1, z: 6.34031}
+  - {x: 1.4561814, y: 1, z: 5.2489805}
+  - {x: 1.4561814, y: 1, z: -1}
+  - {x: 1.4561814, y: 1, z: 12.974346}
+  - {x: 1.4561814, y: 1, z: 7.267659}
+  - {x: 1.4561814, y: 1, z: 6.34031}
+  - {x: 3.209648, y: 1, z: 5.2489805}
+  - {x: 3.209648, y: 1, z: -1}
+  - {x: 3.209648, y: 1, z: 12.974346}
+  - {x: 3.209648, y: 1, z: 7.267659}
+  - {x: 3.209648, y: 1, z: 6.34031}
+  - {x: -0.79864407, y: 1, z: 5.2489805}
+  - {x: -0.79864407, y: 1, z: -1}
+  - {x: -0.79864407, y: 1, z: 12.974346}
+  - {x: -0.79864407, y: 1, z: 7.267659}
+  - {x: -0.79864407, y: 1, z: 6.34031}
+  m_Dering: 1
 --- !u!1 &1711502598333242512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1768,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1750,7 +1883,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1967,7 +2100,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2015,7 +2148,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8825407795804855733
 Transform:
@@ -2179,7 +2312,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2294,7 +2427,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2342,7 +2475,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7150148694330927027
 Transform:
@@ -2542,7 +2675,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2789503427577633826
 Transform:
@@ -4183,7 +4316,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4280,7 +4413,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4985104779162717639
 Transform:
@@ -4377,7 +4510,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7907871834882390493
 Transform:
@@ -4541,7 +4674,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
