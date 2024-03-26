@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031405292, g: 0.0061706104, b: 0.014241753, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031306073, g: 0.0061690155, b: 0.014242524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3150,6 +3150,14 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 133318305}
+    - target: {fileID: 5826554726332411447, guid: 5053641d738423c4c8d405de8c9ca861, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
+    - target: {fileID: 5826554726332411447, guid: 5053641d738423c4c8d405de8c9ca861, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5826554727114729639, guid: 5053641d738423c4c8d405de8c9ca861, type: 3}
       propertyPath: slider
       value: 

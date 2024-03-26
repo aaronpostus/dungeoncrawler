@@ -125,8 +125,9 @@ public class BattleSystem : MonoBehaviour
         float damage = RhythmManager.instance.damage;
         Debug.Log("Damage = " + damage);
         animator.Play("Kick");
+        
         yield return new WaitForSeconds(1.2f);
-
+        animator.Play("Idle");
         // Damage enemy
         if (strong)
         {
@@ -137,6 +138,7 @@ public class BattleSystem : MonoBehaviour
         enemyHP.value = enemyUnit.currentHP;
         //animator.Play("Kick");
         // Set HUD
+        
         dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);
