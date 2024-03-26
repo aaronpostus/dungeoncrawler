@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a7796e078a02a1649915ecd33cfe2851, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6fc7d6890a9c718488af7beba350814b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -189,7 +189,7 @@ MonoBehaviour:
     OverrideAllowTileRotation: 0
     AllowTileRotation: 0
     DebugRender: 0
-    LengthMultiplier: 0.5
+    LengthMultiplier: 0.75
     PlaceTileTriggers: 1
     TileTriggerLayer: 2
     GenerateAsynchronously: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     TilePlacementBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 5, y: 5, z: 5}
-    OverlapThreshold: 0.01
+    OverlapThreshold: 0.0001
     Padding: 0
     DisallowOverhangs: 0
     Root: {fileID: 0}
