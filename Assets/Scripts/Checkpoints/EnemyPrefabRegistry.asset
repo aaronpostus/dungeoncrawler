@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9062c2c957fd49be2a92a51d8f92a, type: 3}
+  m_Name: EnemyPrefabRegistry
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - type: Butcher
+    prefab: {fileID: 1135728509634986, guid: 9b0d2b7b6fb579342af3139c84241b92, type: 3}
+  - type: BossKnight
+    prefab: {fileID: 1199812308496972292, guid: 2dfa5c0a6d7f61446bf86105510326ff, type: 3}
+  - type: Brute
+    prefab: {fileID: 1317972421600666, guid: 2f137b80aadf2314ba57b541eb316e3e, type: 3}
+  - type: Suitman
+    prefab: {fileID: 6701612581219385874, guid: 0ab84143e13ddcf458ce355188fd82e1, type: 3}

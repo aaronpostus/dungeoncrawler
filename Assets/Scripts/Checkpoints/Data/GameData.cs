@@ -24,6 +24,8 @@ public class GameData
     //seed for dungen
     public int seed;
 
+    //enemy data
+    public string currentEnemyType;
     //inital values of the game
     public GameData()
     {

@@ -8,12 +8,12 @@ public class SaveGameManager : MonoBehaviour
 {
 
     //load/save game code was created from https://www.youtube.com/watch?v=aUi9aijvpgs&t=561s
-
+    public EnemyPrefabRegistry enemyPrefabRegistry;
     [Header("File Storage Config")]
 
     [SerializeField] private string fileName;
 
-    private GameData gameData;
+    public GameData gameData;
 
     private List<ISaveData> saveDataObjects;
 
