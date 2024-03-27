@@ -61,9 +61,6 @@ public class RhythmManager : MonoBehaviour
 
     private RhythmBattleManager battleManager;
 
-
-    public List<string> attacks;
-
     void Start()
     {
         instance = this;
@@ -72,8 +69,6 @@ public class RhythmManager : MonoBehaviour
 
         noteThresholds = createThresholds();
         currentMultiplier = 1;
-
-        attacks = new List<string>();
     }
 
     void Update()
@@ -235,9 +230,8 @@ public class RhythmManager : MonoBehaviour
 
     public void createAttack(string attackType)
     {
-        if (!QueueManager.instance.queuePaused || (attackType == RhythmBattleManager.instance.run && (attacks.Count == 0 || attacks[attacks.Count - 1] != attackType)))
+        if (!QueueManager.instance.queuePaused || (attackType == RhythmBattleManager.instance.run && (QueueManager.instance.ActionsInQueue.Count == 1 || QueueManager.instance.currentActionInQueue() != attackType)))
         {
-            attacks.Add(attackType);
             switch (attackType)
             {
                 case var value when value == battleManager.attack:
@@ -313,10 +307,5 @@ public class RhythmManager : MonoBehaviour
     public float getDamage()
     {
         return damage;
-    }
-
-    public string lastActionInQueue()
-    {
-        return attacks[attacks.Count - 1];
     }
 }

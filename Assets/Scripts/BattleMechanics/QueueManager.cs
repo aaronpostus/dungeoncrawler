@@ -23,6 +23,7 @@ public class QueueManager : MonoBehaviour
 
     private List<GameObject> queue;
     private List<GameObject> icons;
+    private List<string> actionsInQueue;
 
     public int queueLength;
 
@@ -37,6 +38,7 @@ public class QueueManager : MonoBehaviour
 
         queue = new List<GameObject>();
         icons = new List<GameObject>();
+        actionsInQueue = new List<string>();
 
         queueLength = 0;
     }
@@ -46,28 +48,29 @@ public class QueueManager : MonoBehaviour
         rhythmBattleManager = RhythmBattleManager.instance;
     }
 
-    public void addToQueue(string name)
+    public void addToQueue(string actionName)
     {
+        actionsInQueue.Add(actionName);
         if (queueLength < queueMax && !queuePaused)
         {
             Vector3 queuePosition = playerQueue.transform.position;
-            if (name == rhythmBattleManager.attack)
+            if (actionName == rhythmBattleManager.attack)
             {
                 queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(attackIcon);
             }
-            else if (name == rhythmBattleManager.strongAttack)
+            else if (actionName == rhythmBattleManager.strongAttack)
             {
                 queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(strongAttackIcon);
             }
-            else if (name == rhythmBattleManager.run)
+            else if (actionName == rhythmBattleManager.run)
             {
                 queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 queuePaused = true;
                 icons.Add(runIcon);
             }
-            else if (name == rhythmBattleManager.heal)
+            else if (actionName == rhythmBattleManager.heal)
             {
                 queue.Add(Instantiate(healIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(healIcon);
@@ -95,6 +98,7 @@ public class QueueManager : MonoBehaviour
             
             queue[0].SetActive(false);
             queue.Remove(queue[0]);
+            actionsInQueue.Remove(actionsInQueue[0]);
             queueLength--;
         }
     }
@@ -115,5 +119,22 @@ public class QueueManager : MonoBehaviour
     public void Reset()
     {
         if (queuePaused) queuePaused = false;
+    }
+
+    public List<string> ActionsInQueue
+    {
+        get { return actionsInQueue; }
+    }
+
+    public string currentActionInQueue()
+    {
+        if (actionsInQueue.Count > 0)
+        {
+            return actionsInQueue[0];
+        }
+        else
+        {
+            return null;
+        }
     }
 }
