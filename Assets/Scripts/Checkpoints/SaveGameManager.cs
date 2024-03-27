@@ -51,7 +51,9 @@ public class SaveGameManager : MonoBehaviour
         SaveGame();
         SceneManager.LoadScene(scene);
     }
-
+    public void ReturnToMainScene() { 
+        
+    }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded");
@@ -63,6 +65,7 @@ public class SaveGameManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        gameData.currentLevel = 1;
     }
 
     public void LoadGame()

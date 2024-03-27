@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    //levelspecificdata
+    public int currentLevel;
+
     //player data
     public Vector3 playerPosition;
     public Quaternion playerRotation;
