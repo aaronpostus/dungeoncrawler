@@ -52,10 +52,13 @@ public class SaveGameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
     public void ReturnToMainScene() {
-        SceneManager.LoadScene(gameData.currentLevel);
+        SceneManager.LoadScene(gameData.currentLevel + "");
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (gameData.currentLevel + "" != scene.name) {
+            return;
+        }
         Debug.Log("Scene Loaded");
         this.saveDataObjects = FindAllISaveDataObjects();
 

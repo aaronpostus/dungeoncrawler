@@ -43,8 +43,8 @@ public class MainMenu : MonoBehaviour
         else
         {
             SaveGameManager.instance.NewGame();
-
-            LoadGameManager.instance.LoadScene(sceneToLoad);
+            Debug.Log("Going to main scene");
+            SaveGameManager.instance.ReturnToMainScene();
         }
     }
 
@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
 
-        LoadGameManager.instance.LoadScene(sceneToLoad);
+        SaveGameManager.instance.ReturnToMainScene();
     }
 
     public void OnOptionsClicked()
