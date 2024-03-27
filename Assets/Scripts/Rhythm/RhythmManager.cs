@@ -58,9 +58,11 @@ public class RhythmManager : MonoBehaviour
     public bool continuePlaying;
 
     private float damage;
-    private List<bool> damagable;
 
     private RhythmBattleManager battleManager;
+
+
+    public List<string> attacks;
 
     void Start()
     {
@@ -71,7 +73,7 @@ public class RhythmManager : MonoBehaviour
         noteThresholds = createThresholds();
         currentMultiplier = 1;
 
-        damagable = new List<bool>();
+        attacks = new List<string>();
     }
 
     void Update()
@@ -97,7 +99,7 @@ public class RhythmManager : MonoBehaviour
                 //Debug.Log("Total Notes: " + noteCreator.totalNotes);
                 continuePlaying = false;
             }
-        }else if (!continuePlaying && currentSequence <= noteCreator.noteSequences.Count)
+        }else if (!continuePlaying && QueueManager.instance.queueLength > 0)
         {
             continuePlaying=true;   
         }
@@ -233,26 +235,26 @@ public class RhythmManager : MonoBehaviour
 
     public void createAttack(string attackType)
     {
-        switch (attackType)
+        if (!QueueManager.instance.queuePaused || (attackType == RhythmBattleManager.instance.run && (attacks.Count == 0 || attacks[attacks.Count - 1] != attackType)))
         {
-            case var value when value == battleManager.attack:
-                damagable.Add(true);
-                CreateNotes(5);
-                break;
-            case var value when value == battleManager.strongAttack:
-                damagable.Add(true);
-                CreateNotes(10);
-                break;
-            case var value when value == battleManager.heal:
-                damagable.Add(false);
-                CreateNotes(1);
-                break;
-            case var value when value == battleManager.run:
-                damagable.Add(false);
-                CreateNotes(1);
-                break;
-            default:
-                break;  
+            attacks.Add(attackType);
+            switch (attackType)
+            {
+                case var value when value == battleManager.attack:
+                    CreateNotes(5);
+                    break;
+                case var value when value == battleManager.strongAttack:
+                    CreateNotes(10);
+                    break;
+                case var value when value == battleManager.heal:
+                    CreateNotes(1);
+                    break;
+                case var value when value == battleManager.run:
+                    CreateNotes(1);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -260,13 +262,19 @@ public class RhythmManager : MonoBehaviour
     {
         //Debug.Log("Notes currently deleted " + noteSequenceTracker);
         //Debug.Log("Notes deleted overall " + notesDeleted);
-        //Debug.Log("Notes in this sequence " + noteCreator.noteSequences[currentSequence]);
-        if (noteSequenceTracker == noteCreator.noteSequences[currentSequence])
+        //Debug.Log("Note Sequences " + noteCreator.noteSequences.Count);
+        //Debug.Log("Current sequence is " + currentSequence);
+
+        /**foreach(int sequence  in noteCreator.noteSequences)
         {
-            //Debug.Log("Damagable! 1");
-               
+            Debug.Log("Notes in each sequence " + sequence);
+        }
+
+        Debug.Log("Current Attack " + attacks.Count);*/
+        if (noteCreator.noteSequences.Count > currentSequence && noteSequenceTracker == noteCreator.noteSequences[currentSequence])
+        {
             updateQueue();
-            
+
 
             return true;
         }
@@ -285,8 +293,13 @@ public class RhythmManager : MonoBehaviour
 
     public void updateQueue()
     {
+        //Debug.Log("Note Sequences " + noteCreator.noteSequences.Count);
+        //Debug.Log("Current sequence is " + currentSequence);
+        //Debug.Log("Current Attack " + attacks[currentSequence]);
+
         noteSequenceTracker = 0;
         currentSequence++;
+
         if (noteCreator.icons.Count > currentSequence - 1)
         {
             removeIconAndLine();
@@ -299,15 +312,11 @@ public class RhythmManager : MonoBehaviour
 
     public float getDamage()
     {
-        bool isCurrentDamagable = damagable[0];
-        damagable.RemoveAt(0);
-        if (isCurrentDamagable)
-        {
-            return damage;
-        }
-        else
-        {
-            return 0;
-        }
+        return damage;
+    }
+
+    public string lastActionInQueue()
+    {
+        return attacks[attacks.Count - 1];
     }
 }

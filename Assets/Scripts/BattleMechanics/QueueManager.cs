@@ -19,11 +19,12 @@ public class QueueManager : MonoBehaviour
     [SerializeField] private GameObject healIcon;
 
     public int queueMax = 5;
+    public bool queuePaused = false;
 
     private List<GameObject> queue;
     private List<GameObject> icons;
 
-    private int queueLength;
+    public int queueLength;
 
     private const int distBetweenIcons = 100;
     private const int distDown = 50;
@@ -47,7 +48,7 @@ public class QueueManager : MonoBehaviour
 
     public void addToQueue(string name)
     {
-        if (queueLength < queueMax)
+        if (queueLength < queueMax && !queuePaused)
         {
             Vector3 queuePosition = playerQueue.transform.position;
             if (name == rhythmBattleManager.attack)
@@ -55,7 +56,7 @@ public class QueueManager : MonoBehaviour
                 queue.Add(Instantiate(attackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(attackIcon);
             }
-            else if (name == rhythmBattleManager.attack)
+            else if (name == rhythmBattleManager.strongAttack)
             {
                 queue.Add(Instantiate(strongAttackIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
                 icons.Add(strongAttackIcon);
@@ -63,7 +64,7 @@ public class QueueManager : MonoBehaviour
             else if (name == rhythmBattleManager.run)
             {
                 queue.Add(Instantiate(runIcon, new Vector3(queuePosition.x + (distBetweenIcons * (queueLength + 1)), queuePosition.y - distDown, queuePosition.z), Quaternion.Euler(0, 0, 0)));
-                queueMax = queue.Count;
+                queuePaused = true;
                 icons.Add(runIcon);
             }
             else if (name == rhythmBattleManager.heal)
@@ -77,7 +78,7 @@ public class QueueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Tried to queue more than the max amount queue at once.");
+            Debug.Log("Tried to queue more than the max amount or the queue is paused.");
         }
     }
 
@@ -111,9 +112,8 @@ public class QueueManager : MonoBehaviour
         }
     }
 
-    public void DeactivateQueue()
+    public void Reset()
     {
-        playerQueue.SetActive(false);
-        //enemyNextUp.SetActive(false);
+        if (queuePaused) queuePaused = false;
     }
 }

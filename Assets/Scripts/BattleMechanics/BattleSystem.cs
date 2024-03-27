@@ -81,8 +81,6 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
-        QueueManager.instance.addToQueue(rhythmBattleManager.run);
-
         StartCoroutine(RhythmAttack(rhythmBattleManager.run));
 
 
@@ -97,8 +95,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }*/
-
-        QueueManager.instance.addToQueue(rhythmBattleManager.attack);
+    
 
         StartCoroutine(RhythmAttack(rhythmBattleManager.attack));
     }
@@ -109,7 +106,6 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }*/
-        QueueManager.instance.addToQueue(rhythmBattleManager.strongAttack);
 
         StartCoroutine(RhythmAttack(rhythmBattleManager.strongAttack));
     }
@@ -121,7 +117,6 @@ public class BattleSystem : MonoBehaviour
             return;
         }*/
 
-        QueueManager.instance.addToQueue(rhythmBattleManager.heal);
 
         //StartCoroutine(PlayerHeal());
         StartCoroutine(RhythmAttack(rhythmBattleManager.heal));
@@ -233,61 +228,62 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator RhythmAttack(string attackType)
     {
-        if (!rhythmBattleManager.isRhythmUIActive())
+        if (!QueueManager.instance.queuePaused)
         {
-            //activates UI
-            rhythmBattleManager.ActivateRhythmUI();
-
-            //waits for one second for UI to load in
-            while(rhythmManager == null)
+            QueueManager.instance.addToQueue(attackType);
+            if (!rhythmBattleManager.isRhythmUIActive())
             {
-                rhythmManager = RhythmManager.instance;
+                //activates UI
+                rhythmBattleManager.ActivateRhythmUI();
+
+                //waits for one second for UI to load in
+                while (rhythmManager == null)
+                {
+                    rhythmManager = RhythmManager.instance;
+                    yield return null;
+                }
+            }
+            else
+            {
+                //when starting, makes sure that the first note pressed is the first in the queue
+                while (!rhythmManager.continuePlaying)
+                {
+                    yield return null;
+                }
+            }
+
+            //creates notes based on difficulty - to be changed later
+            rhythmManager.createAttack(attackType);
+
+
+            yield return new WaitForSeconds(3f);
+
+            while (rhythmManager.continuePlaying && !(state == BattleState.LOST || state == BattleState.WON))
+            {
+                if (attackType == rhythmManager.lastActionInQueue() && rhythmManager.isCurrentSequenceDone())
+                {
+                    Debug.Log("In while loop");
+                    doAttack(attackType);
+                }
                 yield return null;
             }
-        }
-        else
-        {
-            //when starting, makes sure that the first note pressed is the first in the queue
-            while (!rhythmManager.continuePlaying)
+
+            //added as rhythm section is complete so a full attack must have completed
+            if (attackType == rhythmManager.lastActionInQueue() && rhythmManager.isCurrentSequenceDone())
             {
-                yield return null;
-            }
-        }
-
-        //creates notes based on difficulty - to be changed later
-        rhythmManager.createAttack(attackType);
-
-
-        yield return new WaitForSeconds(3f);
-
-        while (rhythmManager.continuePlaying && !(state == BattleState.LOST || state == BattleState.WON))
-        {
-            if (rhythmManager.isCurrentSequenceDone())
-            {
+                Debug.Log("Out of while loop");
                 doAttack(attackType);
             }
-            yield return null;
-        }
 
-        rhythmManager.updateQueue();
-        //added as rhythm section is complete so a full attack must have completed
-        doAttack(attackType);
-
-        yield return new WaitForSeconds(2f);
-
-        if (rhythmManager.continuePlaying)
-        {
-            yield return null;
-        }else if(rhythmBattleManager.isRhythmUIActive())
-        {
-            rhythmBattleManager.DeactivateRhythmUI();
+            //QueueManager.instance.Reset();
         }
 
     }
 
     private void doAttack(string attackType)
     {
-        //Debug.Log("Player is doing damage!");
+        Debug.Log("Current attack is " + attackType);
+
         switch (attackType)
         {
             case var value when value == rhythmBattleManager.attack:
@@ -300,7 +296,15 @@ public class BattleSystem : MonoBehaviour
                 StartCoroutine(PlayerHeal());
                 break;
             case var value when value == rhythmBattleManager.run:
-                SceneManager.LoadScene("DunGenTest");
+                if (rhythmManager.getDamage() > 0)
+                {
+                    SceneManager.LoadScene("DunGenTest");
+                }
+                else
+                {
+                    Debug.Log("Queue Resumed");
+                    QueueManager.instance.Reset();
+                }
                 break;
             default:
                 break;
