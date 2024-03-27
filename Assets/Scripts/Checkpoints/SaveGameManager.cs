@@ -17,7 +17,7 @@ public class SaveGameManager : MonoBehaviour
 
     private List<ISaveData> saveDataObjects;
 
-    private FileDataHandler dataHandler; 
+    private FileDataHandler dataHandler;
 
     public static SaveGameManager instance { get; private set; }
 
@@ -84,15 +84,15 @@ public class SaveGameManager : MonoBehaviour
 
         DeserializeCheckpoints();
 
-        foreach (ISaveData saveDataObject in saveDataObjects) 
+        foreach (ISaveData saveDataObject in saveDataObjects)
         {
             saveDataObject.LoadData(gameData);
-        } 
+        }
     }
 
     public void SaveGame()
     {
-        if(this.gameData == null)
+        if (this.gameData == null)
         {
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
             return;
@@ -122,6 +122,16 @@ public class SaveGameManager : MonoBehaviour
 
         return new List<ISaveData>(saveDataObjects);
 
+    }
+
+    private void SerializeChests()
+    { 
+    
+    }
+
+    private void DeserializeChests()
+    { 
+    
     }
 
     private void SerializeCheckpoints()
