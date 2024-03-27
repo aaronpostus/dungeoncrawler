@@ -262,7 +262,7 @@ public class BattleSystem : MonoBehaviour
             {
                 if (attackType == rhythmManager.lastActionInQueue() && rhythmManager.isCurrentSequenceDone())
                 {
-                    Debug.Log("In while loop");
+                    //Debug.Log("In while loop");
                     doAttack(attackType);
                 }
                 yield return null;
@@ -271,7 +271,7 @@ public class BattleSystem : MonoBehaviour
             //added as rhythm section is complete so a full attack must have completed
             if (attackType == rhythmManager.lastActionInQueue() && rhythmManager.isCurrentSequenceDone())
             {
-                Debug.Log("Out of while loop");
+                //Debug.Log("Out of while loop");
                 doAttack(attackType);
             }
 
@@ -282,7 +282,7 @@ public class BattleSystem : MonoBehaviour
 
     private void doAttack(string attackType)
     {
-        Debug.Log("Current attack is " + attackType);
+        //Debug.Log("Current attack is " + attackType);
 
         switch (attackType)
         {
