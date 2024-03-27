@@ -143,14 +143,7 @@ public class SlideGame : MonoBehaviour
     }
     private IEnumerator TransitionBack() {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("DunGenTest");
-    }
-
-    private IEnumerator WaitShuffle(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Shuffle();
-        shuffling = false;
+        SaveGameManager.instance.ReturnToMainScene();
     }
 
     // Brute force shuffling.

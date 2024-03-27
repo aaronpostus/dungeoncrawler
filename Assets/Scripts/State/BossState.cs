@@ -63,7 +63,7 @@ namespace YaoLu
         {
             //GameObject.Destroy(boss.gameObject);
             //some animation
-            SceneManager.LoadScene("BattleScene");
+            SaveGameManager.instance.TransitionAwayFromMainScene("BattleScene");
         }
 
         public override void Update()

@@ -6,7 +6,7 @@ public class DeathUI : MonoBehaviour
 {
     public void OnRespawnClicked()
     {
-        LoadGameManager.instance.LoadScene("DunGenTest");
+        SaveGameManager.instance.ReturnToMainScene();
     }
 
     public void OnMainMenuClicked()

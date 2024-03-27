@@ -35,7 +35,7 @@ public class SaveGameManager : MonoBehaviour
         instance = this;
 
         //Debug.Log(Application.dataPath);
-        this.dataHandler = new FileDataHandler(Application.dataPath + "/SaveGame", fileName);
+        this.dataHandler = new FileDataHandler(Application.dataPath + "/Save", fileName);
     }
 
     private void OnEnable()
@@ -47,7 +47,15 @@ public class SaveGameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
+    public void TransitionAwayFromMainScene(string scene) {
+        SaveGame();
+        SceneManager.LoadScene(scene);
+    }
+    public void ReturnToMainScene() {
+        Debug.Log(gameData);
+        Debug.Log(gameData.currentLevel);
+        SceneManager.LoadScene(gameData.currentLevel + "");
+    }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded");
@@ -59,6 +67,9 @@ public class SaveGameManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        gameData.currentLevel = 1;
+        SaveGame();
+        ReturnToMainScene();
     }
 
     public void LoadGame()
@@ -68,8 +79,6 @@ public class SaveGameManager : MonoBehaviour
 
         if (this.gameData == null)
         {
-            Debug.Log("No save found. A new game must be started before data can be loaded.");
-            this.gameData = temp;
             return;
         }
 
@@ -88,6 +97,8 @@ public class SaveGameManager : MonoBehaviour
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
             return;
         }
+
+        saveDataObjects = FindAllISaveDataObjects();
 
         foreach (ISaveData saveDataObject in saveDataObjects)
         {

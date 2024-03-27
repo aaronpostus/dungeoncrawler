@@ -193,7 +193,7 @@ namespace YaoLu
         public override void OnEnter()
         {
             GameObject.Destroy(enemy.gameObject);
-            SceneManager.LoadScene("BattleScene");
+            SaveGameManager.instance.TransitionAwayFromMainScene("BattleScene");
             
             // ProcessBattleOutcome()
         }

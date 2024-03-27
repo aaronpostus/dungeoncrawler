@@ -13,6 +13,7 @@ public class Persistence : MonoBehaviour
     private void Update()
     {
         currentScene = SceneManager.GetActiveScene();
+        // this object has zero references but if whoever is working on this needs to use this be sure to use SaveGameManager.instance.ReturnToMainScene() instead
         this.gameObject.SetActive(currentScene.name == "DunGenTest");
     }
 }

@@ -27,6 +27,7 @@ public class Loading : MonoBehaviour
 
     public void SwitchScene()
     {
+        Debug.Log("Switching to " + scene);
         LevelManager.Instance.LoadScene(scene);
     }
 }

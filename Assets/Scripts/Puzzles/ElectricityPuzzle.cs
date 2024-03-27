@@ -25,7 +25,6 @@ public class ElectricityPuzzle : MonoBehaviour
 
     public float rotationDuration = 5f;
     public TextMeshProUGUI uiText;
-    public string nextSceneName;
     public PuzzleData puzzleData;
     IEnumerator RotateObject()
     {
@@ -46,7 +45,7 @@ public class ElectricityPuzzle : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Transition to the next scene
-        SceneManager.LoadScene(nextSceneName);
+        SaveGameManager.instance.ReturnToMainScene();
     }
 
     private void Awake()

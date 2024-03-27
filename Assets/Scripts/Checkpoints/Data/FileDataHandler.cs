@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using Unity.VisualScripting;
+using System.Reflection;
 
 public class FileDataHandler
 {
@@ -71,7 +73,7 @@ public class FileDataHandler
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
