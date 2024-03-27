@@ -12,7 +12,6 @@ namespace Assets.Scripts.Checkpoints
         public CurrentLevel(int levelNum) {
             _level = levelNum;
         }
-
         public void LoadData(GameData data)
         {
             _level = data.currentLevel;

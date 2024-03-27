@@ -79,7 +79,7 @@ public class BattleSystem : MonoBehaviour
 
         QueueManager.instance.addToQueue("Run");
 
-        SceneManager.LoadScene("DunGenTest");
+        SaveGameManager.instance.ReturnToMainScene();
     }
 
     public void OnAttackButton()
@@ -205,7 +205,7 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You won!";
             enemyAnimator.Play("Die");
-            SceneManager.LoadScene("DunGenTest");
+            SaveGameManager.instance.ReturnToMainScene();
         }
         else if (state == BattleState.LOST)
         {
