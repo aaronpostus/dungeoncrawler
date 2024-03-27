@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI; // Import the AI namespace for NavMeshAgent
 using YaoLu;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, ISaveData
 {
     public Animator animator;
     private StateMachine stateMachine;
@@ -60,5 +60,15 @@ public class Enemy : MonoBehaviour
         {
             ChangeState(hurtState);
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        // implement
+    }
+
+    public void SaveData(GameData data)
+    {
+        // implement
     }
 }
