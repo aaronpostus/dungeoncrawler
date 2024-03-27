@@ -46,7 +46,7 @@ public class ElectricityPuzzle : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Transition to the next scene
-        SceneManager.LoadScene(nextSceneName);
+        SaveGameManager.instance.TransitionAwayFromMainScene(nextSceneName);
     }
 
     private void Awake()
