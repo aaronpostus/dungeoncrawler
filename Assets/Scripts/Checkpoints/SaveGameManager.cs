@@ -52,13 +52,12 @@ public class SaveGameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
     public void ReturnToMainScene() {
+        Debug.Log(gameData);
+        Debug.Log(gameData.currentLevel);
         SceneManager.LoadScene(gameData.currentLevel + "");
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (gameData.currentLevel + "" != scene.name) {
-            return;
-        }
         Debug.Log("Scene Loaded");
         this.saveDataObjects = FindAllISaveDataObjects();
 
@@ -69,6 +68,8 @@ public class SaveGameManager : MonoBehaviour
     {
         this.gameData = new GameData();
         gameData.currentLevel = 1;
+        SaveGame();
+        ReturnToMainScene();
     }
 
     public void LoadGame()
@@ -78,8 +79,6 @@ public class SaveGameManager : MonoBehaviour
 
         if (this.gameData == null)
         {
-            Debug.Log("No save found. A new game must be started before data can be loaded.");
-            this.gameData = temp;
             return;
         }
 

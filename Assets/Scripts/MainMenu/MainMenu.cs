@@ -43,8 +43,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             SaveGameManager.instance.NewGame();
-            Debug.Log("Going to main scene");
-            SaveGameManager.instance.ReturnToMainScene();
         }
     }
 

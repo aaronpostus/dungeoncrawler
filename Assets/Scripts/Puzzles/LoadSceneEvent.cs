@@ -9,7 +9,7 @@ namespace Assets.Scripts.Puzzles
     {
         [SerializeField] string sceneName;
         public override void Interact() {
-            SceneManager.LoadScene(sceneName);
+            SaveGameManager.instance.TransitionAwayFromMainScene(sceneName);
         }
     }
 }

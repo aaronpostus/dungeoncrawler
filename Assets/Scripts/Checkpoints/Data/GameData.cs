@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData
 {
     //levelspecificdata
-    public int currentLevel;
+    public int currentLevel = 1;
 
     //player data
     public Vector3 playerPosition;
