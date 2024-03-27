@@ -19,7 +19,7 @@ namespace Assets.Scripts.Loading_Scripts
         private void Awake()
         {
             imageOutput.preserveAspect = true;
-            TextAsset file = Resources.Load<TextAsset>("Assets/Essentials/Created/XML/" + xmlFileName);
+            TextAsset file = Resources.Load<TextAsset>("XML/" + xmlFileName);
             XmlDocument xmlFile = new XmlDocument();
             xmlFile.LoadXml(file.text);
 

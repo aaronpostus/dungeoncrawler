@@ -127,8 +127,7 @@ namespace Connect.Core
 
         public void GoToGameplay()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadS
-                cene(Gameplay);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(Gameplay);
         }
 
         #endregion
