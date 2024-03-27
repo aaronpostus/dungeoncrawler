@@ -47,6 +47,10 @@ public class SaveGameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    public void TransitionAwayFromMainScene(string scene) {
+        SaveGame();
+        SceneManager.LoadScene(scene);
+    }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
