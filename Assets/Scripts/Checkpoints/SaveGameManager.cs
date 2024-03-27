@@ -98,6 +98,8 @@ public class SaveGameManager : MonoBehaviour
             return;
         }
 
+        saveDataObjects = FindAllISaveDataObjects();
+
         foreach (ISaveData saveDataObject in saveDataObjects)
         {
             saveDataObject.SaveData(gameData);
