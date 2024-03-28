@@ -34,6 +34,8 @@ public class GameData
 
     //enemy data
     public string currentEnemyType;
+
+    public bool floorElevatorOpened;
     //inital values of the game
     public GameData()
     {
@@ -53,5 +55,7 @@ public class GameData
 
         checkpointKeys = new List<string>();
         checkpointValues = new List<bool>();
+
+        floorElevatorOpened = false;
     }
 }

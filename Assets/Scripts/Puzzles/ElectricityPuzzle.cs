@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ElectricityPuzzle : MonoBehaviour
+public class ElectricityPuzzle : MonoBehaviour, ISaveData
 {
     public Transform puzzleParent; // Parent object containing all puzzle pieces
     public float rotationSpeed = 90f; // Speed of rotation in degrees per second
@@ -237,5 +237,15 @@ public class ElectricityPuzzle : MonoBehaviour
             // Start rotating
             isRotating = true;
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        // do nothing
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.floorElevatorOpened = true;
     }
 }
