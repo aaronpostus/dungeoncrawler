@@ -138,7 +138,7 @@ public class SlideGame : MonoBehaviour
             text.enabled = true;
             Debug.Log("Win");
             winning = true;
-            //SaveGameManager.chest
+            SaveGameManager.instance.SolveChest(puzzleData._chestNumber);
             StartCoroutine(TransitionBack());
         }
     }

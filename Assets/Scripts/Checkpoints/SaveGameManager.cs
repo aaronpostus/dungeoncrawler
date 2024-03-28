@@ -47,6 +47,9 @@ public class SaveGameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    public void SolveChest(int chestNumber) {
+        gameData.chestsSolved[chestNumber - 1] = (true, false);
+    }
     public void TransitionAwayFromMainScene(string scene) {
         SaveGame();
         SceneManager.LoadScene(scene);

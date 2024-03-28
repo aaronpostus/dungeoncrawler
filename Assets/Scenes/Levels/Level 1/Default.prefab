@@ -4886,12 +4886,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: SlidePuzzle
+  chest: {fileID: 9020473380198356409}
   puzzleData: {fileID: 11400000, guid: ed9b981a47e218d4e94192d68a170e87, type: 2}
 --- !u!4 &2114229492404633935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7621844635156544603, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
   m_PrefabInstance: {fileID: 8399630937865207060}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9020473380198356409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 702090309252753581, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
+  m_PrefabInstance: {fileID: 8399630937865207060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479910588074272521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b22212c25a2ad4b9bdfacab9932110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9113937041101175839
 PrefabInstance:
   m_ObjectHideFlags: 0
