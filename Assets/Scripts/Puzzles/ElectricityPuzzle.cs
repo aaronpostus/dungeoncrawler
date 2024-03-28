@@ -45,6 +45,7 @@ public class ElectricityPuzzle : MonoBehaviour, ISaveData
         yield return new WaitForSeconds(1f);
 
         // Transition to the next scene
+        solved = true;
         SaveGameManager.instance.ReturnToMainScene();
     }
 
@@ -246,6 +247,6 @@ public class ElectricityPuzzle : MonoBehaviour, ISaveData
 
     public void SaveData(GameData data)
     {
-        data.floorElevatorOpened = true;
+        data.floorElevatorOpened = solved;
     }
 }
