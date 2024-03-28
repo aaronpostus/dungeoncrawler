@@ -4861,8 +4861,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8230759287476689506, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
+      propertyPath: interactEvent
+      value: 
+      objectReference: {fileID: 2602968948888186328}
+    m_RemovedComponents:
+    - {fileID: 103316673798310890, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
+--- !u!1 &479910588074272521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8230759287476689437, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}
+  m_PrefabInstance: {fileID: 8399630937865207060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2602968948888186328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479910588074272521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9e17d1bd492344d8e7c3fa0894d53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: SlidePuzzle
+  puzzleData: {fileID: 11400000, guid: ed9b981a47e218d4e94192d68a170e87, type: 2}
 --- !u!4 &2114229492404633935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7621844635156544603, guid: f5fa56a1921ab6e48b230610e92daf36, type: 3}

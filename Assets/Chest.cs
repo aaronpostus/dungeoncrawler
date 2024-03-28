@@ -25,11 +25,14 @@ public class Chest : MonoBehaviour, ISaveData
     }
     public void LoadData(GameData data)
     {
-        //isSolved = 
+        isSolved = data.chestsSolved[chestNumber - 1].solved;
+        // add itemdropped functionality
     }
 
     public void SaveData(GameData data)
     {
-        
+        // add itemdropped functionality
+
+        data.chestsSolved[chestNumber - 1] = (isSolved, false);
     }
 }

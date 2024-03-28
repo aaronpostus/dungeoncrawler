@@ -138,6 +138,7 @@ public class SlideGame : MonoBehaviour
             text.enabled = true;
             Debug.Log("Win");
             winning = true;
+            //SaveGameManager.chest
             StartCoroutine(TransitionBack());
         }
     }

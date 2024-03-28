@@ -204,7 +204,7 @@ public class ElectricityPuzzle : MonoBehaviour
         // Start rotating the object
         StartCoroutine(RotateObject());
         uiText.enabled = true;
-        puzzleData.solved = true;
+        //puzzleData.solved = true;
     }
 
     public void RotateLeft()

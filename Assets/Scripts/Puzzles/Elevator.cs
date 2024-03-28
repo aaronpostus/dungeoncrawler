@@ -9,10 +9,12 @@ public class Elevator : MonoBehaviour
     [SerializeField] GameObject circuitBoxTrigger;
     void Start()
     {
-        if (puzzleData.solved) {
+        // add back elevator opening
+
+        //if (puzzleData.solved) {
             anim.SetBool("Open", true);
             circuitBoxTrigger.SetActive(false);
             Cursor.visible = false;
-        }
+        //}
     }
 }
