@@ -40,13 +40,29 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        //GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerPrefab.GetComponent<Unit>();
+        // Retrieve the enemy type from SaveGameManager's gameData
+        string enemyType = SaveGameManager.instance.gameData.currentEnemyType;
+        // Use the enemyPrefabRegistry to get the prefab based on the enemy type
+        enemyPrefab = SaveGameManager.instance.enemyPrefabRegistry.GetPrefabByType(enemyType);
 
-       // GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyUnit = enemyPrefab.GetComponent<Unit>();
+        if (enemyPrefab != null)
+        {
+            // Instantiate the enemy at the enemy battle station and get the Unit component
+            GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+            // Get the Animator component from the instantiated enemy game object
+            enemyAnimator = enemyGO.GetComponent<Animator>(); 
+        }
+        else
+        {
+            Debug.LogError("Failed to load enemy prefab.");
+        }
 
-        dialogueText.text = " A wild " + enemyUnit.unitName + " approaches";
+        // Instantiate the player prefab and get the Unit component
+        GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+        playerUnit = playerGO.GetComponent<Unit>();
+
+        dialogueText.text = "A wild " + enemyUnit.unitName + " approaches";
 
         playerHUD.SetActive(true);
         playerHP.maxValue = playerUnit.maxHP;
@@ -55,7 +71,6 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         state = BattleState.PLAYERTURN;
-        //DEBUG
         Debug.Log("Game setup complete");
 
         PlayerTurn();
@@ -125,8 +140,9 @@ public class BattleSystem : MonoBehaviour
         float damage = RhythmManager.instance.damage;
         Debug.Log("Damage = " + damage);
         animator.Play("Kick");
+        
         yield return new WaitForSeconds(1.2f);
-
+        animator.Play("Idle");
         // Damage enemy
         if (strong)
         {
@@ -137,6 +153,7 @@ public class BattleSystem : MonoBehaviour
         enemyHP.value = enemyUnit.currentHP;
         //animator.Play("Kick");
         // Set HUD
+        
         dialogueText.text = "The attack is successful!";
 
         yield return new WaitForSeconds(2f);

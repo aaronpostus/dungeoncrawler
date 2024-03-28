@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData
 {
     //levelspecificdata
-    public int currentLevel = 1;
+    public int currentLevel;
 
     //player data
     public Vector3 playerPosition;
@@ -20,21 +20,42 @@ public class GameData
 
     public List<string> checkpointKeys;
     public List<bool> checkpointValues;
+    
+    // solved specifies if the chest should be open, itemdropped specifies if there should be an item dropped. after an item has been picked up itemDropped is false.
+
+    public Dictionary<int,(bool solved, bool itemDropped)> chestsSolved;
+
+    public List<int> chestKeys;
+    public List<bool> chestSolved;
+    public List<bool> chestItemDropped;
 
     //seed for dungen
     public int seed;
 
+    //enemy data
+    public string currentEnemyType;
+
+    public bool floorElevatorOpened;
     //inital values of the game
     public GameData()
     {
-        this.playerPosition = new Vector3();
-        this.playerRotation = new Quaternion();
+        currentLevel = 1;
+        playerPosition = new Vector3();
+        playerRotation = new Quaternion();
 
-        this.cameraRotation = new Quaternion();
+        chestsSolved = new Dictionary<int, (bool,bool)>();
+
+        chestKeys = new List<int>();
+        chestSolved = new List<bool>();
+        chestItemDropped = new List<bool>();
+
+        cameraRotation = new Quaternion();
 
         checkpoints = new Dictionary<string, bool>();
 
         checkpointKeys = new List<string>();
         checkpointValues = new List<bool>();
+
+        floorElevatorOpened = false;
     }
 }

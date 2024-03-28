@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
     public string unitName;
     public int unitLevel, damage, maxHP, currentHP, defense;
     public Slider slider;
-
+    public string enemyType;
     public bool TakeDamage(float dmg)
     {
         currentHP -= ((int)dmg - defense);

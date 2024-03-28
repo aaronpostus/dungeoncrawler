@@ -193,6 +193,7 @@ namespace YaoLu
         public override void OnEnter()
         {
             GameObject.Destroy(enemy.gameObject);
+            SaveGameManager.instance.gameData.currentEnemyType = enemy.GetComponent<Unit>().enemyType;
             SaveGameManager.instance.TransitionAwayFromMainScene("BattleScene");
             
             // ProcessBattleOutcome()

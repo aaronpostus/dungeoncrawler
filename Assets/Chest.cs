@@ -2,27 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, ISaveData
 {
     [SerializeField] PuzzleData puzzleData;
     [SerializeField] Animator anim;
     [SerializeField] StringReference chestUnlocked;
     [SerializeField] GameObject triggerBox;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if (puzzleData.solved) {
-            anim.SetBool("ChestOpen", true);
-            chestUnlocked.Value = "Opened chest and unlocked item.";
-            Destroy(triggerBox);
-            StartCoroutine(RemoveText());
-        }
+
+    public static int totalChests = 0;
+    public int chestNumber;
+    public bool isSolved = false;
+
+    private GameData gameData;
+    void Awake() {
+
+        chestNumber = ++totalChests;
     }
-    IEnumerator RemoveText() {
-        yield return new WaitForSeconds(2f);
-        if (chestUnlocked.Value == "chestUnlocked.Value") {
-            chestUnlocked.Value = "";
+    public void LoadData(GameData data)
+    {
+        gameData = data;
+        isSolved = gameData.chestsSolved[chestNumber].solved;
+        if (isSolved)
+        {
+            anim.SetBool("ChestOpen", true);
+            Destroy(triggerBox);
         }
-        yield return null;
+        // add itemdropped functionality
+    }
+
+    public void SaveData(GameData data)
+    {
+        // add itemdropped functionality
+
+        data.chestsSolved[chestNumber] = (isSolved, false);
+        totalChests = 0;
     }
 }
