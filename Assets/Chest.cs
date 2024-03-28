@@ -12,20 +12,24 @@ public class Chest : MonoBehaviour, ISaveData
     public static int totalChests = 0;
     public int chestNumber;
     public bool isSolved = false;
-    void Awake()
-    {
+
+    private GameData gameData;
+    void Awake() {
+
         chestNumber = ++totalChests;
-    }
-    void Start() {
-        if (isSolved)
-        {
-            anim.SetBool("ChestOpen", true);
-            Destroy(triggerBox);
-        }
+        Debug.Log("Chest number: " + totalChests);
     }
     public void LoadData(GameData data)
     {
-        isSolved = data.chestsSolved[chestNumber - 1].solved;
+        gameData = data;
+        isSolved = gameData.chestsSolved[chestNumber].solved;
+        Debug.Log("CHEST NO: " + chestNumber + " SOLVED: " + isSolved);
+        if (isSolved)
+        {
+            Debug.Log(chestNumber + "is solved! Opening.");
+            anim.SetBool("ChestOpen", true);
+            Destroy(triggerBox);
+        }
         // add itemdropped functionality
     }
 
@@ -33,6 +37,7 @@ public class Chest : MonoBehaviour, ISaveData
     {
         // add itemdropped functionality
 
-        data.chestsSolved[chestNumber - 1] = (isSolved, false);
+        data.chestsSolved[chestNumber] = (isSolved, false);
+        totalChests = 0;
     }
 }

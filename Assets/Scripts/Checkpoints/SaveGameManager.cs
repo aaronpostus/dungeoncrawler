@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using DunGen;
+using System;
+using Assets.Scripts.Checkpoints;
 
 public class SaveGameManager : MonoBehaviour
 {
@@ -48,7 +51,7 @@ public class SaveGameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     public void SolveChest(int chestNumber) {
-        gameData.chestsSolved[chestNumber - 1] = (true, false);
+        gameData.chestsSolved[chestNumber] = (true, false);
     }
     public void TransitionAwayFromMainScene(string scene) {
         SaveGame();
@@ -63,9 +66,14 @@ public class SaveGameManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded");
-        this.saveDataObjects = FindAllISaveDataObjects();
-
         LoadGame();
+    }
+
+    private void LoadAfterDunGen(DunGen.DungeonGenerator generator, GenerationStatus status)
+    {
+        if (status == GenerationStatus.Complete) {
+            LoadGame();
+        }
     }
 
     public void NewGame()
@@ -83,15 +91,28 @@ public class SaveGameManager : MonoBehaviour
 
         if (this.gameData == null)
         {
+            Debug.Log("null game data!");
             return;
         }
+        this.saveDataObjects = FindAllISaveDataObjects();
 
         DeserializeCheckpoints();
         DeserializeChests();
+        PersistentPropIDAssigner.ReassignChestIDs();
 
         foreach (ISaveData saveDataObject in saveDataObjects)
         {
+            if (saveDataObject is Chest) {
+                Debug.Log("About to load a chest");
+            }
             saveDataObject.LoadData(gameData);
+        }
+
+        var dunGen = FindObjectOfType<RuntimeDungeon>();
+        // if we are in a scene with dungen we need to wait for dungen to create all of our objects
+        if (dunGen)
+        {
+            dunGen.Generator.OnGenerationStatusChanged += LoadAfterDunGen;
         }
     }
 
@@ -155,6 +176,7 @@ public class SaveGameManager : MonoBehaviour
 
         for (int i = 0; i < gameData.chestKeys.Count; i++)
         {
+            Debug.Log("Putting : " + gameData.chestKeys[i] + " " + gameData.chestSolved[i] + " " + gameData.chestItemDropped[i]);
             gameData.chestsSolved.Add(gameData.chestKeys[i], (gameData.chestSolved[i], gameData.chestItemDropped[i]));
         }
     }

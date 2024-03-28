@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,15 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2 offset;
 
     List<Cell> board;
+
+    // Custom event for dungeon generation complete
+    public static event Action OnDungeonGenerationComplete;
+
+    // Method to trigger the dungeon generation complete event
+    public static void TriggerGenerationComplete()
+    {
+        OnDungeonGenerationComplete?.Invoke();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +49,7 @@ public class DungeonGenerator : MonoBehaviour
                 Cell currentCell = board[Mathf.FloorToInt(i + j * size.x)];
                 if (currentCell.visited)
                 {
-                    int randomRoom = Random.Range(0, rooms.Length);
+                    int randomRoom = UnityEngine.Random.Range(0, rooms.Length);
                     var newRoom = Instantiate(rooms[randomRoom], new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
                     newRoom.UpdateRoom(currentCell.status);
 
@@ -95,7 +105,7 @@ public class DungeonGenerator : MonoBehaviour
             {
                 path.Push(currentCell);
 
-                int newCell = neighbors[Random.Range(0, neighbors.Count)];
+                int newCell = neighbors[UnityEngine.Random.Range(0, neighbors.Count)];
 
                 if (newCell > currentCell)
                 {
@@ -132,6 +142,7 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
         GenerateDungeon();
+        TriggerGenerationComplete();
     }
 
     List<int> CheckNeighbors(int cell)
