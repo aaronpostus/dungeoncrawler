@@ -55,6 +55,8 @@ public class RhythmManager : MonoBehaviour
     private int noteSequenceTracker;
     private int currentSequence = 0;
 
+    private int longNoteOffset = 220;
+
     public bool continuePlaying;
 
     private float damage;
@@ -110,6 +112,33 @@ public class RhythmManager : MonoBehaviour
 
         }
         else if (note.transform.position.y > leftButton.transform.position.y + 5)
+        {
+            //Debug.Log("Late Hit");
+            this.LateHit();
+            Instantiate(lateEffect, textArea.transform);
+        }
+        else
+        {
+            //Debug.Log("Perfect Hit");
+            this.PerfectHit();
+            Instantiate(perfectEffect, textArea.transform);
+        }
+    }
+
+    public void HitAreaLongNote(GameObject note)
+    {
+        float notePosition = note.transform.position.y - longNoteOffset;
+
+        Debug.Log(note.transform.position.y);
+        Debug.Log(leftButton.transform.position.y);
+        if (notePosition < leftButton.transform.position.y - 5)
+        {
+            //Debug.Log("Early Hit");
+            this.EarlyHit();
+            Instantiate(earlyEffect, textArea.transform);
+
+        }
+        else if (notePosition > leftButton.transform.position.y + 5)
         {
             //Debug.Log("Late Hit");
             this.LateHit();
