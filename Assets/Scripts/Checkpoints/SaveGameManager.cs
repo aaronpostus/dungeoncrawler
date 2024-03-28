@@ -50,6 +50,9 @@ public class SaveGameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    public int AdvanceFloor() {
+        return ++gameData.currentLevel;
+    }
     public void SolveChest(int chestNumber) {
         gameData.chestsSolved[chestNumber] = (true, false);
     }
