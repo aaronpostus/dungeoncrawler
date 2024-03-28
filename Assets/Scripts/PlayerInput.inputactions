@@ -464,6 +464,56 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Minimap",
+            "id": "d901e776-de47-494c-be66-8b5628320289",
+            "actions": [
+                {
+                    "name": "Zoom",
+                    "type": "Button",
+                    "id": "428658d2-23eb-45e3-bbf1-d57f1f6be1d0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Zooming",
+                    "id": "143e0e07-7bbd-42dd-af06-ea340dc69af4",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d0b2c7a1-eb4d-429e-8aef-9e425646e1ff",
+                    "path": "<Keyboard>/rightBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "43e34a36-0efc-4c9c-9290-9a74dbddcd54",
+                    "path": "<Keyboard>/leftBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
         }
     ],
     "controlSchemes": []
