@@ -8,7 +8,12 @@ public class LongNoteDeleter : MonoBehaviour
 {
     public bool canBePressed;
     public bool canBeReleased;
-    private bool topHit;
+    public bool isBeingPressed;
+
+    private bool leftTopHit;
+    private bool rightTopHit;
+    private bool upTopHit;
+    private bool downTopHit;
 
     private PlayerInput controls;
 
@@ -32,17 +37,10 @@ public class LongNoteDeleter : MonoBehaviour
     {
         if (canBePressed)
         {
-            if (gameObject.transform.rotation.eulerAngles.z == 90)
+            //Debug.Log("Pressed at right time!");
+            if (gameObject.transform.GetChild(0).GetChild(0).rotation.eulerAngles.z == 90)
             {
-                if(canBeReleased)
-                {
-                    //disables the note
-                    gameObject.SetActive(false);
-
-                    //Debug.Log("Initial position = " + initialY + ", current position = " + transform.position.y);
-
-                    RhythmManager.instance.HitArea(this.gameObject);
-                }
+                upTopHit = true;
             }
         }
     }
@@ -51,17 +49,10 @@ public class LongNoteDeleter : MonoBehaviour
     {
         if (canBePressed)
         {
-            if (gameObject.transform.rotation.eulerAngles.z == 270)
+            //Debug.Log("Pressed at right time!");
+            if (gameObject.transform.GetChild(0).GetChild(0).rotation.eulerAngles.z == 270)
             {
-                if (canBeReleased)
-                {
-                    //disables the note
-                    gameObject.SetActive(false);
-
-                    //Debug.Log("Initial position = " + initialY + ", current position = " + transform.position.y);
-
-                    RhythmManager.instance.HitArea(this.gameObject);
-                }
+                downTopHit = true;
             }
         }
     }
@@ -69,10 +60,10 @@ public class LongNoteDeleter : MonoBehaviour
     {
         if (canBePressed)
         {
-            Debug.Log("Pressed at right time!");
-            if (gameObject.transform.rotation.eulerAngles.z == 180)
+            //Debug.Log("Pressed at right time!");
+            if (gameObject.transform.GetChild(0).GetChild(0).rotation.eulerAngles.z == 180)
             {
-                topHit = true;
+                leftTopHit = true;
             }
         }
     }
@@ -80,38 +71,43 @@ public class LongNoteDeleter : MonoBehaviour
     {
         if (canBePressed)
         {
-            if (gameObject.transform.rotation.eulerAngles.z == 0)
+            //Debug.Log("Pressed at right time!");
+            if (gameObject.transform.GetChild(0).GetChild(0).rotation.eulerAngles.z == 0)
             {
-                if (canBeReleased)
-                {
-                    //disables the note
-                    gameObject.SetActive(false);
-
-                    //Debug.Log("Initial position = " + initialY + ", current position = " + transform.position.y);
-
-                    RhythmManager.instance.HitAreaLongNote(this.gameObject);
-                }
+                rightTopHit = true;
             }
         }
     }
 
     void Update()
     {
-        if (canBeReleased && topHit && !controls.Rhythm.Left.IsPressed())
+        if (controls.Rhythm.Left.IsPressed() || controls.Rhythm.Right.IsPressed() || controls.Rhythm.Down.IsPressed() || controls.Rhythm.Up.IsPressed())
         {
-            Debug.Log("Released");
+            isBeingPressed = true;
+        }
+        else
+        {
+            isBeingPressed = false;
+        }
+
+        //Debug.Log(isCorrectKeyReleased());
+        if (canBeReleased && isCorrectKeyReleased())
+        {
+            //Debug.Log("Released");
             //disables the note
             gameObject.SetActive(false);
 
             //Debug.Log("Initial position = " + initialY + ", current position = " + transform.position.y);
 
-            RhythmManager.instance.HitAreaLongNote(this.gameObject);
+            RhythmManager.instance.HitAreaLongNote(this.gameObject.transform.GetChild(0).GetChild(1).gameObject);
         }
 
-        if(topHit && !controls.Rhythm.Left.IsPressed() && !canBeReleased)
+        if(isCorrectKeyReleased() && !canBeReleased)
         {
-            topHit = false;
-
+            leftTopHit = false;
+            rightTopHit = false;
+            upTopHit = false;
+            downTopHit = false;
 
             if (gameObject.activeSelf)
             {
@@ -122,5 +118,11 @@ public class LongNoteDeleter : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+    }
+
+
+    private bool isCorrectKeyReleased()
+    {
+        return (leftTopHit && !controls.Rhythm.Left.IsPressed()) || (rightTopHit && !controls.Rhythm.Right.IsPressed()) || (upTopHit && !controls.Rhythm.Up.IsPressed()) || (downTopHit && !controls.Rhythm.Down.IsPressed());
     }
 }

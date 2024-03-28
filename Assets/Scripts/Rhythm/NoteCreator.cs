@@ -7,6 +7,7 @@ public class NoteCreator : MonoBehaviour
 {
     //holds prefab of note to be instantiate
     public GameObject note;
+    public GameObject heldNote;
 
     //game object of note that has already been instantiated
     private GameObject createdNote;
@@ -34,7 +35,7 @@ public class NoteCreator : MonoBehaviour
 
     //hard coded for position between notes
     private int distanceBetweenNotes = 120;
-
+    
     public List<int> noteSequences;
 
     private bool canDamage;
@@ -50,34 +51,31 @@ public class NoteCreator : MonoBehaviour
 
     [SerializeField] private GameObject line;
 
+    private int iconXOffset = 150;
+    private int lineXOffset = 50;
+    private int lineYOffset = 50;
+
+    private List<string> noteTypes;
+    private string noteTypeNormal = "Normal";
+    private string noteTypeHold = "Hold";
+
     void Start()
     {
         noteSequences = new List<int>();
+        notes = new List<int>();
+        noteTypes = new List<string>();
     }
 
     // generates the notes for the attack
     public void GenerateNotes(int amountOfNotes)
     {
         //Debug.Log("NOTES CREATED!");
-        if (notes == null)
-        {
-            totalNotes = amountOfNotes;
-            notes = new List<int>();
+        totalNotes += amountOfNotes;
 
-            for (int i = 0; i < amountOfNotes; i++)
-            {
-                //generates ints between 1 and 4
-                notes.Add(Random.Range(1, 5));
-            }
-        }
-        else
+        for (int i = totalNotes - amountOfNotes;i < totalNotes; i++)
         {
-            totalNotes += amountOfNotes;
-
-            for (int i = totalNotes - amountOfNotes;i < totalNotes; i++)
-            {
-                notes.Add(Random.Range(1, 5));
-            }
+            notes.Add(Random.Range(1, 5));
+            createRandomTypes(Random.Range(1, 3));
         }
 
         addSequence(amountOfNotes);
@@ -90,7 +88,12 @@ public class NoteCreator : MonoBehaviour
         {
             CreateNote();
         }
-        else if (transform.childCount > 0 && createdNote.transform.position.y > generationPosition + distanceBetweenNotes)
+        else if (noteTypes[notesCreated - 1] == noteTypeNormal && transform.childCount > 0 && createdNote.transform.position.y > generationPosition + distanceBetweenNotes)
+        {
+            //Debug.Log("This is the " + notesCreated + " note. The previous child note was at " + transform.GetChild(notesCreated - 1).transform.position.y + ". The stored note was created at " + createdNote.transform.position.y);
+            CreateNote();
+        }
+        else if (noteTypes[notesCreated - 1] == noteTypeHold && transform.childCount > 0 && createdNote.transform.GetChild(0).GetChild(1).position.y > generationPosition + distanceBetweenNotes)
         {
             //Debug.Log("This is the " + notesCreated + " note. The previous child note was at " + transform.GetChild(notesCreated - 1).transform.position.y + ". The stored note was created at " + createdNote.transform.position.y);
             CreateNote();
@@ -102,26 +105,33 @@ public class NoteCreator : MonoBehaviour
     {
         if (notesCreated < totalNotes)
         {
+            Vector3 notePosition = new Vector3();
+            Quaternion noteRotation = new Quaternion();
+
+            notePosition.y = generationPosition;
+
             if (notes[notesCreated] == left)
             {
-                createdNote = Instantiate(note, new Vector3(leftButton.transform.position.x, generationPosition, 0), Quaternion.Euler(0, 0, 180));
-                createdNote.transform.SetParent(gameObject.transform, true);
+                notePosition.x = leftButton.transform.position.x;
+                noteRotation = Quaternion.Euler(0, 0, 180);
             }
             else if (notes[notesCreated] == up)
             {
-                createdNote = Instantiate(note, new Vector3(upButton.transform.position.x, generationPosition, 0), Quaternion.Euler(0, 0, 90));
-                createdNote.transform.SetParent(gameObject.transform, true);
+                notePosition.x = upButton.transform.position.x;
+                noteRotation = Quaternion.Euler(0, 0, 90);
             }
             else if (notes[notesCreated] == down)
             {
-                createdNote = Instantiate(note, new Vector3(downButton.transform.position.x, generationPosition, 0), Quaternion.Euler(0, 0, 270));
-                createdNote.transform.SetParent(gameObject.transform, true);
+                notePosition.x = downButton.transform.position.x;
+                noteRotation = Quaternion.Euler(0, 0, 270);
             }
             else if (notes[notesCreated] == right)
             {
-                createdNote = Instantiate(note, new Vector3(rightButton.transform.position.x, generationPosition, 0), Quaternion.Euler(0, 0, 0));
-                createdNote.transform.SetParent(gameObject.transform, true);
+                notePosition.x = rightButton.transform.position.x;
+                noteRotation = Quaternion.Euler(0, 0, 0);
             }
+
+            createNoteType(notePosition, noteRotation);
 
             notesCreated++;
             sequenceTracker++;
@@ -131,21 +141,66 @@ public class NoteCreator : MonoBehaviour
 
             if (sequenceTracker == noteSequences[currentSequence])
             {
-                createdIcon = Instantiate(QueueManager.instance.currentIcon(currentSequence), new Vector3(leftButton.transform.position.x - 150, generationPosition, 0), Quaternion.Euler(0, 0, 0));
-                createdIcon.transform.SetParent(gameObject.transform, true);
-
-                createdLine = Instantiate(line, new Vector3(downButton.transform.position.x - 50, generationPosition - 50, 0), Quaternion.Euler(0, 0, 0));
-                createdLine.transform.SetParent(gameObject.transform, true);
-                createdLine.GetComponent<Image>().color = createdIcon.GetComponent<Image>().color;
-
-                icons.Add(createdIcon);
-                lines.Add(createdLine);
-
-                sequenceTracker = 0;
-                //Debug.Log("Current Sequence Updated");
-                currentSequence++;
+                createLineOnType();
             }
         }
+    }
+
+    private void createNoteType(Vector3 position, Quaternion rotation)
+    {
+        if (noteTypes[notesCreated] == noteTypeNormal)
+        {
+            createdNote = Instantiate(note, position, rotation);
+            createdNote.transform.SetParent(gameObject.transform, true);
+        }
+        else
+        {
+            createdNote = Instantiate(heldNote, position, Quaternion.Euler(0, 0, 0));
+            createdNote.transform.GetChild(0).GetChild(0).rotation = rotation;
+            createdNote.transform.GetChild(0).GetChild(1).rotation = rotation;
+            createdNote.transform.SetParent(gameObject.transform, true);
+        }
+    }
+
+    private void createRandomTypes(int randomTypeVal)
+    {
+        if(randomTypeVal == 1)
+        {
+            noteTypes.Add(noteTypeNormal);
+        }
+        else
+        {
+            noteTypes.Add(noteTypeHold);
+        }
+
+       // noteTypes.Add(noteTypeNormal);
+    }
+
+    private void createLineOnType()
+    {
+        if (noteTypes[notesCreated - 1] == noteTypeNormal)
+        {
+            createdIcon = Instantiate(QueueManager.instance.currentIcon(currentSequence), new Vector3(leftButton.transform.position.x - iconXOffset, generationPosition, 0), Quaternion.Euler(0, 0, 0));
+            createdLine = Instantiate(line, new Vector3(downButton.transform.position.x - lineXOffset, generationPosition - lineYOffset, 0), Quaternion.Euler(0, 0, 0));
+        }
+        else
+        {
+            GameObject bottomOfNote = createdNote.transform.GetChild(0).GetChild(1).gameObject;
+            createdIcon = Instantiate(QueueManager.instance.currentIcon(currentSequence), new Vector3(leftButton.transform.position.x - iconXOffset, bottomOfNote.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+            createdLine = Instantiate(line, new Vector3(downButton.transform.position.x - lineXOffset, bottomOfNote.transform.position.y - lineYOffset, 0), Quaternion.Euler(0, 0, 0));
+        }
+        
+        createdIcon.transform.SetParent(gameObject.transform, true);
+
+        createdLine.transform.SetParent(gameObject.transform, true);
+        createdLine.GetComponent<Image>().color = createdIcon.GetComponent<Image>().color;
+
+        icons.Add(createdIcon);
+        lines.Add(createdLine);
+
+        sequenceTracker = 0;
+        //Debug.Log("Current Sequence Updated");
+        currentSequence++;
     }
 
     private void addSequence(int newSequence)

@@ -10,6 +10,7 @@ public class BottomOfNote : MonoBehaviour
     {
         if (other.tag == "ArrowButton")
         {
+            //Debug.Log("Note can be released!");
             longNoteDeleter.canBeReleased = true;
         }
     }

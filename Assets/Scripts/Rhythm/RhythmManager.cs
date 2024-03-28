@@ -127,10 +127,10 @@ public class RhythmManager : MonoBehaviour
 
     public void HitAreaLongNote(GameObject note)
     {
-        float notePosition = note.transform.position.y - longNoteOffset;
+        float notePosition = note.transform.position.y; 
 
-        Debug.Log(note.transform.position.y);
-        Debug.Log(leftButton.transform.position.y);
+        //Debug.Log(note.transform.position.y);
+        //Debug.Log(leftButton.transform.position.y);
         if (notePosition < leftButton.transform.position.y - 5)
         {
             //Debug.Log("Early Hit");

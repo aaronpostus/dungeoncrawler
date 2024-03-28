@@ -20,6 +20,15 @@ public class TopOfNote : MonoBehaviour
         if (other.tag == "ArrowButton")
         {
             longNoteDeleter.canBePressed = false;
+
+            if (gameObject.transform.parent.gameObject.activeSelf && !longNoteDeleter.isBeingPressed)
+            {
+
+                RhythmManager.instance.NoteMissed();
+
+                //disables the note
+                gameObject.transform.parent.gameObject.SetActive(false);
+            }
         }
     }
 }
