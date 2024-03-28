@@ -17,16 +17,13 @@ public class Chest : MonoBehaviour, ISaveData
     void Awake() {
 
         chestNumber = ++totalChests;
-        Debug.Log("Chest number: " + totalChests);
     }
     public void LoadData(GameData data)
     {
         gameData = data;
         isSolved = gameData.chestsSolved[chestNumber].solved;
-        Debug.Log("CHEST NO: " + chestNumber + " SOLVED: " + isSolved);
         if (isSolved)
         {
-            Debug.Log(chestNumber + "is solved! Opening.");
             anim.SetBool("ChestOpen", true);
             Destroy(triggerBox);
         }
